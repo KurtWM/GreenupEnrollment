@@ -1,0 +1,259 @@
+﻿@import url(http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css);
+
+
+.Message
+{
+  color: Blue;
+}
+
+.Wizard
+{
+  font-size: 1rem;
+  width: 100%;
+  /*background-color: rgba(128, 128, 128, 0.1);
+  color: rgba(128, 128, 128, 0.1);*/ 
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.Wizard a.CommandButton,
+.Wizard a.CommandButton:hover,
+.Wizard a.CommandButton:link,
+.Wizard a.CommandButton:visited,
+.Wizard a.CommandButton:active
+{
+  color: #000000 !important;
+  width: 120px;
+  text-align: center;
+  background-color: rgba(128, 128, 128, 0.2) !important;
+  vertical-align: middle !important;
+  text-decoration: none !important;
+  padding: 3px 9px !important;
+  border: 1px solid rgba(128, 128, 128, 0.3) !important;
+  -webkit-border-radius: 4px !important;
+  border-radius: 4px !important;
+  min-width: 140px !important;
+}
+
+.Wizard a.CommandButton *
+{
+  position: relative !important;
+}
+
+.buttonContainer
+{
+  text-align: right;
+  padding: 18px;
+}
+
+.Wizard a.NextBtn,
+.Wizard a.PreviousBtn
+{
+  width: 140px !important;
+  display: inline-block;
+}
+
+.Wizard .Head
+{
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: Green;
+}
+
+.Wizard .SectionHead
+{
+  font-weight: bold;
+  margin: 12px 0 12px;
+}
+
+#ProgramTypeSelections
+{
+  text-align: center;
+}
+
+#ProgramTypeSelections #btnResidential,
+#ProgramTypeSelections #btnCommercial
+{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.userMsg
+{
+  font-weight: bold;
+  margin: 18px 0 !important;
+}
+
+.upper-alpha 
+{
+    list-style-type:upper-alpha;
+}
+
+#SterlingCommercialEnrollment
+{
+    /*width: 90%;*/
+    margin: 18px auto;
+    text-align: left;
+    border-top: 1px solid Silver;
+}
+
+#PercentSelectSlider
+{
+}
+
+#markers
+{
+    text-align: center;
+}
+
+#lowMarker, #highMarker
+{
+    font-size: 11px;
+}
+
+#lowMarker
+{
+    float: left;
+}
+
+#highMarker
+{
+    float: right;
+}
+
+#totalLabel
+{
+    margin-top: 12px;
+    display: inline-block;
+}
+
+#valueMarker
+{
+    width: 3px;
+    text-align: center;
+    position: relative;
+    border-top: 1px solid Silver;
+    border-left: 1px solid Silver;
+}
+
+#valueMarker span
+{
+    position: relative;
+    top: -7px;
+    left: 6px;
+}
+
+.EndNote
+{
+    margin-top: 2em;
+    font-style: italic;
+}
+
+.RecChoiceButtonPanel
+{
+  display: table;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  /*border: 1px solid #000000;*/
+  background-color: rgb(147,149,152);
+}
+
+.RecChoiceButtonPanel .recChoiceButton
+{
+  width: 20%;
+  height: 180px;
+  display: table-cell;
+  text-align: center;
+  /*border: 1px solid #000000;*/
+  background-color: #FFFFFF;
+  position: relative;
+  cursor: pointer;
+}
+
+.RecChoiceButtonPanel .percentChoice
+{
+  background-color: #EEEEEE;
+}
+
+.RecChoiceButtonPanel .selected
+{
+  background-color: rgb(0,166,80);
+}
+
+.RecChoiceButtonPanel .selected .largePercent
+{
+  color: #FFFFFF;
+}
+
+.RecChoiceButtonPanel .selected p
+{
+  color: #FFFFFF;
+}
+
+.homeImg
+{
+  margin-top: 9px;
+  margin-bottom: 9px;
+  position: relative;
+  top: 12px;
+}
+
+.recChoiceTitle
+{
+  font-size: 0.6rem !important;
+  font-style: normal;
+  margin-top: 24px !important;
+}
+
+p.recChoiceDesc
+{
+  font-size: 0.6rem !important;
+  font-style: normal;
+}
+
+.recChoiceMoPower
+{
+  display: inline;
+}
+
+.monthlyPower
+{
+  vertical-align: text-bottom;
+}
+
+.largePercent
+{
+  font-size: 3rem;
+  color: rgb(0,166,80);
+}
+
+.RecChoiceHeader
+{
+  width: 100%;
+  display: table;
+  /*border: 1px solid #000000;*/
+  background-color: rgb(0, 91, 171);
+}
+
+.sizeOfHomeHeader
+{
+  width: 60%;
+  font-weight: bold;
+  text-align: center;
+  color: #FFFFFF;
+  display: table-cell;
+}
+
+.percentOfUseHeader
+{
+  width: 40%;
+  font-weight: bold;
+  text-align: center;
+  color: #FFFFFF;
+  display: table-cell;
+}
+
+
+

@@ -1,0 +1,6 @@
+C:\websites\dnndev600\bin\GreenupEnrollment.dll
+C:\websites\dnndev600\bin\GreenupEnrollment.pdb
+C:\websites\dnndev600\bin\GreenupEnrollment.xml
+C:\websites\dnndev600\DesktopModules\GreenupEnrollment\obj\Release\ResolveAssemblyReference.cache
+C:\websites\dnndev600\DesktopModules\GreenupEnrollment\obj\Release\GreenupEnrollment.dll
+C:\websites\dnndev600\DesktopModules\GreenupEnrollment\obj\Release\GreenupEnrollment.pdb

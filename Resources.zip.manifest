@@ -1,0 +1,136 @@
+﻿<dotnetnuke type="ResourceFile" version="5.0">
+  <files>
+    <file>
+      <path />
+      <name>ArbApiInterface.cs</name>
+    </file>
+    <file>
+      <path />
+      <name>Edit.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>Edit.ascx.cs</name>
+    </file>
+    <file>
+      <path />
+      <name>Edit.ascx.designer.cs</name>
+    </file>
+    <file>
+      <path />
+      <name>GreenupEnrollment.csproj</name>
+    </file>
+    <file>
+      <path />
+      <name>GreenupEnrollment.sln</name>
+    </file>
+    <file>
+      <path />
+      <name>GreenupEnrollment.xml</name>
+    </file>
+    <file>
+      <path />
+      <name>GreenupEnrollmentModuleBase.cs</name>
+    </file>
+    <file>
+      <path />
+      <name>GreenupEnrollmentSettingsBase.cs</name>
+    </file>
+    <file>
+      <path />
+      <name>JScript.js</name>
+    </file>
+    <file>
+      <path />
+      <name>License.txt</name>
+    </file>
+    <file>
+      <path />
+      <name>module.css</name>
+    </file>
+    <file>
+      <path />
+      <name>ReleaseNotes.txt</name>
+    </file>
+    <file>
+      <path />
+      <name>Settings.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>Settings.ascx.cs</name>
+    </file>
+    <file>
+      <path />
+      <name>Settings.ascx.designer.cs</name>
+    </file>
+    <file>
+      <path />
+      <name>View.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>View.ascx.cs</name>
+    </file>
+    <file>
+      <path />
+      <name>View.ascx.designer.cs</name>
+    </file>
+    <file>
+      <path>App_LocalResources/</path>
+      <name>Edit.ascx.resx</name>
+    </file>
+    <file>
+      <path>App_LocalResources/</path>
+      <name>Settings.ascx.resx</name>
+    </file>
+    <file>
+      <path>App_LocalResources/</path>
+      <name>View.ascx.resx</name>
+    </file>
+    <file>
+      <path>BuildScripts/</path>
+      <name>ModulePackage.targets</name>
+    </file>
+    <file>
+      <path>BuildScripts/</path>
+      <name>MSBuild.Community.Tasks.Targets</name>
+    </file>
+    <file>
+      <path>Components/</path>
+      <name>FeatureController.cs</name>
+    </file>
+    <file>
+      <path>Data/</path>
+      <name>DataProvider.cs</name>
+    </file>
+    <file>
+      <path>Documentation/</path>
+      <name>Documentation.css</name>
+    </file>
+    <file>
+      <path>Documentation/</path>
+      <name>Documentation.html</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>house-big.png</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>house-medium.png</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>house-small.png</name>
+    </file>
+    <file>
+      <path>Properties/</path>
+      <name>AssemblyInfo.cs</name>
+    </file>
+    <file>
+      <path>Providers/DataProviders/SqlDataProvider/</path>
+      <name>SqlDataProvider.cs</name>
+    </file>
+  </files>
+</dotnetnuke>

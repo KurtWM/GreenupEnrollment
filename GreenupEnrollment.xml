@@ -1,0 +1,1902 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GreenupEnrollment</name>
+    </assembly>
+    <members>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.GreenupEnrollmentModuleBase">
+            <summary>
+            This base class can be used to define custom properties for multiple controls. 
+            An example module, DNNSimpleArticle (http://dnnsimplearticle.codeplex.com) uses this for an ArticleId
+            
+            Because the class inherits from PortalModuleBase, properties like ModuleId, TabId, UserId, and others, 
+            are accessible to your module's controls (that inherity from GreenupEnrollmentModuleBase
+            
+            </summary>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.Edit">
+            -----------------------------------------------------------------------------
+            <summary>
+            The EditGreenupEnrollment class is used to manage content
+            
+            Typically your edit control would be used to create new content, or edit existing content within your module.
+            The ControlKey for this control is "Edit", and is defined in the manifest (.dnn) file.
+            
+            Because the control inherits from GreenupEnrollmentModuleBase you have access to any custom properties
+            defined there, as well as properties from DNN such as PortalId, ModuleId, TabId, UserId and many more.
+            
+            </summary>
+            -----------------------------------------------------------------------------
+            <summary>
+            EditGreenupEnrollment class.
+            </summary>
+            <remarks>
+            Auto-generated class.
+            </remarks>
+        </member>
+        <member name="M:DotNetNuke.Modules.GreenupEnrollment.Edit.Page_Load(System.Object,System.EventArgs)">
+            -----------------------------------------------------------------------------
+            <summary>
+            Page_Load runs when the control is loaded
+            </summary>
+            -----------------------------------------------------------------------------
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.Settings">
+            -----------------------------------------------------------------------------
+            <summary>
+            The Settings class manages Module Settings
+            
+            Typically your settings control would be used to manage settings for your module.
+            There are two types of settings, ModuleSettings, and TabModuleSettings.
+            
+            ModuleSettings apply to all "copies" of a module on a site, no matter which page the module is on. 
+            
+            TabModuleSettings apply only to the current module on the current page, if you copy that module to
+            another page the settings are not transferred.
+            
+            If you happen to save both TabModuleSettings and ModuleSettings, TabModuleSettings overrides ModuleSettings.
+            
+            Below we have some examples of how to access these settings but you will need to uncomment to use.
+            
+            Because the control inherits from GreenupEnrollmentSettingsBase you have access to any custom properties
+            defined there, as well as properties from DNN such as PortalId, ModuleId, TabId, UserId and many more.
+            </summary>
+            -----------------------------------------------------------------------------
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.GreenupEnrollmentSettingsBase">
+            <summary>
+            This base class can be used to define custom properties for multiple controls. 
+            An example module, DNNSimpleArticle (http://dnnsimplearticle.codeplex.com) uses this for an ArticleId
+            
+            Because the class inherits from SettingsModuleBase, properties like ModuleId, TabId, UserId, and others, 
+            are accessible to your module's controls (that inherity from GreenupEnrollmentSettingsBase
+            
+            </summary>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.Settings.KwhPriceLabel">
+            <summary>
+            KwhPriceLabel control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.Settings.txtKwhPrice">
+            <summary>
+            txtKwhPrice control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.Settings.lblSetting2">
+            <summary>
+            lblSetting2 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.Settings.txtSetting2">
+            <summary>
+            txtSetting2 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="M:DotNetNuke.Modules.GreenupEnrollment.Settings.LoadSettings">
+            -----------------------------------------------------------------------------
+            <summary>
+            LoadSettings loads the settings from the Database and displays them
+            </summary>
+            -----------------------------------------------------------------------------
+        </member>
+        <member name="M:DotNetNuke.Modules.GreenupEnrollment.Settings.UpdateSettings">
+            -----------------------------------------------------------------------------
+            <summary>
+            UpdateSettings saves the modified settings to the Database
+            </summary>
+            -----------------------------------------------------------------------------
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.Components.FeatureController">
+            -----------------------------------------------------------------------------
+            <summary>
+            The Controller class for GreenupEnrollment
+            
+            The FeatureController class is defined as the BusinessController in the manifest file (.dnn)
+            DotNetNuke will poll this class to find out which Interfaces the class implements. 
+            
+            The IPortable interface is used to import/export content from a DNN module
+            
+            The ISearchable interface is used by DNN to index the content of a module
+            
+            The IUpgradeable interface allows module developers to execute code during the upgrade 
+            process for a module.
+            
+            Below you will find stubbed out implementations of each, uncomment and populate with your own data
+            </summary>
+            -----------------------------------------------------------------------------
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.View">
+            -----------------------------------------------------------------------------
+            <summary>
+            The View class displays the content
+            
+            Typically your view control would be used to display content or functionality in your module.
+            
+            View may be the only control you have in your project depending on the complexity of your module
+            
+            Because the control inherits from GreenupEnrollmentModuleBase you have access to any custom properties
+            defined there, as well as properties from DNN such as PortalId, ModuleId, TabId, UserId and many more.
+            
+            </summary>
+            -----------------------------------------------------------------------------
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.lblMessage">
+            <summary>
+            lblMessage control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.GreenupEnrollmentWizard">
+            <summary>
+            GreenupEnrollmentWizard control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.wizIntroduction">
+            <summary>
+            wizIntroduction control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.PreviousButton_Intro">
+            <summary>
+            PreviousButton_Intro control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.NextButton_Intro">
+            <summary>
+            NextButton_Intro control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.wizProgramLocation">
+            <summary>
+            wizProgramLocation control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.ddlPrograms">
+            <summary>
+            ddlPrograms control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.PreviousButton_Loc">
+            <summary>
+            PreviousButton_Loc control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.NextButton_Loc">
+            <summary>
+            NextButton_Loc control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.wizProgramType">
+            <summary>
+            wizProgramType control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.btnResidential">
+            <summary>
+            btnResidential control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.btnCommercial">
+            <summary>
+            btnCommercial control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.PreviousButton_Type">
+            <summary>
+            PreviousButton_Type control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.NextButton_Type">
+            <summary>
+            NextButton_Type control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.wizResidentialProgram">
+            <summary>
+            wizResidentialProgram control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.RecChoiceButtonPanel">
+            <summary>
+            RecChoiceButtonPanel control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.HomeImageButton_S">
+            <summary>
+            HomeImageButton_S control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.HomeImageButton_M">
+            <summary>
+            HomeImageButton_M control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.HomeImageButton_L">
+            <summary>
+            HomeImageButton_L control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.rblResidentialSelection">
+            <summary>
+            rblResidentialSelection control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.PreviousButton_Res">
+            <summary>
+            PreviousButton_Res control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.NextButton_Res">
+            <summary>
+            NextButton_Res control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.wizCommercialProgram">
+            <summary>
+            wizCommercialProgram control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.PreviousButton_Com">
+            <summary>
+            PreviousButton_Com control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.NextButton_Com">
+            <summary>
+            NextButton_Com control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.wizBillingInfo">
+            <summary>
+            wizBillingInfo control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.BillingFirstName">
+            <summary>
+            BillingFirstName control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.BillingLastName">
+            <summary>
+            BillingLastName control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.EmailAddress">
+            <summary>
+            EmailAddress control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.BillingPhone">
+            <summary>
+            BillingPhone control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.BillingAddressLine1">
+            <summary>
+            BillingAddressLine1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.BillingAddressLine2">
+            <summary>
+            BillingAddressLine2 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.BillingCity">
+            <summary>
+            BillingCity control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.BillingState">
+            <summary>
+            BillingState control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.BillingZipCode">
+            <summary>
+            BillingZipCode control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.CertificateName">
+            <summary>
+            CertificateName control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.BillingAcceptTerms">
+            <summary>
+            BillingAcceptTerms control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.AlternateContactCheckBox">
+            <summary>
+            AlternateContactCheckBox control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.BillingCaptcha">
+            <summary>
+            BillingCaptcha control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.ctlCaptcha">
+            <summary>
+            ctlCaptcha control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.PreviousButton_Bil">
+            <summary>
+            PreviousButton_Bil control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.NextButton_Bil">
+            <summary>
+            NextButton_Bil control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.wizAlternateContact">
+            <summary>
+            wizAlternateContact control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.AlternateFirstName">
+            <summary>
+            AlternateFirstName control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.AlternateLastName">
+            <summary>
+            AlternateLastName control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.AlternatePhone">
+            <summary>
+            AlternatePhone control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.AlternateAddress1">
+            <summary>
+            AlternateAddress1 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.AlternateAddress2">
+            <summary>
+            AlternateAddress2 control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.AlternateCity">
+            <summary>
+            AlternateCity control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.AlternateState">
+            <summary>
+            AlternateState control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.AlternateZipCode">
+            <summary>
+            AlternateZipCode control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.PreviousButton_Alt">
+            <summary>
+            PreviousButton_Alt control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.NextButton_Alt">
+            <summary>
+            NextButton_Alt control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.wizFinish">
+            <summary>
+            wizFinish control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.CardNumber">
+            <summary>
+            CardNumber control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.ExpirationMonth">
+            <summary>
+            ExpirationMonth control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.ExpirationYear">
+            <summary>
+            ExpirationYear control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.PreviousButton_Fin">
+            <summary>
+            PreviousButton_Fin control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.NextButton_Fin">
+            <summary>
+            NextButton_Fin control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.wizComplete">
+            <summary>
+            wizComplete control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.CompleteMessageLabel">
+            <summary>
+            CompleteMessageLabel control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.litResult">
+            <summary>
+            litResult control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.PreviousButton_Comp">
+            <summary>
+            PreviousButton_Comp control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.NextButton_Comp">
+            <summary>
+            NextButton_Comp control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.AnnualkWh">
+            <summary>
+            AnnualkWh control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.KwhPrice">
+            <summary>
+            KwhPrice control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.MinPercent">
+            <summary>
+            MinPercent control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.Percent">
+            <summary>
+            Percent control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.AnnualPercent">
+            <summary>
+            AnnualPercent control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.MonthCost">
+            <summary>
+            MonthCost control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.ProgramType">
+            <summary>
+            ProgramType control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.ProgramLocation">
+            <summary>
+            ProgramLocation control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.Page_Load(System.Object,System.EventArgs)">
+            -----------------------------------------------------------------------------
+            <summary>
+            Page_Load runs when the control is loaded
+            </summary>
+            -----------------------------------------------------------------------------
+        </member>
+        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.OnFinishButtonClick(System.Object,System.Web.UI.WebControls.WizardNavigationEventArgs)">
+            -----------------------------------------------------------------------------
+            <summary>
+            OnFinishButtonClick runs when the onfinishbuttonclick property is called from
+            the GreenupEnrollmentWizard Wizard control.
+            </summary>
+            -----------------------------------------------------------------------------
+        </member>
+        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.OnActiveStepChanged(System.Object,System.EventArgs)">
+            -----------------------------------------------------------------------------
+            <summary>
+            The OnActiveStepChanged event is raised when the Wizard changes to a new step.
+            </summary>
+            -----------------------------------------------------------------------------
+        </member>
+        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.CreateSubscription(System.Boolean)">
+            <summary>
+            Create a new ARB Subscription.
+            </summary>
+        </member>
+        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.UpdateSubscription">
+            <summary>
+            Update an existing ARB subscription using the subscription ID returned by the create.
+            </summary>
+        </member>
+        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.CancelSubscription">
+            <summary>
+            Cancel an existing ARB subscription using the subscription ID returned by the create.
+            </summary>
+        </member>
+        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.GetStatusSubscription">
+            <summary>
+            Get the status of an existing ARB subscription 
+            </summary>
+        </member>
+        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.PopulateSubscription(DotNetNuke.Modules.GreenupEnrollment.ARBCreateSubscriptionRequest)">
+            <summary>
+            Fill in the given request with test data to create a new subscription.
+            </summary>
+            <param name="sub"></param>
+        </member>
+        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.PopulateSubscription(DotNetNuke.Modules.GreenupEnrollment.ARBUpdateSubscriptionRequest)">
+            <summary>
+            Fill in the given request with test data used to update the subscription.
+            </summary>
+            <param name="sub"></param>
+        </member>
+        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.PopulateSubscription(DotNetNuke.Modules.GreenupEnrollment.ARBCancelSubscriptionRequest)">
+            <summary>
+            Fill in the given request with test data used to cancel the subscription.
+            </summary>
+            <param name="sub"></param>
+        </member>
+        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.PopulateSubscription(DotNetNuke.Modules.GreenupEnrollment.ARBGetSubscriptionStatusRequest)">
+            <summary>
+            Fill in the given request with test data used to retrieve the status of the subscription.
+            </summary>
+            <param name="sub"></param>
+        </member>
+        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.PopulateMerchantAuthentication(DotNetNuke.Modules.GreenupEnrollment.ANetApiRequest)">
+            <summary>
+            Fill in the merchant authentication. This data is required for all API methods.
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.PostRequest(System.Object,System.Xml.XmlDocument@)">
+            <summary>
+            Send the request to the API server and load the response into an XML document.
+            An XmlSerializer is used to form the XML used in the request to the API server. 
+            The response from the server is also XML. An XmlReader is used to process the
+            response stream from the API server so that it can be loaded into an XmlDocument.
+            </summary>
+            <param name="request"></param>
+            <returns>
+            True if successful, false if not. If true then the specified xmldoc will contain the
+            response received from the API server.
+            </returns>
+        </member>
+        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.ProcessXmlResponse(System.Xml.XmlDocument,System.Object@)">
+            <summary>
+            Deserialize the given XML document into the correct object type using the root
+            node to determine the type of output object.
+            
+            For any given API request the response can be one of two types:
+               ErorrResponse or [methodname]Response. 
+            For example, the ARBCreateSubscriptionRequest would normally result in a response of
+            ARBCreateSubscriptionResponse. This is also the name of the root node of the response.
+            This name can be used to deserialize the response into local objects. 
+            </summary>
+            <param name="xmldoc">
+            This is the XML document to process. It holds the response from the API server.
+            </param>
+            <param name="apiResponse">
+            This will hold the deserialized object of the appropriate type.
+            </param>
+            <returns>
+            True if successful, false if not.
+            </returns>
+        </member>
+        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.ProcessResponse(System.Object)">
+            <summary>
+            Determine the type of the response object and process accordingly.
+            Since this is just sample code the only processing being done here is to write a few
+            bits of information to the console window.
+            </summary>
+            <param name="response"></param>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.Data.SqlDataProvider">
+            -----------------------------------------------------------------------------
+            <summary>
+            SQL Server implementation of the abstract DataProvider class
+            
+            This concreted data provider class provides the implementation of the abstract methods 
+            from data dataprovider.cs
+            
+            In most cases you will only modify the Public methods region below.
+            </summary>
+            -----------------------------------------------------------------------------
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.Data.DataProvider">
+            -----------------------------------------------------------------------------
+            <summary>
+            An abstract class for the data access layer
+            
+            The abstract data provider provides the methods that a control data provider (sqldataprovider)
+            must implement. You'll find two commented out examples in the Abstract methods region below.
+            </summary>
+            -----------------------------------------------------------------------------
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.ANetApiResponse">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ANetApiResponse.refId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ANetApiResponse.messages">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.messagesType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.messagesType.resultCode">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.messagesType.message">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.messageTypeEnum">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.messageTypeEnum.Ok">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.messageTypeEnum.Error">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.messagesTypeMessage">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.messagesTypeMessage.code">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.messagesTypeMessage.text">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.profileTransVoidType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransVoidType.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransVoidType.customerPaymentProfileId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransVoidType.customerShippingAddressId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransVoidType.transId">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.lineItemType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.lineItemType.itemId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.lineItemType.name">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.lineItemType.description">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.lineItemType.quantity">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.lineItemType.unitPrice">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.lineItemType.taxable">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.lineItemType.taxableSpecified">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.extendedAmountType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.extendedAmountType.amount">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.extendedAmountType.name">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.extendedAmountType.description">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.profileTransAmountType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransAmountType.amount">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransAmountType.tax">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransAmountType.shipping">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransAmountType.duty">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransAmountType.lineItems">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.profileTransRefundType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransRefundType.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransRefundType.customerPaymentProfileId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransRefundType.customerShippingAddressId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransRefundType.creditCardNumberMasked">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransRefundType.bankRoutingNumberMasked">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransRefundType.bankAccountNumberMasked">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransRefundType.order">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransRefundType.transId">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.orderExType">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.orderType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.orderType.invoiceNumber">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.orderType.description">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.orderExType.purchaseOrderNumber">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.profileTransPriorAuthCaptureType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransPriorAuthCaptureType.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransPriorAuthCaptureType.customerPaymentProfileId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransPriorAuthCaptureType.customerShippingAddressId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransPriorAuthCaptureType.transId">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.profileTransOrderType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransOrderType.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransOrderType.customerPaymentProfileId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransOrderType.customerShippingAddressId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransOrderType.order">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransOrderType.taxExempt">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransOrderType.taxExemptSpecified">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransOrderType.recurringBilling">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransOrderType.recurringBillingSpecified">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransOrderType.cardCode">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransOrderType.splitTenderId">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.profileTransCaptureOnlyType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransCaptureOnlyType.approvalCode">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.profileTransAuthOnlyType">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.profileTransAuthCaptureType">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.profileTransactionType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.profileTransactionType.Item">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.driversLicenseMaskedType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.driversLicenseMaskedType.number">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.driversLicenseMaskedType.state">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.driversLicenseMaskedType.dateOfBirth">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.bankAccountMaskedType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.bankAccountMaskedType.accountType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.bankAccountMaskedType.accountTypeSpecified">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.bankAccountMaskedType.routingNumber">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.bankAccountMaskedType.accountNumber">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.bankAccountMaskedType.nameOnAccount">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.bankAccountMaskedType.echeckType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.bankAccountMaskedType.echeckTypeSpecified">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.bankAccountMaskedType.bankName">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.bankAccountTypeEnum">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.bankAccountTypeEnum.checking">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.bankAccountTypeEnum.savings">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.bankAccountTypeEnum.businessChecking">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.echeckTypeEnum">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.echeckTypeEnum.PPD">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.echeckTypeEnum.WEB">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.echeckTypeEnum.CCD">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.echeckTypeEnum.TEL">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.creditCardMaskedType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.creditCardMaskedType.cardNumber">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.creditCardMaskedType.expirationDate">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.paymentMaskedType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.paymentMaskedType.Item">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.customerPaymentProfileBaseType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerPaymentProfileBaseType.customerType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerPaymentProfileBaseType.customerTypeSpecified">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerPaymentProfileBaseType.billTo">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.customerTypeEnum">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerTypeEnum.individual">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerTypeEnum.business">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.customerAddressType">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.nameAndAddressType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.nameAndAddressType.firstName">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.nameAndAddressType.lastName">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.nameAndAddressType.company">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.nameAndAddressType.address">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.nameAndAddressType.city">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.nameAndAddressType.state">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.nameAndAddressType.zip">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.nameAndAddressType.country">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerAddressType.phoneNumber">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerAddressType.faxNumber">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.customerAddressExType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerAddressExType.customerAddressId">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.customerPaymentProfileMaskedType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerPaymentProfileMaskedType.customerPaymentProfileId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerPaymentProfileMaskedType.payment">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerPaymentProfileMaskedType.driversLicense">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerPaymentProfileMaskedType.taxId">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.customerPaymentProfileType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerPaymentProfileType.payment">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerPaymentProfileType.driversLicense">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerPaymentProfileType.taxId">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.paymentType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.paymentType.Item">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.bankAccountType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.bankAccountType.accountType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.bankAccountType.accountTypeSpecified">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.bankAccountType.routingNumber">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.bankAccountType.accountNumber">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.bankAccountType.nameOnAccount">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.bankAccountType.echeckType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.bankAccountType.echeckTypeSpecified">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.bankAccountType.bankName">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.creditCardType">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.creditCardSimpleType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.creditCardSimpleType.cardNumber">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.creditCardSimpleType.expirationDate">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.creditCardType.cardCode">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.driversLicenseType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.driversLicenseType.number">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.driversLicenseType.state">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.driversLicenseType.dateOfBirth">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.customerPaymentProfileExType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerPaymentProfileExType.customerPaymentProfileId">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.customerProfileBaseType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerProfileBaseType.merchantCustomerId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerProfileBaseType.description">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerProfileBaseType.email">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.customerProfileExType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerProfileExType.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.customerProfileMaskedType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerProfileMaskedType.paymentProfiles">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerProfileMaskedType.shipToList">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.customerProfileType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerProfileType.paymentProfiles">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerProfileType.shipToList">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.customerType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerType.type">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerType.typeSpecified">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerType.id">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerType.email">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerType.phoneNumber">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerType.faxNumber">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerType.driversLicense">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.customerType.taxId">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.paymentScheduleType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.paymentScheduleType.interval">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.paymentScheduleType.startDate">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.paymentScheduleType.startDateSpecified">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.paymentScheduleType.totalOccurrences">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.paymentScheduleType.totalOccurrencesSpecified">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.paymentScheduleType.trialOccurrences">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.paymentScheduleType.trialOccurrencesSpecified">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.paymentScheduleTypeInterval">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.paymentScheduleTypeInterval.length">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.paymentScheduleTypeInterval.unit">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.ARBSubscriptionUnitEnum">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ARBSubscriptionUnitEnum.days">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ARBSubscriptionUnitEnum.months">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.ARBSubscriptionType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ARBSubscriptionType.name">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ARBSubscriptionType.paymentSchedule">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ARBSubscriptionType.amount">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ARBSubscriptionType.amountSpecified">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ARBSubscriptionType.trialAmount">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ARBSubscriptionType.trialAmountSpecified">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ARBSubscriptionType.payment">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ARBSubscriptionType.order">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ARBSubscriptionType.customer">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ARBSubscriptionType.billTo">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ARBSubscriptionType.shipTo">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.merchantAuthenticationType">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.merchantAuthenticationType.name">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.merchantAuthenticationType.transactionKey">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.ANetApiRequest">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ANetApiRequest.merchantAuthentication">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ANetApiRequest.refId">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.isAliveRequest">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.isAliveRequest.refId">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.isAliveResponse">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.authenticateTestRequest">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.authenticateTestResponse">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.ARBCreateSubscriptionRequest">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ARBCreateSubscriptionRequest.subscription">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.ARBCreateSubscriptionResponse">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ARBCreateSubscriptionResponse.subscriptionId">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.ARBUpdateSubscriptionRequest">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ARBUpdateSubscriptionRequest.subscriptionId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ARBUpdateSubscriptionRequest.subscription">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.ARBUpdateSubscriptionResponse">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.ARBCancelSubscriptionRequest">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ARBCancelSubscriptionRequest.subscriptionId">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.ARBCancelSubscriptionResponse">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.ARBGetSubscriptionStatusRequest">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ARBGetSubscriptionStatusRequest.subscriptionId">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.ARBGetSubscriptionStatusResponse">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ARBGetSubscriptionStatusResponse.Status">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.ARBSubscriptionStatusEnum">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ARBSubscriptionStatusEnum.active">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ARBSubscriptionStatusEnum.expired">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ARBSubscriptionStatusEnum.suspended">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ARBSubscriptionStatusEnum.canceled">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.ARBSubscriptionStatusEnum.terminated">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.createCustomerProfileRequest">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.createCustomerProfileRequest.profile">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.createCustomerProfileRequest.validationMode">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.createCustomerProfileRequest.validationModeSpecified">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.validationModeEnum">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.validationModeEnum.none">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.validationModeEnum.testMode">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.validationModeEnum.liveMode">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.validationModeEnum.oldLiveMode">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.createCustomerProfileResponse">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.createCustomerProfileResponse.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.createCustomerProfileResponse.customerPaymentProfileIdList">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.createCustomerProfileResponse.customerShippingAddressIdList">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.createCustomerProfileResponse.validationDirectResponseList">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.createCustomerPaymentProfileRequest">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.createCustomerPaymentProfileRequest.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.createCustomerPaymentProfileRequest.paymentProfile">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.createCustomerPaymentProfileRequest.validationMode">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.createCustomerPaymentProfileRequest.validationModeSpecified">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.createCustomerPaymentProfileResponse">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.createCustomerPaymentProfileResponse.customerPaymentProfileId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.createCustomerPaymentProfileResponse.validationDirectResponse">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.createCustomerShippingAddressRequest">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.createCustomerShippingAddressRequest.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.createCustomerShippingAddressRequest.address">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.createCustomerShippingAddressResponse">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.createCustomerShippingAddressResponse.customerAddressId">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.getCustomerProfileRequest">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.getCustomerProfileRequest.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.getCustomerProfileResponse">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.getCustomerProfileResponse.profile">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.getCustomerPaymentProfileRequest">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.getCustomerPaymentProfileRequest.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.getCustomerPaymentProfileRequest.customerPaymentProfileId">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.getCustomerPaymentProfileResponse">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.getCustomerPaymentProfileResponse.paymentProfile">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.getCustomerShippingAddressRequest">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.getCustomerShippingAddressRequest.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.getCustomerShippingAddressRequest.customerAddressId">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.getCustomerShippingAddressResponse">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.getCustomerShippingAddressResponse.address">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.updateCustomerProfileRequest">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.updateCustomerProfileRequest.profile">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.updateCustomerProfileResponse">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.updateCustomerPaymentProfileRequest">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.updateCustomerPaymentProfileRequest.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.updateCustomerPaymentProfileRequest.paymentProfile">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.updateCustomerPaymentProfileRequest.validationMode">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.updateCustomerPaymentProfileRequest.validationModeSpecified">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.updateCustomerPaymentProfileResponse">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.updateCustomerPaymentProfileResponse.validationDirectResponse">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.updateCustomerShippingAddressRequest">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.updateCustomerShippingAddressRequest.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.updateCustomerShippingAddressRequest.address">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.updateCustomerShippingAddressResponse">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.deleteCustomerProfileRequest">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.deleteCustomerProfileRequest.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.deleteCustomerProfileResponse">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.deleteCustomerPaymentProfileRequest">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.deleteCustomerPaymentProfileRequest.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.deleteCustomerPaymentProfileRequest.customerPaymentProfileId">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.deleteCustomerPaymentProfileResponse">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.deleteCustomerShippingAddressRequest">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.deleteCustomerShippingAddressRequest.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.deleteCustomerShippingAddressRequest.customerAddressId">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.deleteCustomerShippingAddressResponse">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.createCustomerProfileTransactionRequest">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.createCustomerProfileTransactionRequest.transaction">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.createCustomerProfileTransactionRequest.extraOptions">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.createCustomerProfileTransactionResponse">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.createCustomerProfileTransactionResponse.directResponse">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.validateCustomerPaymentProfileRequest">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.validateCustomerPaymentProfileRequest.customerProfileId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.validateCustomerPaymentProfileRequest.customerPaymentProfileId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.validateCustomerPaymentProfileRequest.customerShippingAddressId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.validateCustomerPaymentProfileRequest.cardCode">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.validateCustomerPaymentProfileRequest.validationMode">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.validateCustomerPaymentProfileResponse">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.validateCustomerPaymentProfileResponse.directResponse">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.getCustomerProfileIdsRequest">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.getCustomerProfileIdsResponse">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.getCustomerProfileIdsResponse.ids">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.updateSplitTenderGroupRequest">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.updateSplitTenderGroupRequest.splitTenderId">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.updateSplitTenderGroupRequest.splitTenderStatus">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.splitTenderStatusEnum">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.splitTenderStatusEnum.completed">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.splitTenderStatusEnum.held">
+            <remarks/>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.splitTenderStatusEnum.voided">
+            <remarks/>
+        </member>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.updateSplitTenderGroupResponse">
+            <remarks/>
+        </member>
+    </members>
+</doc>
