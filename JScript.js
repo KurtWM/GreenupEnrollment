@@ -97,6 +97,7 @@
       $("input[id*='MinPercent']").val(minPercent);
       $("input[id*='AnnualPercent']").val(totalAnnualkWh);
       $("input[id*='MonthCost']").val(totalMonthlyPrice);
+      $("input[id*='a3']").val(totalMonthlyPrice);
 
     } else {
       $("#PercentSelectSlider").hide('slow');
@@ -114,45 +115,6 @@
     $("#PercentSelectSlider").show('fast');
     $("#RequestQuoteMsg").hide('slow');
   }
-
-  //  function ResidentialUsage_onchange(str) {
-  //    $("input[id*='MonthCost']").val(str);
-  //  }
-
-  $("input[id=ResidentialUsage]").change(function () {
-    var n = 0;
-    //var resPrice = 0;
-    var resChecked = $('input:radio[name*=rblResidentialSelection]:checked');
-    if ($(this).val() < 500) {
-      $(this).val(500);
-      //alert('A value of 500 or greater is required.');
-    }
-    //alert(resChecked.val());
-    if (resChecked) {
-      n = resChecked.val()
-      if (n <= 1) {
-        $("input[id*='MonthCost']").val((n * $(this).val()) * kWhPrice);
-      }
-      else {
-        $("input[id*='MonthCost']").val(n * kWhPrice);
-      }
-    }
-    $("#ResidentialPrice").text($("input[id*='MonthCost']").val());
-  });
-
-  $("input:radio[name*=rblResidentialSelection]").click(function () {
-    var resUse = 0;
-    if (!isNaN($("#ResidentialUsage").val())) {
-      var resUse = $("#ResidentialUsage").val();
-    }
-    if ($(this).val() <= 1) {
-      $("input[id*='MonthCost']").val(($(this).val() * resUse) * kWhPrice);
-    }
-    else {
-      $("input[id*='MonthCost']").val($(this).val() * kWhPrice);
-    }
-    $("#ResidentialPrice").text($("input[id*='MonthCost']").val());
-  });
 
   $('.percentChoice').click(function () {
     //    //alert('test');
@@ -172,7 +134,8 @@
     all.removeClass('selected');
     $(selectBtn).addClass('selected');
     $('#ResidentialPrice').text($('input.monthlyPower', this).val() * kWhPrice);
-    $("input[id*='MonthCost']").val($('input.monthlyPower', this).val() * kWhPrice);
+    $('input[id*="MonthCost"]').val($('input.monthlyPower', this).val() * kWhPrice);
+    $('input[name="a3"]').val($('input.monthlyPower', this).val() * kWhPrice);
 
     //$('.percentChoice').hasClass('selected');
 
@@ -181,6 +144,7 @@
       var monthPower = ($(this).val() * multiplier) * kWhPrice;
       $('#ResidentialPrice').text(monthPower);
       $("input[id*='MonthCost']").val(monthPower);
+      $('input[name="a3"]').val(monthPower);
       $(this).siblings('.amount').text('$' + (monthPower * 100) / 100 + ' monthly');
     });
 

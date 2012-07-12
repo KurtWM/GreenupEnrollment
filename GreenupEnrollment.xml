@@ -175,69 +175,6 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.wizIntroduction">
-            <summary>
-            wizIntroduction control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.PreviousButton_Intro">
-            <summary>
-            PreviousButton_Intro control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.NextButton_Intro">
-            <summary>
-            NextButton_Intro control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.wizProgramLocation">
-            <summary>
-            wizProgramLocation control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.ddlPrograms">
-            <summary>
-            ddlPrograms control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.PreviousButton_Loc">
-            <summary>
-            PreviousButton_Loc control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.NextButton_Loc">
-            <summary>
-            NextButton_Loc control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
         <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.wizProgramType">
             <summary>
             wizProgramType control.
@@ -328,15 +265,6 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.rblResidentialSelection">
-            <summary>
-            rblResidentialSelection control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
         <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.PreviousButton_Res">
             <summary>
             PreviousButton_Res control.
@@ -364,378 +292,18 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.PreviousButton_Com">
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.CheckBox1">
             <summary>
-            PreviousButton_Com control.
+            CheckBox1 control.
             </summary>
             <remarks>
             Auto-generated field.
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.NextButton_Com">
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.SubmitButton">
             <summary>
-            NextButton_Com control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.wizBillingInfo">
-            <summary>
-            wizBillingInfo control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.BillingFirstName">
-            <summary>
-            BillingFirstName control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.BillingLastName">
-            <summary>
-            BillingLastName control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.EmailAddress">
-            <summary>
-            EmailAddress control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.BillingPhone">
-            <summary>
-            BillingPhone control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.BillingAddressLine1">
-            <summary>
-            BillingAddressLine1 control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.BillingAddressLine2">
-            <summary>
-            BillingAddressLine2 control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.BillingCity">
-            <summary>
-            BillingCity control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.BillingState">
-            <summary>
-            BillingState control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.BillingZipCode">
-            <summary>
-            BillingZipCode control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.CertificateName">
-            <summary>
-            CertificateName control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.BillingAcceptTerms">
-            <summary>
-            BillingAcceptTerms control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.AlternateContactCheckBox">
-            <summary>
-            AlternateContactCheckBox control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.BillingCaptcha">
-            <summary>
-            BillingCaptcha control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.ctlCaptcha">
-            <summary>
-            ctlCaptcha control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.PreviousButton_Bil">
-            <summary>
-            PreviousButton_Bil control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.NextButton_Bil">
-            <summary>
-            NextButton_Bil control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.wizAlternateContact">
-            <summary>
-            wizAlternateContact control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.AlternateFirstName">
-            <summary>
-            AlternateFirstName control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.AlternateLastName">
-            <summary>
-            AlternateLastName control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.AlternatePhone">
-            <summary>
-            AlternatePhone control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.AlternateAddress1">
-            <summary>
-            AlternateAddress1 control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.AlternateAddress2">
-            <summary>
-            AlternateAddress2 control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.AlternateCity">
-            <summary>
-            AlternateCity control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.AlternateState">
-            <summary>
-            AlternateState control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.AlternateZipCode">
-            <summary>
-            AlternateZipCode control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.PreviousButton_Alt">
-            <summary>
-            PreviousButton_Alt control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.NextButton_Alt">
-            <summary>
-            NextButton_Alt control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.wizFinish">
-            <summary>
-            wizFinish control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.CardNumber">
-            <summary>
-            CardNumber control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.ExpirationMonth">
-            <summary>
-            ExpirationMonth control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.ExpirationYear">
-            <summary>
-            ExpirationYear control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.PreviousButton_Fin">
-            <summary>
-            PreviousButton_Fin control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.NextButton_Fin">
-            <summary>
-            NextButton_Fin control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.wizComplete">
-            <summary>
-            wizComplete control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.CompleteMessageLabel">
-            <summary>
-            CompleteMessageLabel control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.litResult">
-            <summary>
-            litResult control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.PreviousButton_Comp">
-            <summary>
-            PreviousButton_Comp control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.NextButton_Comp">
-            <summary>
-            NextButton_Comp control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.AnnualkWh">
-            <summary>
-            AnnualkWh control.
+            SubmitButton control.
             </summary>
             <remarks>
             Auto-generated field.
@@ -745,6 +313,15 @@
         <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.KwhPrice">
             <summary>
             KwhPrice control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.AnnualkWh">
+            <summary>
+            AnnualkWh control.
             </summary>
             <remarks>
             Auto-generated field.
@@ -827,97 +404,19 @@
             </summary>
             -----------------------------------------------------------------------------
         </member>
-        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.CreateSubscription(System.Boolean)">
-            <summary>
-            Create a new ARB Subscription.
-            </summary>
+        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.btnResidential_Click(System.Object,System.Web.UI.ImageClickEventArgs)">
+             -----------------------------------------------------------------------------
+            <Summary>
+             Handles click of Residential button
+            </Summary>
+             -----------------------------------------------------------------------------
         </member>
-        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.UpdateSubscription">
-            <summary>
-            Update an existing ARB subscription using the subscription ID returned by the create.
-            </summary>
-        </member>
-        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.CancelSubscription">
-            <summary>
-            Cancel an existing ARB subscription using the subscription ID returned by the create.
-            </summary>
-        </member>
-        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.GetStatusSubscription">
-            <summary>
-            Get the status of an existing ARB subscription 
-            </summary>
-        </member>
-        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.PopulateSubscription(DotNetNuke.Modules.GreenupEnrollment.ARBCreateSubscriptionRequest)">
-            <summary>
-            Fill in the given request with test data to create a new subscription.
-            </summary>
-            <param name="sub"></param>
-        </member>
-        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.PopulateSubscription(DotNetNuke.Modules.GreenupEnrollment.ARBUpdateSubscriptionRequest)">
-            <summary>
-            Fill in the given request with test data used to update the subscription.
-            </summary>
-            <param name="sub"></param>
-        </member>
-        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.PopulateSubscription(DotNetNuke.Modules.GreenupEnrollment.ARBCancelSubscriptionRequest)">
-            <summary>
-            Fill in the given request with test data used to cancel the subscription.
-            </summary>
-            <param name="sub"></param>
-        </member>
-        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.PopulateSubscription(DotNetNuke.Modules.GreenupEnrollment.ARBGetSubscriptionStatusRequest)">
-            <summary>
-            Fill in the given request with test data used to retrieve the status of the subscription.
-            </summary>
-            <param name="sub"></param>
-        </member>
-        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.PopulateMerchantAuthentication(DotNetNuke.Modules.GreenupEnrollment.ANetApiRequest)">
-            <summary>
-            Fill in the merchant authentication. This data is required for all API methods.
-            </summary>
-            <param name="request"></param>
-        </member>
-        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.PostRequest(System.Object,System.Xml.XmlDocument@)">
-            <summary>
-            Send the request to the API server and load the response into an XML document.
-            An XmlSerializer is used to form the XML used in the request to the API server. 
-            The response from the server is also XML. An XmlReader is used to process the
-            response stream from the API server so that it can be loaded into an XmlDocument.
-            </summary>
-            <param name="request"></param>
-            <returns>
-            True if successful, false if not. If true then the specified xmldoc will contain the
-            response received from the API server.
-            </returns>
-        </member>
-        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.ProcessXmlResponse(System.Xml.XmlDocument,System.Object@)">
-            <summary>
-            Deserialize the given XML document into the correct object type using the root
-            node to determine the type of output object.
-            
-            For any given API request the response can be one of two types:
-               ErorrResponse or [methodname]Response. 
-            For example, the ARBCreateSubscriptionRequest would normally result in a response of
-            ARBCreateSubscriptionResponse. This is also the name of the root node of the response.
-            This name can be used to deserialize the response into local objects. 
-            </summary>
-            <param name="xmldoc">
-            This is the XML document to process. It holds the response from the API server.
-            </param>
-            <param name="apiResponse">
-            This will hold the deserialized object of the appropriate type.
-            </param>
-            <returns>
-            True if successful, false if not.
-            </returns>
-        </member>
-        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.ProcessResponse(System.Object)">
-            <summary>
-            Determine the type of the response object and process accordingly.
-            Since this is just sample code the only processing being done here is to write a few
-            bits of information to the console window.
-            </summary>
-            <param name="response"></param>
+        <member name="M:DotNetNuke.Modules.GreenupEnrollment.View.btnCommercial_Click(System.Object,System.Web.UI.ImageClickEventArgs)">
+             -----------------------------------------------------------------------------
+            <Summary>
+             Handles click of Commercial button
+            </Summary>
+             -----------------------------------------------------------------------------
         </member>
         <member name="T:DotNetNuke.Modules.GreenupEnrollment.Data.SqlDataProvider">
             -----------------------------------------------------------------------------
