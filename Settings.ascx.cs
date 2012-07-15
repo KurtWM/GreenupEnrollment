@@ -59,6 +59,18 @@ namespace DotNetNuke.Modules.GreenupEnrollment
 
                     if(Settings.Contains("KwhPrice"))
                         txtKwhPrice.Text = Settings["KwhPrice"].ToString();
+
+                    if ((string)TabModuleSettings["EnableCaptcha"] != string.Empty)
+                    {
+                      bool show;
+                      if (!bool.TryParse((string)TabModuleSettings["EnableCaptcha"], out show))
+                      {
+                        show = true; // Default to showing the description.
+                      }
+                      cbEnableCaptcha.Checked = show;
+                    }
+
+                  
 			
                     /* uncomment to load saved settings in the text boxes
                     if (Settings.Contains("Setting2"))
@@ -89,8 +101,12 @@ namespace DotNetNuke.Modules.GreenupEnrollment
 
                 //the following are two sample Module Settings, using the text boxes that are commented out in the ASCX file.
                 //module settings
-                modules.UpdateModuleSetting(ModuleId, "KwhPrice", txtKwhPrice.Text);
-                //modules.UpdateModuleSetting(ModuleId, "Setting2", txtSetting2.Text);
+                modules.UpdateModuleSetting(TabModuleId, "KwhPrice", txtKwhPrice.Text);
+
+                modules.UpdateTabModuleSetting(TabModuleId, "EnableCaptcha", cbEnableCaptcha.Checked.ToString());
+
+                //modules.UpdateModuleSetting(ModuleId, "EnableCaptcha", cbEnableCaptcha.Checked.ToString());
+              //modules.UpdateModuleSetting(ModuleId, "Setting2", txtSetting2.Text);
 
                 //tab module settings
                 //modules.UpdateTabModuleSetting(TabModuleId, "KwhPrice",  txtKwhPrice.Text);

@@ -6,6 +6,11 @@
     makeKwh();
   });
 
+  $("#cbDisplayAltContact").click(function () {
+    $("#AlternateContactContainer").toggle(this.checked);
+  }).triggerHandler('click');
+
+
   //Allow only numbers to be entered.
   $("#Annual_kWh").keydown(function (event) {
     // Allow: backspace, delete, tab, escape, and enter
@@ -49,6 +54,12 @@
       }
     });
   });
+
+  function AcceptTermsRequired_ClientValidate(sender, e) {
+    e.IsValid = $("input[id*='BillingAcceptTerms']").is(':checked');
+  } 
+
+
 
   function makeKwh() {
     var sliderValue = $("#slider").slider("value");

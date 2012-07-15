@@ -120,16 +120,16 @@
   <data name="ControlTitle_settings.Text" xml:space="preserve">
     <value>GreenupEnrollment Settings</value>
   </data>
-  <data name="lblSetting1.Help" xml:space="preserve">
-    <value>Put your value for Setting 1 here.</value>
+  <data name="EnableCaptchaLabel.Help" xml:space="preserve">
+    <value>This will enable or disable the Captcha control.</value>
   </data>
-  <data name="lblSetting1.Text" xml:space="preserve">
-    <value>Setting One</value>
+  <data name="EnableCaptchaLabel.Text" xml:space="preserve">
+    <value>Enable Captcha</value>
   </data>
-  <data name="lblSetting2.Help" xml:space="preserve">
-    <value>Put your value for Setting 2 here.</value>
+  <data name="KwhPriceLabel.Help" xml:space="preserve">
+    <value>Enter the price for a single kWh.</value>
   </data>
-  <data name="lblSetting2.Text" xml:space="preserve">
-    <value>Setting Two</value>
+  <data name="KwhPriceLabel.Text" xml:space="preserve">
+    <value>kWh Price</value>
   </data>
 </root>

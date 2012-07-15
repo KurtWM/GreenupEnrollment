@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" Inherits="DotNetNuke.Modules.GreenupEnrollment.View" AutoEventWireup="true"
-  CodeBehind="View.ascx.cs" %>
+﻿<%@ Control Language="C#" CodeFile="View.ascx.cs" Inherits="DotNetNuke.Modules.GreenupEnrollment.View"
+  AutoEventWireup="true" %>
 <%@ Register TagPrefix="dnn" TagName="Skin" Src="~/controls/SkinThumbNailControl.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="url" Src="~/controls/UrlControl.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="label" Src="~/controls/LabelControl.ascx" %>
@@ -42,31 +42,6 @@
     </asp:WizardStep>
     <asp:WizardStep ID="wizResidentialProgram" runat="server" Title="ResidentialProgram"
       StepType="Step">
-      <p>
-        Did you know that most U.S. industrial air pollution comes from traditional electricity
-        production? Your home electricity use is a major part of your carbon footprint.
-        Fortunately, you can easily and affordably reduce your carbon emissions by enrolling
-        for Sterling Wind™ <a>renewable energy certificates</a>, And while you're benefiting
-        the environment, you'll also be doing your part for sustainability, USA-made energy,
-        national independence from imported fuels and energy security. Start making a difference
-        today by enrolling with Sterling Planet, ranked by the U.S. Environmental Protection
-        Agency as the #1, large volume provider of renewable energy certificates. When you
-        enroll, you'll receive a welcome kit with a personalized Certificate of Environmental
-        Stewardship to recognize your commitment.</p>
-      <h3 class="century-gothic">
-        <span class="hdr">How Does It Work?</span></h3>
-      <p>
-        When you buy Sterling Wind™, you enroll for renewable energy certificates (RECs)
-        from projects that generate clean electricity using the power of natural wind resources.
-        RECs represent all the environmental goodness of renewable energy production, such
-        as avoided carbon emissions. RECs are sold separately from electricity, and so you'll
-        set up an account with Sterling Planet that's in addition to the one you already
-        have with an electricity provider. Priced at just 1¢ per kilowatt-hour, our wind
-        RECs will cost as little as $5 per month, and do a world of good. Every 500 kWh
-        of wind RECs avoids an estimated 4 metric tons of carbon dioxide emissions.</p>
-      <p>
-        <a href="http://www.philadelphiagreenpower.com/Portals/0/assets/downloads/SterlingWindContentLabel.pdf"
-          target="_blank">energy content label</a></p>
       <h3 class="century-gothic">
         <span class="hdr">Let's Get Started</span></h3>
       <p>
@@ -83,7 +58,7 @@
       </div>
       <asp:Panel ID="RecChoiceButtonPanel" CssClass="RecChoiceButtonPanel" runat="server">
         <div id="RecChoiceHome-S" class="recChoiceButton blockChoice">
-          <asp:ImageButton ID="HomeImageButton_S" CssClass="homeImg" runat="server" CausesValidation="False" />
+          <asp:Image ID="HomeImage_S" runat="server" CssClass="homeImg" />
           <p class="recChoiceTitle">
             Small Home or Apartment
             <br />
@@ -97,7 +72,7 @@
           <input type="hidden" class="monthlyPower" value="500" /></div>
         <input class="multiplier" type="hidden" value="1.0" />
         <div id="RecChoiceHome-M" class="recChoiceButton blockChoice">
-          <asp:ImageButton ID="HomeImageButton_M" CssClass="homeImg" runat="server" />
+          <asp:Image ID="HomeImage_M" CssClass="homeImg" runat="server" />
           <p class="recChoiceTitle">
             Medium Home
             <br />
@@ -111,7 +86,7 @@
           <input type="hidden" class="monthlyPower" value="1000" /></div>
         <input class="multiplier" type="hidden" value="1.0" />
         <div id="RecChoiceHome-L" class="recChoiceButton blockChoice">
-          <asp:ImageButton ID="HomeImageButton_L" CssClass="homeImg" runat="server" />
+          <asp:Image ID="HomeImage_L" CssClass="homeImg" runat="server" />
           <p class="recChoiceTitle">
             Large Home
             <br />
@@ -171,55 +146,13 @@
       </div>
     </asp:WizardStep>
     <asp:WizardStep ID="wizCommercialProgram" runat="server" Title="CommercialProgram"
-      StepType="Step">
-      <p>
-        Sterling Planet provides <a href="#">renewable energy certificates</a> (RECs) to
-        businesses and other organizations looking for meaningful, precise and verified
-        ways to reduce their environmental impact. The U.S. Environmental Protection Agency
-        ranks Sterling Planet as the nation's #1 REC provider, recognizing the company for
-        delivering more than 5 billion kilowatt-hours of RECs annually to members of the
-        Green Power Partnership. The market leader, Sterling Planet caters to the specific
-        needs of organizations nationwide that have a commitment to sustainability and the
-        economic bottom line.</p>
-      <h3 class="century-gothic">
-        <span class="hdr">Our Services</span></h3>
-      <p>
-        Sterling Planet delivers a comprehensive set of solutions to help our clients achieve
-        their sustainability goals:</p>
-      <ul>
-        <li>Renewable energy certificates, all independently audited and certified</li>
-        <li>Carbon offsets representing verified emission reductions at certified projects</li>
-        <li>White Tags®, an innovative way to reward our clients' energy efficiency</li>
-        <li>Green project investment and consulting services</li>
-        <li>GreenReach educational and enrollment outreach</li>
-        <li>Public relations, marketing and events services</li>
-      </ul>
-      <p>
-        To learn more about Sterling Planet's sustainability programs, contact us: <a href="mailto:info@sterlingplanet.com">
-          info@sterlingplanet.com</a></p>
-      <h3 class="century-gothic">
-        <span class="hdr">Benefits of Buying RECs</span></h3>
-      <p>
-        More than ever, consumers expect businesses to care about the environment and about
-        sustainability. Customer loyalty, retention and new referrals often grow when companies
-        show their commitment to the triple bottom line – people, planet and profit.</p>
-      <p>
-        Signing up for RECs also has immediate <a href="#">benefits</a>:</p>
-      <ul>
-        <li>Personalized certificate and window cling to display at your business location</li>
-        <li>Public relations and marketing support to earn recognition with customers and
-          other stakeholders</li>
-        <li>Assistance in joining the EPA Green Power Partnership</li>
-      </ul>
+      StepType="Step" AllowReturn="False">
       <h3 class="century-gothic">
         <span class="hdr">Let's Get Started</span></h3>
       <p>
         Sign up for wind RECs to match all or part of electricity used by your business
         or other organization. Our all-wind product is priced at just 1¢ per kilowatt-hour,
         and large energy users can request a custom quote.</p>
-      <p>
-        <a href="http://www.philadelphiagreenpower.com/Portals/0/assets/downloads/SterlingWindContentLabel.pdf"
-          target="_blank">energy content label</a></p>
       <div id="SterlingCommercialEnrollment">
         <div class="SectionHead">
           What is your average annual electricity use?</div>
@@ -246,15 +179,174 @@
           As a large energy user, you may qualify for a volume discount. Please <a href="#">
             request a quote</a>.</div>
       </div>
-      ​<asp:CheckBox runat="server" ID="CheckBox1" Text="I have read and agree to the terms of service." />
-    <!-- Display the PayPal payment button. -->  
-    <asp:Button ID="SubmitButton" runat="server" Text="Submit" 
-        OnClick="SubmitButton_Click" />
-    <input type="image" name="submit" border="0"  
-        src="https://www.paypal.com/en_US/i/btn/btn_subscribe_LG.gif"  
-        alt="PayPal - The safer, easier way to pay online" />  
-    <img alt="" border="0" width="1" height="1"  
-        src="https://www.paypal.com/en_US/i/scr/pixel.gif" />  
+      <div class="buttonContainer">
+        <asp:LinkButton Visible="false" ID="PreviousButton_Com" runat="server" CausesValidation="False"
+          CssClass="CommandButton PreviousBtn" CommandName="MovePrevious" Text="Previous" />
+        <asp:LinkButton ID="NextButton_Com" runat="server" CausesValidation="False" CssClass="CommandButton NextBtn"
+          CommandName="MoveNext" Text="Next" />
+      </div>
+    </asp:WizardStep>
+    <asp:WizardStep ID="wizBillingInfo" Title="BillingInfo" runat="server" StepType="Finish">
+      <asp:ValidationSummary ID="ValidationSummary1" HeaderText="You must enter a value in the following fields:"
+        DisplayMode="BulletList" EnableClientScript="true" runat="server" />
+      <fieldset>
+        <legend>Contact Information</legend>
+        <p>
+          <b>Bold</b> fields are required.</p>
+        <div id="BillingContactContainer" class="innerContainer">
+          <h3>
+            Billing Contact Information</h3>
+          <label for="BillingFirstName" class="required">
+            First Name:</label>
+          <asp:TextBox runat="server" ID="BillingFirstName" name="BillingFirstName" TabIndex="1" />
+          <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="First Name"
+            Text="*" ControlToValidate="BillingFirstName"></asp:RequiredFieldValidator>
+          <br />
+          <label for="BillingFirstName" class="required">
+            Last Name:</label>
+          <asp:TextBox runat="server" ID="BillingLastName" name="BillingLastName" TabIndex="2" />
+          <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Last Name"
+            Text="*" ControlToValidate="BillingLastName"></asp:RequiredFieldValidator>
+          <br />
+          <label for="EmailAddress" class="required">
+            E-mail Address:</label>
+          <asp:TextBox runat="server" ID="EmailAddress" name="EmailAddress" TabIndex="3" />
+          <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Email"
+            Text="*" ControlToValidate="EmailAddress"></asp:RequiredFieldValidator>
+          <br />
+          <label for="BillingPhone" class="required">
+            Phone:</label>
+          <asp:TextBox runat="server" ID="BillingPhone" name="BillingPhone" Rows="15" MaxLength="20"
+            TabIndex="4" />
+          <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Phone"
+            Text="*" ControlToValidate="BillingPhone"></asp:RequiredFieldValidator>
+          <br />
+          <label for="BillingAddressLine1" class="required">
+            Address Line 1:</label>
+          <asp:TextBox runat="server" ID="BillingAddressLine1" name="BillingAddressLine1" Rows="50"
+            MaxLength="60" TabIndex="5" />
+          <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Address"
+            Text="*" ControlToValidate="BillingAddressLine1"></asp:RequiredFieldValidator>
+          <br />
+          <small>Street address, P.O. box, company name, c/o</small>
+          <label for="BillingAddressLine2">
+            Address Line 2:</label>
+          <asp:TextBox runat="server" ID="BillingAddressLine2" name="BillingAddressLine2" Rows="50"
+            MaxLength="60" />
+          <br />
+          <small>Apartment, suite, unit, building, floor, etc.</small>
+          <label for="BillingCity" class="required">
+            City:</label>
+          <asp:TextBox runat="server" ID="BillingCity" name="BillingCity" Rows="25" MaxLength="50"
+            TabIndex="6" />
+          <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="City"
+            Text="*" ControlToValidate="BillingCity"></asp:RequiredFieldValidator>
+          <br />
+          <label for="ddlBillingStates" class="required">
+            State/Province/Region:</label>
+          <asp:DropDownList ID="ddlBillingStates" name="ddlBillingStates" runat="server" TabIndex="7">
+          </asp:DropDownList>
+          <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="State/Province/Region"
+            Text="*" ControlToValidate="ddlBillingStates"></asp:RequiredFieldValidator>
+          <br />
+          <label for="BillingZipCode" class="required">
+            ZIP Code:</label>
+          <asp:TextBox runat="server" ID="BillingZipCode" name="BillingZipCode" Rows="20" MaxLength="20"
+            TabIndex="8" />
+          <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="Zip Code"
+            Text="*" ControlToValidate="BillingZipCode"></asp:RequiredFieldValidator>
+          <br />
+          <span class="checkbox">
+            <input type="checkbox" id="cbDisplayAltContact" tabindex="9" />
+            <label for="cbDisplayAltContact">
+              Please check here if you would like to add contact information that is different
+              from your billing information</label>
+          </span>
+          <div id="AlternateContactContainer">
+            <h3>
+              Alternate Contact Information</h3>
+            <label for="AlternateFirstName">
+              First Name:</label>
+            <asp:TextBox runat="server" ID="AlternateFirstName" name="AlternateFirstName" TabIndex="10" />
+            <br />
+            <label for="AlternateLastName">
+              Last Name:</label>
+            <asp:TextBox runat="server" ID="AlternateLastName" name="AlternateLastName" TabIndex="11" />
+            <br />
+            <label for="AlternateEmail">
+              Email:</label>
+            <asp:TextBox runat="server" ID="AlternateEmail" name="AlternateEmail" TabIndex="12" />
+            <br />
+            <label for="AlternatePhone">
+              Phone:</label>
+            <asp:TextBox runat="server" ID="AlternatePhone" name="AlternatePhone" Rows="15" MaxLength="20"
+              TabIndex="13" />
+            <br />
+            <label for="AlternateAddress1">
+              Address Line 1:</label>
+            <asp:TextBox runat="server" ID="AlternateAddress1" name="AlternateAddress1" TabIndex="14" />
+            <br />
+            <small>Street address, P.O. box, company name, c/o</small>
+            <label for="AlternateAddress2">
+              Address Line 2:</label>
+            <asp:TextBox runat="server" ID="AlternateAddress2" name="AlternateAddress2" TabIndex="15" />
+            <br />
+            <small>Apartment, suite, unit, building, floor, etc.</small>
+            <label for="AlternateCity">
+              City:</label>
+            <asp:TextBox runat="server" ID="AlternateCity" name="AlternateCity" Rows="25" MaxLength="50"
+              TabIndex="16" />
+            <br />
+            <label for="ddlAlternateStates">
+              State/Province/Region:</label>
+            <asp:DropDownList runat="server" ID="ddlAlternateStates" name="ddlAlternateStates"
+              TabIndex="17">
+            </asp:DropDownList>
+            <br />
+            <label for="AlternateZipCode">
+              ZIP Code:</label>
+            <asp:TextBox runat="server" ID="AlternateZipCode" name="AlternateZipCode" MaxLength="20"
+              Rows="20" TabIndex="18" />
+          </div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Credit Card Information</legend>
+        <div id="PaymentInfoContainer" class="innerContainer">
+          <p>
+            [default values are for testing only]</p>
+          <label for="CardNumber" class="required">
+            Credit Card Number:</label>
+          <asp:TextBox runat="server" ID="CardNumber" name="CardNumber" TabIndex="19" Text="4111111111111111" />
+          <br />
+          <label class="required">
+            Expiration:</label>
+          <asp:TextBox runat="server" ID="ExpirationMonth" Columns="2" TabIndex="20" Text="07" />&nbsp;/&nbsp;
+          <asp:TextBox runat="server" ID="ExpirationYear" Columns="2" TabIndex="21" Text="2020" />
+        </div>
+        <div id="BillingCaptchaContainer" class="innerContainer">
+          <asp:Panel ID="BillingCaptcha" runat="server">
+            <dnn:CaptchaControl ID="ctlCaptcha" CaptchaHeight="40" CaptchaWidth="150" ErrorStyle-CssClass="NormalRed"
+              CssClass="Normal" runat="server" ErrorMessage="The typed code must match the image, please try again" />
+          </asp:Panel>
+        </div>
+        <div id="AcceptTermsContainer" class="innerContainer">
+          <asp:CheckBox runat="server" ID="BillingAcceptTerms" name="BillingAcceptTerms" CssClass="checkbox"
+            Text="I have read and agree to the <a href='#'>terms of service</a>." TabIndex="22" />
+          <asp:CustomValidator ID="AcceptTermsRequired" runat="server" EnableClientScript="true"
+            OnServerValidate="AcceptTermsRequired_ServerValidate" OnClientValidate="AcceptTermsRequired_ClientValidate"
+            ErrorMessage="Accept Terms checkbox" Text="*">*</asp:CustomValidator>
+        </div>
+      </fieldset>
+      <div class="buttonContainer">
+        <asp:LinkButton ID="PreviousButton_Bil" runat="server" CausesValidation="False" CssClass="CommandButton PreviousBtn"
+          CommandName="MovePrevious" Text="Previous" Visible="False" />
+        <asp:LinkButton ID="NextButton_Bil" runat="server" CausesValidation="true" CssClass="CommandButton NextBtn"
+          CommandName="MoveNext" Text="Submit" Visible="False" />
+      </div>
+    </asp:WizardStep>
+    <asp:WizardStep ID="wizComplete" Title="Complete" runat="server" StepType="Complete">
+      <asp:Label ID="tempLabel" runat="server" CssClass="dnnFormMessage"></asp:Label>
     </asp:WizardStep>
   </WizardSteps>
 </asp:Wizard>
@@ -266,30 +358,3 @@
 <input id="MonthCost" runat="server" type="hidden" />
 <input id="ProgramType" runat="server" type="hidden" />
 <!--<input id="ProgramLocation" runat="server" type="hidden" />-->
-
-  
-    <!-- Identify your business so that you can collect the payments. -->  
-    <input type="hidden" name="business" value="kurt.m_1341980594_biz@gmail.com" />  
-  
-    <!-- Specify a Subscribe button. -->  
-    <input type="hidden" name="cmd" value="_xclick-subscriptions" />  
-  
-    <!-- Identify the subscription. -->  
-    <input type="hidden" name="item_name" value="this is a test subscription" />  
-    <input type="hidden" name="item_number" value="Sterling Planet" />  
-    <input type="hidden" name="custom" value="" />  
-
-    <!-- Do not prompt buyers to include a note with their payments. -->
-    <input type="hidden" name="no_note" value="1" />  
-  
-    <!-- Set the terms of the regular subscription. -->  
-    <input type="hidden" name="currency_code" value="USD" />  
-    <input type="hidden" name="a3" value="5.00" />  
-    <input type="hidden" name="p3" value="1" />  
-    <input type="hidden" name="t3" value="M" />  
-  
-    <!-- Set recurring payments until canceled. -->  
-    <input type="hidden" name="src" value="1" />  
-  
-
-

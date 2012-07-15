@@ -10,9 +10,20 @@
 {
   font-size: 1rem;
   width: 100%;
+  /*border: 1px solid rgba(128, 128, 128, 0.3);
+  -webkit-border-radius: 4px;
+  border-radius: 4px;*/
+}
+
+.innerContainer
+{
+  /*
+  margin-bottom: 12px;
+  padding: 12px;
   border: 1px solid rgba(128, 128, 128, 0.3);
   -webkit-border-radius: 4px;
   border-radius: 4px;
+*/
 }
 
 .Wizard h2,
@@ -21,6 +32,8 @@
 .Wizard h5,
 .Wizard h6
 {
+  font-family: "Century Gothic", CenturyGothic, "Apple Gothic", sans-serif !important; 
+  color: Green;
 }
 
 .century-gothic
@@ -66,6 +79,7 @@ h3 .hdr
 
 .buttonContainer
 {
+  /*display: none;  hide temporarily */
   text-align: right;
   padding: 18px;
 }
@@ -79,6 +93,7 @@ h3 .hdr
 
 .Wizard .Head
 {
+  font-family: "Century Gothic", CenturyGothic, "Apple Gothic", sans-serif !important; 
   font-size: 1.1rem;
   font-weight: bold;
   color: Green;
@@ -279,5 +294,82 @@ p.recChoiceDesc
   display: table-cell;
 }
 
+#AlternateContactContainer
+{
+  /*margin-top: 18px;*/
+}
 
 
+
+/* Form CSS */
+
+.Wizard fieldset {
+  / * clear: both; note that this clear causes inputs to break to left in ie5.x mac, commented out */
+  border-color: #000;
+  border-width: 1px;
+  border-style: solid;
+  padding: 10px;        /* padding in fieldset support spotty in IE */
+  margin: 0 0 12px 0;
+}
+
+.Wizard fieldset legend 
+{
+  font-family: "Century Gothic", CenturyGothic, "Apple Gothic", sans-serif !important; 
+	font-size:1.3em; /* bump up legend font size, not too large or it'll overwrite border on left */
+                       /* be careful with padding, it'll shift the nice offset on top of border  */
+}
+
+.Wizard label { 
+	display: block;  /* block float the labels to left column, set a width */
+	float: left; 
+	width: 150px; 
+	padding: 0; 
+	margin: 5px 0 0; /* set top margin same as .Wizard input - textarea etc. elements */
+	text-align: right; 
+}
+
+.Wizard .checkbox
+{
+  margin-top: 18px;
+  margin-bottom: 18px;
+  display: inline-table;
+}
+
+.Wizard .checkbox label 
+{
+  float: right;
+  width: 95%;
+  text-align: left;
+}
+
+.Wizard .checkbox input[type="checkbox"] 
+{
+  float: left;
+  margin: 6px 0 0 0 !important;
+}
+
+.Wizard input, .Wizard textarea, .Wizard select {
+	/* display: inline; inline display must not be set or will hide submit buttons in IE 5x mac */
+	width:auto;      /* set width of .Wizard elements to auto-size, otherwise watch for wrap on resize */
+	margin:5px 0 0 10px; /* set margin on left of .Wizard elements rather than right of
+                              label aligns textarea better in IE */
+}
+
+.Wizard input#reset {
+	margin-left:0px; /* set margin-left back to zero on reset button (set above) */
+}
+
+.Wizard textarea { overflow: auto; }
+
+.Wizard small {
+	display: block;
+	margin: 0 0 5px 160px; /* instructions/comments left margin set to align w/ right column inputs */
+	/*padding: 1px 3px;*/
+	font-size: 88%;
+}
+
+.Wizard .required{font-weight:bold;} /* uses class instead of div, more efficient */
+
+.Wizard br {
+	clear:left; /* setting clear on inputs didn't work consistently, so brs added for degrade */
+}

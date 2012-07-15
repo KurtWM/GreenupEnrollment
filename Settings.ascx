@@ -8,8 +8,12 @@
 	<h2 id="dnnSitePanel-BasicSettings" class="dnnFormSectionHead"><a href="" class="dnnSectionExpanded"><%=LocalizeString("BasicSettings")%></a></h2>
 	<fieldset>
         <div class="dnnFormItem">
-          <dnn:Label ID="KwhPriceLabel" runat="server" ControlName="KwhPrice" Suffix=":"></dnn:Label>
+          <dnn:Label ID="KwhPriceLabel" runat="server" ControlName="txtKwhPrice" Suffix=":"></dnn:Label>
             <asp:TextBox ID="txtKwhPrice" runat="server" />
+        </div>
+        <div class="dnnFormItem">
+          <dnn:Label ID="EnableCaptchaLabel" runat="server" ControlName="cbEnableCaptcha" Suffix=":"></dnn:Label>
+            <asp:CheckBox ID="cbEnableCaptcha" runat="server" />
         </div>
         <!--
         <div class="dnnFormItem">
