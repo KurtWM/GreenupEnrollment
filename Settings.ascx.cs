@@ -13,6 +13,12 @@
 using System;
 using DotNetNuke.Services.Exceptions;
 using DotNetNuke.Entities.Modules;
+using DotNetNuke.Common.Utilities;
+using DotNetNuke.Entities.Tabs;
+using DotNetNuke.Modules.Console.Components;
+using DotNetNuke.Security.Permissions;
+using DotNetNuke.Services.Localization;
+
 
 
 namespace DotNetNuke.Modules.GreenupEnrollment
@@ -38,7 +44,7 @@ namespace DotNetNuke.Modules.GreenupEnrollment
     /// defined there, as well as properties from DNN such as PortalId, ModuleId, TabId, UserId and many more.
     /// </summary>
     /// -----------------------------------------------------------------------------
-    public partial class Settings : GreenupEnrollmentSettingsBase
+  public partial class Settings : GreenupEnrollmentSettingsBase
     {
 
         #region Base Method Implementations
@@ -57,20 +63,41 @@ namespace DotNetNuke.Modules.GreenupEnrollment
                     //Check for existing settings and use those on this page
                     //Settings["SettingName"]
 
-                    if(Settings.Contains("KwhPrice"))
-                        txtKwhPrice.Text = Settings["KwhPrice"].ToString();
-
-                    if ((string)TabModuleSettings["EnableCaptcha"] != string.Empty)
+                    if (Settings.ContainsKey("KwhPrice"))
                     {
-                      bool show;
-                      if (!bool.TryParse((string)TabModuleSettings["EnableCaptcha"], out show))
-                      {
-                        show = true; // Default to showing the description.
-                      }
-                      cbEnableCaptcha.Checked = show;
+                      txtKwhPrice.Text = Convert.ToString(TabModuleSettings["KwhPrice"]);
                     }
 
+                    if (Settings.ContainsKey("AdminEmail"))
+                    {
+                      txtAdminEmail.Text = Convert.ToString(TabModuleSettings["AdminEmail"]);
+                    }
+
+                    if (Settings.ContainsKey("SubscriptonName"))
+                    {
+                      txtSubscriptonName.Text = Convert.ToString(TabModuleSettings["SubscriptonName"]);
+                    }
+
+                    if (Settings.ContainsKey("RefId"))
+                    {
+                      txtRefId.Text = Convert.ToString(TabModuleSettings["RefId"]);
+                    }
+
+                    if (Settings.ContainsKey("EnableCaptcha"))
+                    {
+                      cbEnableCaptcha.Checked = Convert.ToBoolean(TabModuleSettings["EnableCaptcha"]);
+                    }
                   
+                    //if ((string)TabModuleSettings["EnableCaptcha"] != string.Empty)
+                    //{
+                    //  bool show;
+                    //  if (!bool.TryParse((string)TabModuleSettings["EnableCaptcha"], out show))
+                    //  {
+                    //    show = true; // Default to showing the description.
+                    //  }
+                    //  cbEnableCaptcha.Checked = show;
+                    //}
+
 			
                     /* uncomment to load saved settings in the text boxes
                     if (Settings.Contains("Setting2"))
@@ -99,18 +126,12 @@ namespace DotNetNuke.Modules.GreenupEnrollment
             {
                 ModuleController modules = new ModuleController();
 
-                //the following are two sample Module Settings, using the text boxes that are commented out in the ASCX file.
                 //module settings
-                modules.UpdateModuleSetting(TabModuleId, "KwhPrice", txtKwhPrice.Text);
-
+                modules.UpdateTabModuleSetting(TabModuleId, "KwhPrice", txtKwhPrice.Text);
+                modules.UpdateTabModuleSetting(TabModuleId, "AdminEmail", txtAdminEmail.Text);
+                modules.UpdateTabModuleSetting(TabModuleId, "SubscriptonName", txtSubscriptonName.Text);
+                modules.UpdateTabModuleSetting(TabModuleId, "RefId", txtRefId.Text);
                 modules.UpdateTabModuleSetting(TabModuleId, "EnableCaptcha", cbEnableCaptcha.Checked.ToString());
-
-                //modules.UpdateModuleSetting(ModuleId, "EnableCaptcha", cbEnableCaptcha.Checked.ToString());
-              //modules.UpdateModuleSetting(ModuleId, "Setting2", txtSetting2.Text);
-
-                //tab module settings
-                //modules.UpdateTabModuleSetting(TabModuleId, "KwhPrice",  txtKwhPrice.Text);
-                //modules.UpdateTabModuleSetting(TabModuleId, "Setting2",  txtSetting2.Text);
             }
             catch (Exception exc) //Module failed to load
             {

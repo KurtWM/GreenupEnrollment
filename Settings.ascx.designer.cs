@@ -31,6 +31,60 @@ namespace DotNetNuke.Modules.GreenupEnrollment {
         protected global::System.Web.UI.WebControls.TextBox txtKwhPrice;
         
         /// <summary>
+        /// SubscriptonNameLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.UI.UserControls.LabelControl SubscriptonNameLabel;
+        
+        /// <summary>
+        /// txtSubscriptonName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSubscriptonName;
+        
+        /// <summary>
+        /// RefIdLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.UI.UserControls.LabelControl RefIdLabel;
+        
+        /// <summary>
+        /// txtRefId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRefId;
+        
+        /// <summary>
+        /// AdminEmailLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.UI.UserControls.LabelControl AdminEmailLabel;
+        
+        /// <summary>
+        /// txtAdminEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAdminEmail;
+        
+        /// <summary>
         /// EnableCaptchaLabel control.
         /// </summary>
         /// <remarks>

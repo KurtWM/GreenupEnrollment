@@ -23,6 +23,7 @@ using DotNetNuke.Services.Exceptions;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Entities.Modules.Actions;
 using DotNetNuke.Services.Localization;
+using DotNetNuke.Services.Mail;
 using DotNetNuke.Security;
 using DotNetNuke.Entities.Portals;
 using DotNetNuke.UI.Skins;
@@ -49,9 +50,10 @@ namespace DotNetNuke.Modules.GreenupEnrollment
     /// -----------------------------------------------------------------------------
     public partial class View : PortalModuleBase, IActionable
     {
-        System.Configuration.Configuration rootWebConfig1 = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration(null);
-        private static string _postUrl = @"https://www.paypal.com/cgi-bin/webscr";
+        //System.Configuration.Configuration rootWebConfig1 = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration(null);
+        //private static string _postUrl = @"https://www.paypal.com/cgi-bin/webscr";
         bool useCaptcha = true;
+        String strAdminEmail = "";
 
         #region Authorize.net ARB variables
 
@@ -103,24 +105,30 @@ namespace DotNetNuke.Modules.GreenupEnrollment
         /// -----------------------------------------------------------------------------
         private void Page_Load(object sender, System.EventArgs e)
         {
-
           useCaptcha = Convert.ToBoolean(Settings["ShowDescription"]); //Settings["EnableCaptcha"];
           ctlCaptcha.Visible = useCaptcha;
  
-          string v = Request.QueryString["param"];
-          if (v != null)
-          {
-            lblMessage.Text = "param is " + v;
-          }
-          else
-          {
-            lblMessage.Text = "none";
-          }
+          //string v = Request.QueryString["param"];
+          //if (v != null)
+          //{
+          //  lblMessage.Text = "param is " + v;
+          //}
+          //else
+          //{
+          //  lblMessage.Text = "none";
+          //}
 
           if ((string)Settings["KwhPrice"] != "")
           {
             KwhPrice.Value = (string)Settings["KwhPrice"];
+            //kWhPriceMsgLabel.Text = ToInt32((string)Settings["KwhPrice"]);
           }
+
+          if ((string)Settings["AdminEmail"] != "")
+          {
+            strAdminEmail = (string)Settings["AdminEmail"];
+          }
+
             Page.ClientScript.RegisterClientScriptInclude(this.GetType(), "GreenupEnrollment", (this.TemplateSourceDirectory + "/JScript.js"));
             try
             {
@@ -396,7 +404,7 @@ namespace DotNetNuke.Modules.GreenupEnrollment
           ARBSubscriptionType sub = new ARBSubscriptionType();
           creditCardType creditCard = new creditCardType();
 
-          sub.name = "REC Subscription";
+          sub.name = (string)Settings["SubscriptonName"];
 
           creditCard.cardNumber = CardNumber.Text;
           creditCard.expirationDate = ExpirationYear.Text + "-" + ExpirationMonth.Text; // "2029-07";  // required format for API is YYYY-MM
@@ -487,7 +495,7 @@ namespace DotNetNuke.Modules.GreenupEnrollment
         /// </summary>
         /// <param name="sub"></param>
         // ----------------------------------------------------------------------------------------
-        private static void PopulateSubscription(ARBCancelSubscriptionRequest request)
+        private void PopulateSubscription(ARBCancelSubscriptionRequest request)
         {
           ARBSubscriptionType sub = new ARBSubscriptionType();
           creditCardType creditCard = new creditCardType();
@@ -504,7 +512,7 @@ namespace DotNetNuke.Modules.GreenupEnrollment
         /// </summary>
         /// <param name="sub"></param>
         // ----------------------------------------------------------------------------------------
-        private static void PopulateSubscription(ARBGetSubscriptionStatusRequest request)
+        private void PopulateSubscription(ARBGetSubscriptionStatusRequest request)
         {
           ARBSubscriptionType sub = new ARBSubscriptionType();
           creditCardType creditCard = new creditCardType();
@@ -521,12 +529,12 @@ namespace DotNetNuke.Modules.GreenupEnrollment
         /// </summary>
         /// <param name="request"></param>
         // ----------------------------------------------------------------------------------------
-        private static void PopulateMerchantAuthentication(ANetApiRequest request)
+        private void PopulateMerchantAuthentication(ANetApiRequest request)
         {
           request.merchantAuthentication = new merchantAuthenticationType();
           request.merchantAuthentication.name = Config.GetSetting("AuthorizeNetLogin"); // _userLoginName;
           request.merchantAuthentication.transactionKey = Config.GetSetting("AuthorizeNetTransactionKey"); // _transactionKey;
-          request.refId = "Sterling";
+          request.refId = (string)Settings["RefId"];
         }
 
         // ----------------------------------------------------------------------------------------
@@ -792,77 +800,26 @@ void SetDropDownListStates()
  }
 }
 
-public void SendEmailToVendor()
+public System.Net.Mail.MailMessage CreateMessage(String identifier)
 {
-  //String fromAddress = "admin@sterling-wind.com";
-  //String senderAddress = "kurt.meredith2@gmail.com";
-  //String toAddress = EmailAddress.Text;
-  //String subject = "Sterling-Wind Confirmation";
-  //String body = "";
-  //DotNetNuke.Services.Mail.Mail.SendEmail(fromAddress, senderAddress, toAddress, subject, body);
-
-//  MailDefinition md = new MailDefinition();
-//  md.From = "admin@sterling-wind.com";
-//  md.IsBodyHtml = true;
-//  md.Subject = "Test of MailDefinition Sterling-Wind Confirmation";
-
-//ListDictionary replacements = new ListDictionary();
-//replacements.Add("<%Name%>", "Martin");
-//replacements.Add("<%Country%>", "Denmark");
-
-//string body2 = "
-//Hello <%Name%>
-
-//You're from <%Country%>.
-
-
-//";
-
-//MailMessage msg = md.CreateMailMessage("you@anywhere.com", replacements, body2, new System.Web.UI.Control());
-
-
-//Received new Green Energy Portal enrollment application!
-
-//General Information
-// Timestamp: 07/12/2012  9:31:27 am
-// Localle: philly
-// Remote IP: 69.15.222.74
-// Server Hostname: efs.utilitiesanalyses.com
-
-//Rate Information
-// Rate Name: philly_commercial_859_variable
-// Price: 8.59&cent;/kWh  Type: variable
-// Term: 1 year
-// Descr: 100% wind
-
-//Customer Information:
-// Type:Residential
-// Customer name: tim swanson
-// Phone: 555-555-5123
-// Email: tswans@gmail.com
-// Business:
-// Street 1: 123 elm street
-// Street 2:
-// City: wayne
-// State: PA
-// Zip: 00745
-// Utility Co: PECO Energy
-// Account Number: 13526846513a
-// Agreement checked: agree
-}
-
-public System.Net.Mail.MailMessage CreateMessage()
-{
+  string strSendTo;
   MailDefinition md = new MailDefinition();
-  md.BodyFileName = "emailToVendor.txt";
-  md.CC = "kurt.meredith2@gmail.com";
+  if (identifier == "subscriber")
+  {
+    md.BodyFileName = "emailToSubscriber.txt";
+    strSendTo = EmailAddress.Text;
+  }
+  else
+  {
+    md.BodyFileName = "emailToVendor.txt";
+    strSendTo = (string)Settings["AdminEmail"];
+  }
+
   md.From = "admin@sterling-wind.com";
   md.Subject = "Sterling-Wind Confirmation";
-  md.Priority = MailPriority.Normal;
+  md.IsBodyHtml = true;
 
   ListDictionary replacements = new ListDictionary();
-  replacements.Add("<%To%>", "kurt.meredith@gmail.com");
-  replacements.Add("<%From%>", md.From);
   replacements.Add("<%Timestamp%>", DateTime.Now.ToString("G", CultureInfo.CreateSpecificCulture("en-us")));
   replacements.Add("<%Localle%>", "[need to discuss]");
   replacements.Add("<%RemoteIP%>", GetIPAddress());
@@ -896,22 +853,39 @@ public System.Net.Mail.MailMessage CreateMessage()
   replacements.Add("<%AltState%>", ddlAlternateStates.SelectedValue);
   replacements.Add("<%AltZip%>", AlternateZipCode.Text);
 
+  String tokenReplacements = replacements.ToString();
+
+
     System.Net.Mail.MailMessage fileMsg;
-    fileMsg = md.CreateMailMessage("kurt.meredith@gmail.com", replacements, this);
+    fileMsg = md.CreateMailMessage((strSendTo.Length > 0 ? strSendTo : "admin@sterling-wind.com"), replacements, this);
 
     return fileMsg;
 }
 
 public void sendEMail()
 {
-  lblMessage.Text += "This is where an email will be sent via the sendEMail() function...";
-  System.Net.Mail.MailMessage msg = CreateMessage();
+  //lblMessage.Text += "This is where an email will be sent via the sendEMail() function...";
+  System.Net.Mail.MailMessage msgV = CreateMessage("vendor");
+  System.Net.Mail.MailMessage msgS = CreateMessage("subscriber");
 
-  lblMessage.Text = String.Empty;
+  //lblMessage.Text = String.Empty;
+  //lblMessage.Text += msgV.Body;
+  lblMessage.Text += msgS.Body;
+
   try
   {
     SmtpClient sc = new SmtpClient();
-    sc.Send(msg);
+    sc.Send(msgV);
+  }
+  catch (HttpException ex)
+  {
+    lblMessage.Text += ex.ToString();
+  }
+
+  try
+  {
+    SmtpClient sc = new SmtpClient();
+    sc.Send(msgS);
   }
   catch (HttpException ex)
   {

@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AdminEmailLabel.Help" xml:space="preserve">
+    <value>Enter the email address where enrollment confirmations should be sent.</value>
+  </data>
+  <data name="AdminEmailLabel.Text" xml:space="preserve">
+    <value>Email for Confirmation</value>
+  </data>
   <data name="ControlTitle_settings.Text" xml:space="preserve">
     <value>GreenupEnrollment Settings</value>
   </data>
@@ -131,5 +137,17 @@
   </data>
   <data name="KwhPriceLabel.Text" xml:space="preserve">
     <value>kWh Price</value>
+  </data>
+  <data name="RefIdLabel.Help" xml:space="preserve">
+    <value>Merchant-assigned reference ID for the subscription. This value is not required, but may be useful in helping identify a subscription.</value>
+  </data>
+  <data name="RefIdLabel.Text" xml:space="preserve">
+    <value>Subscription Reference ID</value>
+  </data>
+  <data name="SubscriptonNameLabel.Help" xml:space="preserve">
+    <value>Merchant-assigned name for the subscription. Used as a title on the confirmation email.</value>
+  </data>
+  <data name="SubscriptonNameLabel.Text" xml:space="preserve">
+    <value>Subscription Name</value>
   </data>
 </root>

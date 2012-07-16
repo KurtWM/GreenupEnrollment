@@ -91,6 +91,60 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.Settings.SubscriptonNameLabel">
+            <summary>
+            SubscriptonNameLabel control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.Settings.txtSubscriptonName">
+            <summary>
+            txtSubscriptonName control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.Settings.RefIdLabel">
+            <summary>
+            RefIdLabel control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.Settings.txtRefId">
+            <summary>
+            txtRefId control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.Settings.AdminEmailLabel">
+            <summary>
+            AdminEmailLabel control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.Settings.txtAdminEmail">
+            <summary>
+            txtAdminEmail control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
         <member name="F:DotNetNuke.Modules.GreenupEnrollment.Settings.EnableCaptchaLabel">
             <summary>
             EnableCaptchaLabel control.

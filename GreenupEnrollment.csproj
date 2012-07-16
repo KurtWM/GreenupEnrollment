@@ -144,6 +144,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Edit.ascx" />
+    <Content Include="emailToSubscriber.txt" />
+    <Content Include="emailToVendor.txt" />
     <Content Include="Images\house-big.png" />
     <Content Include="Images\house-medium.png" />
     <Content Include="Images\house-small.png" />

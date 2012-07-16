@@ -12,6 +12,18 @@
             <asp:TextBox ID="txtKwhPrice" runat="server" />
         </div>
         <div class="dnnFormItem">
+          <dnn:Label ID="SubscriptonNameLabel" runat="server" ControlName="txtSubscriptonName" Suffix=":"></dnn:Label>
+            <asp:TextBox ID="txtSubscriptonName" runat="server" MaxLength="50" />
+        </div>
+        <div class="dnnFormItem">
+          <dnn:Label ID="RefIdLabel" runat="server" ControlName="txtRefId" Suffix=":"></dnn:Label>
+            <asp:TextBox ID="txtRefId" runat="server" MaxLength="20" />
+        </div>
+        <div class="dnnFormItem">
+          <dnn:Label ID="AdminEmailLabel" runat="server" ControlName="txtAdminEmail" Suffix=":"></dnn:Label>
+            <asp:TextBox ID="txtAdminEmail" runat="server" />
+        </div>
+        <div class="dnnFormItem">
           <dnn:Label ID="EnableCaptchaLabel" runat="server" ControlName="cbEnableCaptcha" Suffix=":"></dnn:Label>
             <asp:CheckBox ID="cbEnableCaptcha" runat="server" />
         </div>

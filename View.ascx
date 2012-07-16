@@ -11,6 +11,7 @@
   <StepStyle VerticalAlign="Top" />
   <StepNavigationTemplate>
   </StepNavigationTemplate>
+  <FinishCompleteButtonStyle CssClass="CommandButton" />
   <HeaderTemplate>
     <asp:Label ID="lblTitle" CssClass="Head" runat="server"><% =DotNetNuke.Services.Localization.Localization.GetString(GreenupEnrollmentWizard.ActiveStep.Title + ".Title", this.LocalResourceFile)%></asp:Label>
     <asp:Label ID="lblHelp" CssClass="WizardText" runat="server"><% =DotNetNuke.Services.Localization.Localization.GetString(GreenupEnrollmentWizard.ActiveStep.Title + ".Help", this.LocalResourceFile)%></asp:Label>
@@ -41,7 +42,7 @@
       </div>
     </asp:WizardStep>
     <asp:WizardStep ID="wizResidentialProgram" runat="server" Title="ResidentialProgram"
-      StepType="Step">
+      StepType="Step" AllowReturn="False">
       <h3 class="century-gothic">
         <span class="hdr">Let's Get Started</span></h3>
       <p>
@@ -151,7 +152,7 @@
         <span class="hdr">Let's Get Started</span></h3>
       <p>
         Sign up for wind RECs to match all or part of electricity used by your business
-        or other organization. Our all-wind product is priced at just 1¢ per kilowatt-hour,
+        or other organization. Our all-wind product is priced at just <asp:Label ID="kWhPriceMsgLabel" runat="server">1</asp:Label>¢ per kilowatt-hour,
         and large energy users can request a custom quote.</p>
       <div id="SterlingCommercialEnrollment">
         <div class="SectionHead">
