@@ -1,0 +1,244 @@
+﻿<h2>
+  Thank you for your Green Energy Enrollment!</h2>
+<p>
+	The table below shows the details of your enrollment.</p>
+<table align="left" cellpadding="3" cellspacing="0" style="width: 595px">
+  <tr>
+    <td colspan="2" align="left" nowrap="nowrap" valign="top">
+      <h3>
+        General Information</h3>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" nowrap="nowrap" valign="top">
+      Timestamp:
+    </td>
+    <td align="left" nowrap="nowrap" valign="top" width="100%">
+      <%Timestamp%>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="left" nowrap="nowrap" valign="top">
+      <h3>
+        Rate Information</h3>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" nowrap="nowrap" valign="top">
+      Rate Name:
+    </td>
+    <td align="left" nowrap="nowrap" valign="top">
+      <%RateName%>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" nowrap="nowrap" valign="top">
+      Price:
+    </td>
+    <td align="left" nowrap="nowrap" valign="top">
+      <%Price%>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" nowrap="nowrap" valign="top">
+      Type:
+    </td>
+    <td align="left" nowrap="nowrap" valign="top">
+      <%PriceType%>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" nowrap="nowrap" valign="top">
+      Term:
+    </td>
+    <td align="left" nowrap="nowrap" valign="top">
+      <%Term%>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" nowrap="nowrap" valign="top">
+      Descr:
+    </td>
+    <td align="left" nowrap="nowrap" valign="top">
+      <%Descr%>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="left" nowrap="nowrap" valign="top">
+      <h3>
+        Customer Information:</h3>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" nowrap="nowrap" valign="top">
+      Type:
+    </td>
+    <td align="left" nowrap="nowrap" valign="top">
+      <%CustomerType%>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" nowrap="nowrap" valign="top">
+      Customer name:
+    </td>
+    <td align="left" nowrap="nowrap" valign="top">
+      <%FirstName%>&nbsp;<%LastName%>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" nowrap="nowrap" valign="top">
+      Phone:
+    </td>
+    <td align="left" nowrap="nowrap" valign="top">
+      <%Phone%>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" nowrap="nowrap" valign="top">
+      Email:
+    </td>
+    <td align="left" nowrap="nowrap" valign="top">
+      <%Email%>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="left" nowrap="nowrap" valign="top">
+      <h4>
+        Business:</h4>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" nowrap="nowrap" valign="top">
+      Street 1:
+    </td>
+    <td align="left" nowrap="nowrap" valign="top">
+      <%Street1%>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" nowrap="nowrap" valign="top">
+      Street 2:
+    </td>
+    <td align="left" nowrap="nowrap" valign="top">
+      <%Street2%>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" nowrap="nowrap" valign="top">
+      City:
+    </td>
+    <td align="left" nowrap="nowrap" valign="top">
+      <%City%>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" nowrap="nowrap" valign="top">
+      State:
+    </td>
+    <td align="left" nowrap="nowrap" valign="top">
+      <%State%>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" nowrap="nowrap" valign="top">
+      Zip:
+    </td>
+    <td align="left" nowrap="nowrap" valign="top">
+      <%Zip%>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" nowrap="nowrap" valign="top">
+      Utility Co:
+    </td>
+    <td align="left" nowrap="nowrap" valign="top">
+      <%UtilityCo%>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" nowrap="nowrap" valign="top">
+      Account Number:
+    </td>
+    <td align="left" nowrap="nowrap" valign="top">
+      <%AccountNo%>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" nowrap="nowrap" valign="top">
+      Agreement checked:
+    </td>
+    <td align="left" nowrap="nowrap" valign="top">
+      <%AgreementChecked%>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="left" nowrap="nowrap" valign="top">
+      <h3>
+        Alternate Information:</h3>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" nowrap="nowrap" valign="top">
+      Customer name:
+    </td>
+    <td align="left" nowrap="nowrap" valign="top">
+      <%AltFirstName%>&nbsp;<%AltLastName%>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" nowrap="nowrap" valign="top">
+      Phone:
+    </td>
+    <td align="left" nowrap="nowrap" valign="top">
+      <%AltPhone%>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" nowrap="nowrap" valign="top">
+      Email:
+    </td>
+    <td align="left" nowrap="nowrap" valign="top">
+      <%AltEmail%>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" nowrap="nowrap" valign="top">
+      Street 1:
+    </td>
+    <td align="left" nowrap="nowrap" valign="top">
+      <%AltStreet1%>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" nowrap="nowrap" valign="top">
+      Street 2:
+    </td>
+    <td align="left" nowrap="nowrap" valign="top">
+      <%AltStreet2%>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" nowrap="nowrap" valign="top">
+      City:
+    </td>
+    <td align="left" nowrap="nowrap" valign="top">
+      <%AltCity%>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" nowrap="nowrap" valign="top">
+      State:
+    </td>
+    <td align="left" nowrap="nowrap" valign="top">
+      <%AltState%>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" nowrap="nowrap" valign="top">
+      Zip:
+    </td>
+    <td align="left" nowrap="nowrap" valign="top">
+      <%AltZip%>
+    </td>
+  </tr>
+</table>
