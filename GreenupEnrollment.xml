@@ -145,6 +145,24 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.Settings.FromEmailLabel">
+            <summary>
+            FromEmailLabel control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.Settings.txtFromEmail">
+            <summary>
+            txtFromEmail control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
         <member name="F:DotNetNuke.Modules.GreenupEnrollment.Settings.EnableCaptchaLabel">
             <summary>
             EnableCaptchaLabel control.
@@ -589,6 +607,15 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.AlternateEmail">
+            <summary>
+            AlternateEmail control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
         <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.AlternateAddress1">
             <summary>
             AlternateAddress1 control.
@@ -733,6 +760,15 @@
             To modify move field declaration from designer file to code-behind file.
             </remarks>
         </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.MonthkWh">
+            <summary>
+            MonthkWh control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
         <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.MinPercent">
             <summary>
             MinPercent control.
@@ -772,6 +808,15 @@
         <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.ProgramType">
             <summary>
             ProgramType control.
+            </summary>
+            <remarks>
+            Auto-generated field.
+            To modify move field declaration from designer file to code-behind file.
+            </remarks>
+        </member>
+        <member name="F:DotNetNuke.Modules.GreenupEnrollment.View.RefId">
+            <summary>
+            RefId control.
             </summary>
             <remarks>
             Auto-generated field.

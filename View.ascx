@@ -353,9 +353,11 @@
 </asp:Wizard>
 <input id="KwhPrice" runat="server" type="hidden" />
 <input id="AnnualkWh" runat="server" type="hidden" />
+<input id="MonthkWh" runat="server" type="hidden" />
 <input id="MinPercent" runat="server" type="hidden" />
 <input id="Percent" runat="server" type="hidden" />
 <input id="AnnualPercent" runat="server" type="hidden" />
 <input id="MonthCost" runat="server" type="hidden" />
 <input id="ProgramType" runat="server" type="hidden" />
+<input id="RefId" runat="server" type="hidden" />
 <!--<input id="ProgramLocation" runat="server" type="hidden" />-->

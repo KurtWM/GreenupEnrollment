@@ -54,6 +54,7 @@ namespace DotNetNuke.Modules.GreenupEnrollment
     //private static string _postUrl = @"https://www.paypal.com/cgi-bin/webscr";
     bool useCaptcha = true;
     String strAdminEmail = "";
+    String strRefId = "";
 
     #region Authorize.net ARB variables
 
@@ -89,6 +90,11 @@ namespace DotNetNuke.Modules.GreenupEnrollment
           ProgramType.Value = "Commercial";
         }
 
+        if (Request.QueryString["refid"] != null)
+        {
+          RefId.Value = Request.QueryString["refid"];
+          strRefId = Request.QueryString["refid"];
+        }
 
         SetDropDownListStates();
 
@@ -534,7 +540,7 @@ namespace DotNetNuke.Modules.GreenupEnrollment
       request.merchantAuthentication = new merchantAuthenticationType();
       request.merchantAuthentication.name = Config.GetSetting("AuthorizeNetLogin"); // _userLoginName;
       request.merchantAuthentication.transactionKey = Config.GetSetting("AuthorizeNetTransactionKey"); // _transactionKey;
-      request.refId = (string)Settings["RefId"];
+      request.refId = RefId.Value;
     }
 
     // ----------------------------------------------------------------------------------------
@@ -816,19 +822,26 @@ namespace DotNetNuke.Modules.GreenupEnrollment
       }
 
       md.From = "admin@sterling-wind.com";
-      md.Subject = "Sterling-Wind Confirmation";
+      md.Subject = "Confirmation: " + (string)Settings["SubscriptonName"];
       md.IsBodyHtml = true;
 
       ListDictionary replacements = new ListDictionary();
       replacements.Add("<%Timestamp%>", DateTime.Now.ToString("G", CultureInfo.CreateSpecificCulture("en-us")));
-      replacements.Add("<%Localle%>", "[need to discuss]");
+      replacements.Add("<%Localle%>", "[Need to discuss how we should get this value from the site that the customer is coming from.]");
       replacements.Add("<%RemoteIP%>", GetIPAddress());
       replacements.Add("<%ServerHostname%>", GetHostName());
-      replacements.Add("<%RateName%>", "[need to discuss]");
-      replacements.Add("<%Price%>", KwhPrice.Value + "&cent;/kWh");
-      replacements.Add("<%PriceType%>", "[need to discuss]");
+      replacements.Add("<%Descr%>", (string)Settings["SubscriptonName"] + ": " + RefId.Value);
+      replacements.Add("<%PricekWh%>", KwhPrice.Value + "&cent;/kWh");
+      if (ProgramType.Value == "Residential")
+      {
+        replacements.Add("<%kWh%>", MonthkWh.Value + "kWh/Month");
+      }
+      else
+      {
+        replacements.Add("<%kWh%>", AnnualkWh.Value + "kWh/Year");
+      }
       replacements.Add("<%Term%>", "Monthly");
-      replacements.Add("<%Descr%>", "[need to discuss]");
+      replacements.Add("<%MonthPrice%>", "$" + MonthCost.Value);
       replacements.Add("<%CustomerType%>", ProgramType.Value);
       replacements.Add("<%FirstName%>", BillingFirstName.Text);
       replacements.Add("<%LastName%>", BillingLastName.Text);
@@ -839,19 +852,21 @@ namespace DotNetNuke.Modules.GreenupEnrollment
       replacements.Add("<%City%>", BillingCity.Text);
       replacements.Add("<%State%>", ddlBillingStates.SelectedValue);
       replacements.Add("<%Zip%>", BillingZipCode.Text);
-      replacements.Add("<%UtilityCo%>", "[need to discuss]");
-      replacements.Add("<%AccountNo%>", "[need to discuss]");
       replacements.Add("<%AgreementChecked%>", BillingAcceptTerms.Checked ? "Agree" : "Disagree");
       replacements.Add("<%AltFirstName%>", AlternateFirstName.Text);
       replacements.Add("<%AltLastName%>", AlternateLastName.Text);
       replacements.Add("<%AltPhone%>", AlternatePhone.Text);
-      //TextBox AlternateEmail = (TextBox)Page.FindControl("AlternateEmail");
-      //replacements.Add("<%AltEmail%>", AlternateEmail.Text);
+      replacements.Add("<%AltEmail%>", AlternateEmail.Text);
       replacements.Add("<%AltStreet1%>", AlternateAddress1.Text);
       replacements.Add("<%AltStreet2%>", AlternateAddress2.Text);
       replacements.Add("<%AltCity%>", AlternateCity.Text);
       replacements.Add("<%AltState%>", ddlAlternateStates.SelectedValue);
       replacements.Add("<%AltZip%>", AlternateZipCode.Text);
+
+      //replacements.Add("<%RateName%>", "[need to discuss]");
+      //replacements.Add("<%PriceType%>", "[need to discuss]");
+      //replacements.Add("<%UtilityCo%>", "[need to discuss]");
+      //replacements.Add("<%AccountNo%>", "[need to discuss]");
 
       String tokenReplacements = replacements.ToString();
 

@@ -49,24 +49,6 @@ namespace DotNetNuke.Modules.GreenupEnrollment {
         protected global::System.Web.UI.WebControls.TextBox txtSubscriptonName;
         
         /// <summary>
-        /// RefIdLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl RefIdLabel;
-        
-        /// <summary>
-        /// txtRefId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRefId;
-        
-        /// <summary>
         /// AdminEmailLabel control.
         /// </summary>
         /// <remarks>
@@ -83,6 +65,24 @@ namespace DotNetNuke.Modules.GreenupEnrollment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAdminEmail;
+        
+        /// <summary>
+        /// FromEmailLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.UI.UserControls.LabelControl FromEmailLabel;
+        
+        /// <summary>
+        /// txtFromEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFromEmail;
         
         /// <summary>
         /// EnableCaptchaLabel control.

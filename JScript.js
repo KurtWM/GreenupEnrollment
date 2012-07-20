@@ -97,7 +97,7 @@
 
       var handleX = $(".ui-slider-handle").css('left');
       $("#valueMarker").css('left', handleX);
-      $("#valueMarker span").text(handleX);
+      $("#valueMarker span").text(sliderValue + "%");
       var totalAnnualkWh = Math.round((sliderValue / 100) * annualkWh);
       var totalMonthlyPrice = Math.round(((((sliderValue / 100) * annualkWh) * kWhPrice) / 12) * 100) / 100;
       $("#totalLabel").text(totalAnnualkWh + " kWh/year\n$" + totalMonthlyPrice + "/month");
@@ -155,6 +155,7 @@
       var monthPower = ($(this).val() * multiplier) * kWhPrice;
       $('#ResidentialPrice').text(monthPower);
       $("input[id*='MonthCost']").val(monthPower);
+      $("input[id*='MonthkWh']").val($(this).val() * multiplier);
       $('input[name="a3"]').val(monthPower);
       $(this).siblings('.amount').text('$' + (monthPower * 100) / 100 + ' monthly');
     });

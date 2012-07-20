@@ -16,12 +16,12 @@
             <asp:TextBox ID="txtSubscriptonName" runat="server" MaxLength="50" />
         </div>
         <div class="dnnFormItem">
-          <dnn:Label ID="RefIdLabel" runat="server" ControlName="txtRefId" Suffix=":"></dnn:Label>
-            <asp:TextBox ID="txtRefId" runat="server" MaxLength="20" />
-        </div>
-        <div class="dnnFormItem">
           <dnn:Label ID="AdminEmailLabel" runat="server" ControlName="txtAdminEmail" Suffix=":"></dnn:Label>
             <asp:TextBox ID="txtAdminEmail" runat="server" />
+        </div>
+        <div class="dnnFormItem">
+          <dnn:Label ID="FromEmailLabel" runat="server" ControlName="txtFromEmail" Suffix=":"></dnn:Label>
+            <asp:TextBox ID="txtFromEmail" runat="server" />
         </div>
         <div class="dnnFormItem">
           <dnn:Label ID="EnableCaptchaLabel" runat="server" ControlName="cbEnableCaptcha" Suffix=":"></dnn:Label>

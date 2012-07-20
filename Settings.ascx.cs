@@ -73,14 +73,18 @@ namespace DotNetNuke.Modules.GreenupEnrollment
                       txtAdminEmail.Text = Convert.ToString(TabModuleSettings["AdminEmail"]);
                     }
 
+                    if (Settings.ContainsKey("FromEmail"))
+                    {
+                      txtFromEmail.Text = Convert.ToString(TabModuleSettings["FromEmail"]);
+                    }
+                    else
+                    {
+                      txtFromEmail.Text = DotNetNuke.Entities.Host.Host.SMTPUsername;
+                    }
+
                     if (Settings.ContainsKey("SubscriptonName"))
                     {
                       txtSubscriptonName.Text = Convert.ToString(TabModuleSettings["SubscriptonName"]);
-                    }
-
-                    if (Settings.ContainsKey("RefId"))
-                    {
-                      txtRefId.Text = Convert.ToString(TabModuleSettings["RefId"]);
                     }
 
                     if (Settings.ContainsKey("EnableCaptcha"))
@@ -129,8 +133,8 @@ namespace DotNetNuke.Modules.GreenupEnrollment
                 //module settings
                 modules.UpdateTabModuleSetting(TabModuleId, "KwhPrice", txtKwhPrice.Text);
                 modules.UpdateTabModuleSetting(TabModuleId, "AdminEmail", txtAdminEmail.Text);
+                modules.UpdateTabModuleSetting(TabModuleId, "FromEmail", txtFromEmail.Text);
                 modules.UpdateTabModuleSetting(TabModuleId, "SubscriptonName", txtSubscriptonName.Text);
-                modules.UpdateTabModuleSetting(TabModuleId, "RefId", txtRefId.Text);
                 modules.UpdateTabModuleSetting(TabModuleId, "EnableCaptcha", cbEnableCaptcha.Checked.ToString());
             }
             catch (Exception exc) //Module failed to load

@@ -371,7 +371,16 @@ namespace DotNetNuke.Modules.GreenupEnrollment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox AlternatePhone;
-        
+
+        /// <summary>
+        /// AlternateEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox AlternateEmail;
+
         /// <summary>
         /// AlternateAddress1 control.
         /// </summary>
@@ -517,6 +526,15 @@ namespace DotNetNuke.Modules.GreenupEnrollment {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden AnnualkWh;
         
         /// <summary>
+        /// MonthkWh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden MonthkWh;
+        
+        /// <summary>
         /// MinPercent control.
         /// </summary>
         /// <remarks>
@@ -560,6 +578,15 @@ namespace DotNetNuke.Modules.GreenupEnrollment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden ProgramType;
+        
+        /// <summary>
+        /// RefId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden RefId;
         
         /// <summary>
         /// ProgramLocation control.

@@ -132,6 +132,12 @@
   <data name="EnableCaptchaLabel.Text" xml:space="preserve">
     <value>Enable Captcha</value>
   </data>
+  <data name="FromEmailLabel.Help" xml:space="preserve">
+    <value>Enter the email address that will show as the "From" address for the confirmation emails.</value>
+  </data>
+  <data name="FromEmailLabel.Text" xml:space="preserve">
+    <value>FROM Email address</value>
+  </data>
   <data name="KwhPriceLabel.Help" xml:space="preserve">
     <value>Enter the price for a single kWh.</value>
   </data>

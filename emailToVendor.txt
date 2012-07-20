@@ -9,6 +9,14 @@
   </tr>
   <tr>
     <td align="left" nowrap="nowrap" valign="top">
+      Description:
+    </td>
+    <td align="left" nowrap="nowrap" valign="top" width="100%">
+      <%Descr%>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" nowrap="nowrap" valign="top">
       Timestamp:
     </td>
     <td align="left" nowrap="nowrap" valign="top" width="100%">
@@ -47,26 +55,18 @@
   </tr>
   <tr>
     <td align="left" nowrap="nowrap" valign="top">
-      Rate Name:
+      Price Per kWh:
     </td>
     <td align="left" nowrap="nowrap" valign="top">
-      <%RateName%>
-    </td>
-  </tr>
-  <tr>
-    <td align="left" nowrap="nowrap" valign="top">
-      Price:
-    </td>
-    <td align="left" nowrap="nowrap" valign="top">
-      <%Price%>
+      <%PricekWh%>
     </td>
   </tr>
   <tr>
     <td align="left" nowrap="nowrap" valign="top">
-      Type:
+      kWh:
     </td>
     <td align="left" nowrap="nowrap" valign="top">
-      <%PriceType%>
+      <%kWh%>
     </td>
   </tr>
   <tr>
@@ -79,10 +79,10 @@
   </tr>
   <tr>
     <td align="left" nowrap="nowrap" valign="top">
-      Descr:
+      Price Per Month:
     </td>
     <td align="left" nowrap="nowrap" valign="top">
-      <%Descr%>
+      <%MonthPrice%>
     </td>
   </tr>
   <tr>
@@ -167,22 +167,6 @@
     </td>
     <td align="left" nowrap="nowrap" valign="top">
       <%Zip%>
-    </td>
-  </tr>
-  <tr>
-    <td align="left" nowrap="nowrap" valign="top">
-      Utility Co:
-    </td>
-    <td align="left" nowrap="nowrap" valign="top">
-      <%UtilityCo%>
-    </td>
-  </tr>
-  <tr>
-    <td align="left" nowrap="nowrap" valign="top">
-      Account Number:
-    </td>
-    <td align="left" nowrap="nowrap" valign="top">
-      <%AccountNo%>
     </td>
   </tr>
   <tr>
