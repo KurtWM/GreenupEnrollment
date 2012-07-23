@@ -4,6 +4,22 @@
         <name>GreenupEnrollment</name>
     </assembly>
     <members>
+        <member name="T:DotNetNuke.Modules.GreenupEnrollment.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:DotNetNuke.Modules.GreenupEnrollment.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:DotNetNuke.Modules.GreenupEnrollment.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
         <member name="T:DotNetNuke.Modules.GreenupEnrollment.GreenupEnrollmentModuleBase">
             <summary>
             This base class can be used to define custom properties for multiple controls. 
@@ -103,24 +119,6 @@
         <member name="F:DotNetNuke.Modules.GreenupEnrollment.Settings.txtSubscriptonName">
             <summary>
             txtSubscriptonName control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.Settings.RefIdLabel">
-            <summary>
-            RefIdLabel control.
-            </summary>
-            <remarks>
-            Auto-generated field.
-            To modify move field declaration from designer file to code-behind file.
-            </remarks>
-        </member>
-        <member name="F:DotNetNuke.Modules.GreenupEnrollment.Settings.txtRefId">
-            <summary>
-            txtRefId control.
             </summary>
             <remarks>
             Auto-generated field.
