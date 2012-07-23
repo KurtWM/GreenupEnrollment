@@ -7,17 +7,9 @@
 <asp:Label ID="lblMessage" runat="server" CssClass="dnnFormMessage"></asp:Label>
 <asp:Wizard ID="GreenupEnrollmentWizard" runat="server" OnFinishButtonClick="OnFinishButtonClick"
   OnActiveStepChanged="OnActiveStepChanged" DisplaySideBar="false" CellPadding="5"
-  CellSpacing="5" CssClass="Wizard dnnForm" ActiveStepIndex="0">
-  <StepStyle VerticalAlign="Top" />
-  <StepNavigationTemplate>
-  </StepNavigationTemplate>
-  <FinishCompleteButtonStyle CssClass="CommandButton" />
-  <HeaderTemplate>
-    <asp:Label ID="lblTitle" CssClass="Head" runat="server"><% =DotNetNuke.Services.Localization.Localization.GetString(GreenupEnrollmentWizard.ActiveStep.Title + ".Title", this.LocalResourceFile)%></asp:Label>
-    <asp:Label ID="lblHelp" CssClass="WizardText" runat="server"><% =DotNetNuke.Services.Localization.Localization.GetString(GreenupEnrollmentWizard.ActiveStep.Title + ".Help", this.LocalResourceFile)%></asp:Label>
-  </HeaderTemplate>
+  CellSpacing="5" CssClass="Wizard dnnForm" ActiveStepIndex="0" NavigationButtonStyle-CssClass="CommandButton">
   <WizardSteps>
-    <asp:WizardStep ID="wizProgramType" runat="server" Title="ProgramType" StepType="Start">
+    <asp:WizardStep ID="wizProgramType" runat="server" Title="ProgramType" StepType="Step" AllowReturn="False">
       <h2 class="century-gothic">
         <span class="hdr">Let's Get Started</span></h2>
       <p>
@@ -187,7 +179,7 @@
           CommandName="MoveNext" Text="Next" />
       </div>
     </asp:WizardStep>
-    <asp:WizardStep ID="wizBillingInfo" Title="BillingInfo" runat="server" StepType="Finish">
+    <asp:WizardStep ID="wizBillingInfo" Title="BillingInfo" runat="server" StepType="Step">
       <asp:ValidationSummary ID="ValidationSummary1" HeaderText="You must enter a value in the following fields:"
         DisplayMode="BulletList" EnableClientScript="true" runat="server" />
       <fieldset>
@@ -343,13 +335,23 @@
         <asp:LinkButton ID="PreviousButton_Bil" runat="server" CausesValidation="False" CssClass="CommandButton PreviousBtn"
           CommandName="MovePrevious" Text="Previous" Visible="False" />
         <asp:LinkButton ID="NextButton_Bil" runat="server" CausesValidation="true" CssClass="CommandButton NextBtn"
-          CommandName="MoveNext" Text="Submit" Visible="False" />
+          CommandName="MoveNext" Text="Submit" />
       </div>
     </asp:WizardStep>
     <asp:WizardStep ID="wizComplete" Title="Complete" runat="server" StepType="Complete">
       <asp:Label ID="tempLabel" runat="server" CssClass="dnnFormMessage"></asp:Label>
     </asp:WizardStep>
   </WizardSteps>
+  <NavigationButtonStyle />
+  <StepStyle VerticalAlign="Top" />
+  <StepNavigationTemplate>
+  </StepNavigationTemplate>
+  <FinishCompleteButtonStyle CssClass="CommandButton" />
+  <FinishPreviousButtonStyle CssClass="CommandButton" />
+  <HeaderTemplate>
+    <asp:Label ID="lblTitle" CssClass="Head" runat="server"><% =DotNetNuke.Services.Localization.Localization.GetString(GreenupEnrollmentWizard.ActiveStep.Title + ".Title", this.LocalResourceFile)%></asp:Label>
+    <asp:Label ID="lblHelp" CssClass="WizardText" runat="server"><% =DotNetNuke.Services.Localization.Localization.GetString(GreenupEnrollmentWizard.ActiveStep.Title + ".Help", this.LocalResourceFile)%></asp:Label>
+  </HeaderTemplate>
 </asp:Wizard>
 <input id="KwhPrice" runat="server" type="hidden" />
 <input id="AnnualkWh" runat="server" type="hidden" />
