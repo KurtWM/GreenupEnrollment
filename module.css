@@ -122,6 +122,7 @@ h3 .hdr
 {
   font-weight: bold;
   margin: 18px 0 !important;
+  display: none;
 }
 
 .upper-alpha 
@@ -195,8 +196,8 @@ h3 .hdr
   margin: 0;
   padding: 0;
   width: 100%;
-  /*border: 1px solid #000000;*/
-  background-color: rgb(147,149,152);
+  /*border: 1px solid #000000;
+  background-color: rgb(147,149,152);*/
 }
 
 .RecChoiceButtonPanel .recChoiceButton
@@ -209,11 +210,19 @@ h3 .hdr
   background-color: #FFFFFF;
   position: relative;
   cursor: pointer;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.RecChoiceButtonPanel .blockChoice
+{
+  background-color: #EEEEEE;
 }
 
 .RecChoiceButtonPanel .percentChoice
 {
-  background-color: #EEEEEE;
+  background-color: #DDDDDD;
 }
 
 .RecChoiceButtonPanel .selected
@@ -221,10 +230,10 @@ h3 .hdr
   background-color: rgb(0,166,80);
 }
 
-.RecChoiceButtonPanel .selected .largePercent
+/*.RecChoiceButtonPanel .selected .largePercent
 {
   color: #FFFFFF;
-}
+}*/
 
 .RecChoiceButtonPanel .selected p
 {
@@ -233,17 +242,18 @@ h3 .hdr
 
 .homeImg
 {
-  margin-top: 9px;
+  width: 100%;
+  /*margin-top: 9px;
   margin-bottom: 9px;
   position: relative;
-  top: 12px;
+  top: 12px;*/
 }
 
 .recChoiceTitle
 {
   font-size: 0.6rem !important;
   font-style: normal;
-  margin-top: 24px !important;
+  /*margin-top: 24px !important;*/
 }
 
 p.recChoiceDesc
@@ -262,18 +272,20 @@ p.recChoiceDesc
   vertical-align: text-bottom;
 }
 
-.largePercent
+/*.largePercent
 {
   font-size: 3rem;
   color: rgb(0,166,80);
-}
+}*/
 
 .RecChoiceHeader
 {
-  width: 100%;
+  
   display: table;
+  border-spacing: 5px 0;
+  width: 100%;
+  height: 24px;
   /*border: 1px solid #000000;*/
-  background-color: rgb(0, 91, 171);
 }
 
 .sizeOfHomeHeader
@@ -281,8 +293,13 @@ p.recChoiceDesc
   width: 60%;
   font-weight: bold;
   text-align: center;
+  vertical-align: middle;
   color: #FFFFFF;
+  background-color: rgb(0, 91, 171);
   display: table-cell;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 
 .percentOfUseHeader
@@ -290,16 +307,14 @@ p.recChoiceDesc
   width: 40%;
   font-weight: bold;
   text-align: center;
+  vertical-align: middle;
   color: #FFFFFF;
+  background-color: rgb(0, 91, 171);
   display: table-cell;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
-
-#AlternateContactContainer
-{
-  /*margin-top: 18px;*/
-}
-
-
 
 /* Form CSS */
 

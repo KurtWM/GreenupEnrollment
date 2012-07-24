@@ -18,6 +18,18 @@
     </file>
     <file>
       <path />
+      <name>emailToSubscriber.txt</name>
+    </file>
+    <file>
+      <path />
+      <name>emailToSubscriber_com.txt</name>
+    </file>
+    <file>
+      <path />
+      <name>emailToSubscriber_rec.txt</name>
+    </file>
+    <file>
+      <path />
       <name>emailToVendor.txt</name>
     </file>
     <file>
@@ -51,6 +63,18 @@
     <file>
       <path />
       <name>module.css</name>
+    </file>
+    <file>
+      <path />
+      <name>RECPayPalSubscription.aspx</name>
+    </file>
+    <file>
+      <path />
+      <name>RECPayPalSubscription.aspx.cs</name>
+    </file>
+    <file>
+      <path />
+      <name>RECPayPalSubscription.aspx.designer.cs</name>
     </file>
     <file>
       <path />
@@ -118,6 +142,46 @@
     </file>
     <file>
       <path>Images/</path>
+      <name>button-up_s1_100.png</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>button-up_s1_1house.png</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>button-up_s1_2house.png</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>button-up_s1_3house.png</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>button-up_s1_50.png</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>button-up_s2_100.png</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>button-up_s2_1house.png</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>button-up_s2_2house.png</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>button-up_s2_3house.png</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>button-up_s2_50.png</name>
+    </file>
+    <file>
+      <path>Images/</path>
       <name>house-big.png</name>
     </file>
     <file>
@@ -131,6 +195,14 @@
     <file>
       <path>Properties/</path>
       <name>AssemblyInfo.cs</name>
+    </file>
+    <file>
+      <path>Properties/</path>
+      <name>Resources.Designer.cs</name>
+    </file>
+    <file>
+      <path>Properties/</path>
+      <name>Resources.resx</name>
     </file>
     <file>
       <path>Providers/DataProviders/SqlDataProvider/</path>

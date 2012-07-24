@@ -4,6 +4,7 @@
 <%@ Register TagPrefix="dnn" TagName="url" Src="~/controls/UrlControl.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="label" Src="~/controls/LabelControl.ascx" %>
 <%@ Register TagPrefix="dnn" Assembly="DotNetNuke" Namespace="DotNetNuke.UI.WebControls" %>
+<asp:Label ID="testingLabel" runat="server"></asp:Label>
 <asp:Label ID="lblMessage" runat="server" CssClass="dnnFormMessage"></asp:Label>
 <asp:Wizard ID="GreenupEnrollmentWizard" runat="server" OnFinishButtonClick="OnFinishButtonClick"
   OnActiveStepChanged="OnActiveStepChanged" DisplaySideBar="false" CellPadding="5"
@@ -62,8 +63,9 @@
             per month<br />
             @ 1¢ per kWh<br />
             $5.00 monthly</p>
-          <input type="hidden" class="monthlyPower" value="500" /></div>
+          <input type="hidden" class="monthlyPower" value="500" />
         <input class="multiplier" type="hidden" value="1.0" />
+        </div>
         <div id="RecChoiceHome-M" class="recChoiceButton blockChoice">
           <asp:Image ID="HomeImage_M" CssClass="homeImg" runat="server" />
           <p class="recChoiceTitle">
@@ -76,8 +78,9 @@
             per month<br />
             @ 1¢ per kWh<br />
             $10.00 monthly</p>
-          <input type="hidden" class="monthlyPower" value="1000" /></div>
+          <input type="hidden" class="monthlyPower" value="1000" />
         <input class="multiplier" type="hidden" value="1.0" />
+        </div>
         <div id="RecChoiceHome-L" class="recChoiceButton blockChoice">
           <asp:Image ID="HomeImage_L" CssClass="homeImg" runat="server" />
           <p class="recChoiceTitle">
@@ -90,11 +93,11 @@
             per month<br />
             @ 1¢ per kWh<br />
             $15.00 monthly</p>
-          <input type="hidden" class="monthlyPower" value="1500" /></div>
+          <input type="hidden" class="monthlyPower" value="1500" />
         <input class="multiplier" type="hidden" value="1.0" />
+        </div>
         <div id="RecChoiceHome-100" class="recChoiceButton percentChoice">
-          <div class="largePercent">
-            100%</div>
+          <asp:Image ID="HomeImage_100" CssClass="homeImg" runat="server" />
           <p class="recChoiceDesc">
             Match 100% of electricity
             <br />
@@ -111,8 +114,7 @@
             $<span id="monthlyPowerDisplay-100" class="powerDisplay">xx.xx</span> monthly</p>
         </div>
         <div id="RecChoiceHome-50" class="recChoiceButton percentChoice">
-          <div class="largePercent">
-            50%</div>
+          <asp:Image ID="HomeImage_50" CssClass="homeImg" runat="server" />
           <p class="recChoiceDesc">
             Match 50% of electricity
             <br />
@@ -134,8 +136,12 @@
       <div class="buttonContainer">
         <asp:LinkButton Visible="false" ID="PreviousButton_Res" runat="server" CausesValidation="False"
           CssClass="CommandButton PreviousBtn" CommandName="MovePrevious" Text="Previous" />
-        <asp:LinkButton ID="NextButton_Res" runat="server" CausesValidation="False" CssClass="CommandButton NextBtn"
-          CommandName="MoveNext" Text="Next" />
+        <asp:LinkButton ID="NextButton_Res" runat="server" 
+          CausesValidation="False" 
+          CssClass="CommandButton NextBtn ResSubmit"
+          style="display: none;"
+          CommandName="MoveNext" 
+          Text="Next" />
       </div>
     </asp:WizardStep>
     <asp:WizardStep ID="wizCommercialProgram" runat="server" Title="CommercialProgram"
@@ -144,7 +150,7 @@
         <span class="hdr">Let's Get Started</span></h3>
       <p>
         Sign up for wind RECs to match all or part of electricity used by your business
-        or other organization. Our all-wind product is priced at just <asp:Label ID="kWhPriceMsgLabel" runat="server">1</asp:Label>¢ per kilowatt-hour,
+        or other organization. Our all-wind product is priced per kilowatt-hour,
         and large energy users can request a custom quote.</p>
       <div id="SterlingCommercialEnrollment">
         <div class="SectionHead">
@@ -248,59 +254,6 @@
             TabIndex="8" />
           <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="Zip Code"
             Text="*" ControlToValidate="BillingZipCode"></asp:RequiredFieldValidator>
-          <br />
-          <span class="checkbox">
-            <input type="checkbox" id="cbDisplayAltContact" tabindex="9" />
-            <label for="cbDisplayAltContact">
-              Please check here if you would like to add contact information that is different
-              from your billing information</label>
-          </span>
-          <div id="AlternateContactContainer">
-            <h3>
-              Alternate Contact Information</h3>
-            <label for="AlternateFirstName">
-              First Name:</label>
-            <asp:TextBox runat="server" ID="AlternateFirstName" name="AlternateFirstName" TabIndex="10" />
-            <br />
-            <label for="AlternateLastName">
-              Last Name:</label>
-            <asp:TextBox runat="server" ID="AlternateLastName" name="AlternateLastName" TabIndex="11" />
-            <br />
-            <label for="AlternateEmail">
-              Email:</label>
-            <asp:TextBox runat="server" ID="AlternateEmail" name="AlternateEmail" TabIndex="12" />
-            <br />
-            <label for="AlternatePhone">
-              Phone:</label>
-            <asp:TextBox runat="server" ID="AlternatePhone" name="AlternatePhone" Rows="15" MaxLength="20"
-              TabIndex="13" />
-            <br />
-            <label for="AlternateAddress1">
-              Address Line 1:</label>
-            <asp:TextBox runat="server" ID="AlternateAddress1" name="AlternateAddress1" TabIndex="14" />
-            <br />
-            <small>Street address, P.O. box, company name, c/o</small>
-            <label for="AlternateAddress2">
-              Address Line 2:</label>
-            <asp:TextBox runat="server" ID="AlternateAddress2" name="AlternateAddress2" TabIndex="15" />
-            <br />
-            <small>Apartment, suite, unit, building, floor, etc.</small>
-            <label for="AlternateCity">
-              City:</label>
-            <asp:TextBox runat="server" ID="AlternateCity" name="AlternateCity" Rows="25" MaxLength="50"
-              TabIndex="16" />
-            <br />
-            <label for="ddlAlternateStates">
-              State/Province/Region:</label>
-            <asp:DropDownList runat="server" ID="ddlAlternateStates" name="ddlAlternateStates"
-              TabIndex="17">
-            </asp:DropDownList>
-            <br />
-            <label for="AlternateZipCode">
-              ZIP Code:</label>
-            <asp:TextBox runat="server" ID="AlternateZipCode" name="AlternateZipCode" MaxLength="20"
-              Rows="20" TabIndex="18" />
-          </div>
         </div>
       </fieldset>
       <fieldset>
@@ -323,9 +276,15 @@
               CssClass="Normal" runat="server" ErrorMessage="The typed code must match the image, please try again" />
           </asp:Panel>
         </div>
+        <div id="InvoiceMeContainer" class="innerContainer">
+          <asp:CheckBox ID="InvoiceMeCheckBox" runat="server" Text="Invoice Me" />
+        </div>
         <div id="AcceptTermsContainer" class="innerContainer">
-          <asp:CheckBox runat="server" ID="BillingAcceptTerms" name="BillingAcceptTerms" CssClass="checkbox"
-            Text="I have read and agree to the <a href='#'>terms of service</a>." TabIndex="22" />
+          <asp:CheckBox ID="BillingAcceptTerms" runat="server" 
+            name="BillingAcceptTerms" 
+            CssClass="checkbox" 
+            TabIndex="22" />
+            I have read and agree to the <a id="showTerms" href="javascript:void(0);">terms of service</a>.
           <asp:CustomValidator ID="AcceptTermsRequired" runat="server" EnableClientScript="true"
             OnServerValidate="AcceptTermsRequired_ServerValidate" OnClientValidate="AcceptTermsRequired_ClientValidate"
             ErrorMessage="Accept Terms checkbox" Text="*">*</asp:CustomValidator>
@@ -334,11 +293,91 @@
       <div class="buttonContainer">
         <asp:LinkButton ID="PreviousButton_Bil" runat="server" CausesValidation="False" CssClass="CommandButton PreviousBtn"
           CommandName="MovePrevious" Text="Previous" Visible="False" />
-        <asp:LinkButton ID="NextButton_Bil" runat="server" CausesValidation="true" CssClass="CommandButton NextBtn"
-          CommandName="MoveNext" Text="Submit" />
+        <asp:LinkButton ID="NextButton_Bil" runat="server" 
+          CausesValidation="true" 
+          CssClass="CommandButton NextBtn"
+          CommandName="MoveNext" 
+          Text="Submit" />
       </div>
-    </asp:WizardStep>
+      <div id="terms" style="display:none;">
+        <p>
+          <strong>TERMS OF SERVICE</strong></p>
+        <p>
+          This product supports electricity production from new wind energy facilities nationwide.
+          This is not an electricity purchase, but a purchase of renewable energy certificates
+          (RECs). Sold separately from electrical output, RECs represent all the environmental
+          benefits of electricity production using renewable resources such as wind, solar,
+          and small hydro.
+        </p>
+        <p>
+          When you enroll, you stay with your current electric utility. You continue to pay
+          your regular electric bill, plus an additional amount for your purchase of this
+          REC product.
+        </p>
+        <p>
+          By enrolling, you make a difference. The positive effects include the following:
+          (1) guarantees that clean, zero-emissions renewable energy has been delivered to
+          the electric grid, replacing conventional electricity and lowering greenhouse gas
+          emissions, and (2) support for clean, USA-made energy that is beneficial to human
+          health, the overall environment and national and local economies.
+        </p>
+        <p>
+          This product is provided through Sterling Planet, a leading national provider of
+          RECs and other clean energy solutions. Sterling Planet's supply is Green-e Energy
+          certified, with this product meeting the environmental and consumer protection standards
+          established by the nonprofit Center for Resource Solutions. See the 
+          <asp:HyperLink ID="EnergyContentHyperLink" runat="server" Target="_blank">Energy Content Label</asp:HyperLink>
+          for further details.
+        </p>
+        <p>
+          You may increase, decrease or cancel your wind energy purchase at any time without
+          any fees or other penalties. To change or cancel your account, simply call Sterling
+          Planet at 1-877-457-2306. You may also write a letter requesting to cancel your
+          account, addressed to Sterling Planet at 3500 Parkway Lane, Suite 500, Norcross,
+          GA, 30092.
+        </p>
+      </div>
+   </asp:WizardStep>
     <asp:WizardStep ID="wizComplete" Title="Complete" runat="server" StepType="Complete">
+        <h2>
+          Thanks for choosing sustainable energy!</h2>
+        <p>
+          Starting today, you're making a real difference. Every 1,000 kilowatt-hours of renewable
+          energy you purchase mitigates about 1,500 pounds of carbon dioxide emissions. Over
+          the course of a year, the environmental benefits really add up. They compare to
+          <strong>not driving</strong> nearly 19,000 miles in the average vehicle or <strong>
+            not using</strong> 928 gallons of gasoline.</p>
+        <p>
+          You've made the clear energy choice for a stronger economy too. Putting more USA-made
+          energy to work creates more new "green" jobs, generates more state and local tax
+          revenue, and increases our nation's energy diversity and independence from imported
+          fuels.
+        </p>
+        <p>
+          Thanks again for taking a real, meaningful step toward sustainability – for the
+          environment and the economy. Please look for automatic email notification of your
+          enrollment. And in the next few days, you'll also receive a personalized <em>Certificate
+            of Sustainable Energy</em>.</p>
+        <p>
+          In the meantime, here's how we show your account:</p>
+        <p>
+          <strong>Enrollment:<br />
+          </strong><asp:Label ID="FirstNameLabel" runat="server" />&nbsp;<asp:Label ID="LastNameLabel" runat="server" /><br />
+          <asp:Label ID="Address1Label" runat="server" /><br />
+          <asp:Label ID="Address2Label" runat="server" /><br />
+          <asp:Label ID="CityLabel" runat="server" />, <asp:Label ID="StateLabel" runat="server" /> <asp:Label ID="ZipLabel" runat="server" /><br />
+          <asp:Label ID="EmailLabel" runat="server" />
+          <br />
+          <asp:Label ID="PhoneLabel" runat="server" /></p>
+        <p>
+          <strong>Product:<br />
+          </strong>Sterling Wind™<br />
+          <asp:Label ID="kWhLabel" runat="server" /> kWh <asp:Label ID="TermLabel" runat="server" /> @ <asp:Label ID="kWhUnitPriceLabel" runat="server" /></p>
+        <p>
+          <strong>Billing:<br />
+          </strong>Credit card: xxxx-xxxx-xxxx-1234
+          <br />
+          <asp:Label ID="MonthlyPriceLabel" runat="server" /> per month</p>
       <asp:Label ID="tempLabel" runat="server" CssClass="dnnFormMessage"></asp:Label>
     </asp:WizardStep>
   </WizardSteps>

@@ -6,11 +6,6 @@
     makeKwh();
   });
 
-  $("#cbDisplayAltContact").click(function () {
-    $("#AlternateContactContainer").toggle(this.checked);
-  }).triggerHandler('click');
-
-
   //Allow only numbers to be entered.
   $("#Annual_kWh").keydown(function (event) {
     // Allow: backspace, delete, tab, escape, and enter
@@ -57,7 +52,7 @@
 
   function AcceptTermsRequired_ClientValidate(sender, e) {
     e.IsValid = $("input[id*='BillingAcceptTerms']").is(':checked');
-  } 
+  }
 
 
 
@@ -141,23 +136,34 @@
     //alert('test');
     var all = $('.recChoiceButton');
     var selectBtn = $(this);
+    var multiplier = $(".multiplier", this).eq(0).val();
     //alert(this.name);
+    if (!$(this).hasClass("selected")) {
+      $('input.monthlyPower[type="text"]').val('');
+      $('.amount').text('$0.00');
+    }
     all.removeClass('selected');
     $(selectBtn).addClass('selected');
     $('#ResidentialPrice').text($('input.monthlyPower', this).val() * kWhPrice);
-    $('input[id*="MonthCost"]').val($('input.monthlyPower', this).val() * kWhPrice);
+    $('input[id*="MonthCost"]').val($('input.monthlyPower', this).val() * kWhPrice * multiplier);
+    $("input[id*='MonthkWh']").val($('input.monthlyPower', this).val() * multiplier);
     $('input[name="a3"]').val($('input.monthlyPower', this).val() * kWhPrice);
 
     //$('.percentChoice').hasClass('selected');
 
     $('input.monthlyPower', this).keyup(function () {
-      var multiplier = $(this).siblings(".multiplier").eq(0).val(); //$('input.multiplier', this).val()
+      //var multiplier = $(this).siblings(".multiplier").eq(0).val(); //$('input.multiplier', this).val()
       var monthPower = ($(this).val() * multiplier) * kWhPrice;
       $('#ResidentialPrice').text(monthPower);
       $("input[id*='MonthCost']").val(monthPower);
       $("input[id*='MonthkWh']").val($(this).val() * multiplier);
       $('input[name="a3"]').val(monthPower);
       $(this).siblings('.amount').text('$' + (monthPower * 100) / 100 + ' monthly');
+      if ($('input[id*="MonthCost"]').val() > 0) {
+        $("a.ResSubmit").show();
+      } else {
+        $("a.ResSubmit").hide();
+      }
     });
 
     //Allow only numbers to be entered.
@@ -179,10 +185,17 @@
       }
     });
 
-
+    if ($('input[id*="MonthCost"]').val() > 0) {
+      $("a.ResSubmit").show();
+    } else {
+      $("a.ResSubmit").hide();
+    }
 
   });
 
+  $('#showTerms').click(function () {
+    $('#terms').dialog({ modal: true }, { width: 500 }, { title: "Terms of Service" });
+  });
 
   $(function () {
     makeKwh();

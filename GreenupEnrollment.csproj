@@ -35,6 +35,10 @@
     <DocumentationFile>GreenupEnrollment.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AuthorizeNet, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\AuthorizeNet.dll</HintPath>
+    </Reference>
     <Reference Include="DotNetNuke, Version=4.5.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\bin\DotNetNuke.dll</HintPath>
@@ -147,17 +151,32 @@
     <None Include="App_LocalResources\View.ascx.resx" />
     <None Include="BuildScripts\ModulePackage.targets" />
     <None Include="BuildScripts\MSBuild.Community.Tasks.Targets" />
+    <None Include="Files\SterlingPlanetEnergyContentLabel.pdf" />
     <None Include="Providers\DataProviders\SqlDataProvider\00.00.01.SqlDataProvider" />
     <None Include="GreenupEnrollment.dnn" />
     <None Include="Providers\DataProviders\SqlDataProvider\Uninstall.SqlDataProvider" />
     <None Include="module.css" />
+    <None Include="README" />
     <None Include="ReleaseNotes.txt" />
     <None Include="License.txt" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Edit.ascx" />
     <Content Include="emailToSubscriber.txt" />
+    <Content Include="emailToSubscriber_com.txt" />
+    <Content Include="emailToSubscriber_rec.txt" />
     <Content Include="emailToVendor.txt" />
+    <Content Include="GreenupEnrollment.xml" />
+    <Content Include="Images\button-up_s1_100.png" />
+    <Content Include="Images\button-up_s1_1house.png" />
+    <Content Include="Images\button-up_s1_2house.png" />
+    <Content Include="Images\button-up_s1_3house.png" />
+    <Content Include="Images\button-up_s1_50.png" />
+    <Content Include="Images\button-up_s2_100.png" />
+    <Content Include="Images\button-up_s2_1house.png" />
+    <Content Include="Images\button-up_s2_2house.png" />
+    <Content Include="Images\button-up_s2_3house.png" />
+    <Content Include="Images\button-up_s2_50.png" />
     <Content Include="Images\house-big.png" />
     <Content Include="Images\house-medium.png" />
     <Content Include="Images\house-small.png" />

@@ -1,3 +1,25 @@
+#region ToDo
+// ( ) Add popup 'terms and conditions'
+// ( ) Add 'content label' which can be grabbed from the Philly site.
+// ( ) Add check box with "Invoice me" on the billing page as an option for paperless billing. 
+//     Maybe under 'credit card information'.
+// ( ) Add link on commercial page 'request a quote' to the 'contact us' page.
+// ( ) Hide the billing container title of "Billing Info"
+// ( ) Make sure business billing information form has 'Company Name'.
+// ( )
+// ( )
+// ( )
+// ( )
+// ( )
+// ( )
+// ( )
+// ( )
+// ( )
+// ( )
+#endregion
+
+#region usings
+
 using System;
 using System.IO;
 using System.Data;
@@ -30,8 +52,9 @@ using DotNetNuke.UI.Skins;
 using DotNetNuke.Common.Utilities;
 using DotNetNuke.Common.Lists;
 using System.Globalization;
+using AuthorizeNet;
 
-
+#endregion
 
 namespace DotNetNuke.Modules.GreenupEnrollment
 {
@@ -67,8 +90,8 @@ namespace DotNetNuke.Modules.GreenupEnrollment
     private static string _subscriptionId = "";
 
     // controls whether the XML request and response are written to the console
-    private static bool _dumpXml;
-    StringBuilder sb_dumpXml;
+    //private static bool _dumpXml;
+    //StringBuilder sb_dumpXml;
 
     #endregion
 
@@ -98,9 +121,12 @@ namespace DotNetNuke.Modules.GreenupEnrollment
 
         SetDropDownListStates();
 
-        HomeImage_S.ImageUrl = this.TemplateSourceDirectory + "/Images/house-small.png";
-        HomeImage_M.ImageUrl = this.TemplateSourceDirectory + "/Images/house-medium.png";
-        HomeImage_L.ImageUrl = this.TemplateSourceDirectory + "/Images/house-big.png";
+        HomeImage_S.ImageUrl = this.TemplateSourceDirectory + "/Images/button-up_s1_1house.png";
+        HomeImage_M.ImageUrl = this.TemplateSourceDirectory + "/Images/button-up_s1_2house.png";
+        HomeImage_L.ImageUrl = this.TemplateSourceDirectory + "/Images/button-up_s1_3house.png";
+        HomeImage_50.ImageUrl = this.TemplateSourceDirectory + "/Images/button-up_s1_50.png";
+        HomeImage_100.ImageUrl = this.TemplateSourceDirectory + "/Images/button-up_s1_100.png";
+        EnergyContentHyperLink.NavigateUrl = this.AppRelativeTemplateSourceDirectory + "/Files/SterlingPlanetEnergyContentLabel.pdf";
       }
     }
 
@@ -111,23 +137,14 @@ namespace DotNetNuke.Modules.GreenupEnrollment
     /// -----------------------------------------------------------------------------
     private void Page_Load(object sender, System.EventArgs e)
     {
-      useCaptcha = Convert.ToBoolean(Settings["ShowDescription"]); //Settings["EnableCaptcha"];
-      ctlCaptcha.Visible = useCaptcha;
+      testingLabel.Text = "this label is clean...";
 
-      //string v = Request.QueryString["param"];
-      //if (v != null)
-      //{
-      //  lblMessage.Text = "param is " + v;
-      //}
-      //else
-      //{
-      //  lblMessage.Text = "none";
-      //}
+      useCaptcha = Convert.ToBoolean(Settings["ShowDescription"]);
+      ctlCaptcha.Visible = useCaptcha;
 
       if ((string)Settings["KwhPrice"] != "")
       {
         KwhPrice.Value = (string)Settings["KwhPrice"];
-        //kWhPriceMsgLabel.Text = ToInt32((string)Settings["KwhPrice"]);
       }
 
       if ((string)Settings["AdminEmail"] != "")
@@ -148,51 +165,94 @@ namespace DotNetNuke.Modules.GreenupEnrollment
       {
         Exceptions.ProcessModuleLoadException(this, exc);
       }
+
+      UpdateConfirmMsg();
+
       // BEGIN Authorize.net ARB test
-      bool bResult = false;
+      //bool bResult = false;
 
-      if (bResult)
-      {
-        lblMessage.Text += ("API server: " + _apiUrl);
+      //if (bResult)
+      //{
+      //  lblMessage.Text += ("<br />API server: " + _apiUrl);
 
-        // Set this to true if you want to see the XML requests and responses dumped
-        // to the console window. Set to false otherwise.
-        _dumpXml = true;
+      //  // Set this to true if you want to see the XML requests and responses dumped
+      //  // to the console window. Set to false otherwise.
+      //  _dumpXml = true;
 
-        // Create a new subscription
-        lblMessage.Text += ("<br /><br /><strong>This call to ARBCreateSubscription should be successful.</strong>");
-        bResult = CreateSubscription(false);
+      //  // Create a new subscription
+      //  lblMessage.Text += ("<br /><br /><strong>This call to ARBCreateSubscription should be successful.</strong>");
+      //  bResult = CreateSubscription(false);
 
-        // This example will generate an error because a duplicate subscription
-        // is being created.
-        lblMessage.Text += ("<br /><br /><strong>This call to ARBCreateSubscription shows how to handle errors.</strong>");
-        CreateSubscription(false);
+      //  // This example will generate an error because a duplicate subscription
+      //  // is being created.
+      //  lblMessage.Text += ("<br /><br /><strong>This call to ARBCreateSubscription shows how to handle errors.</strong>");
+      //  CreateSubscription(false);
 
-        // This example will generate an error because the Amount is missing causing
-        // a schema validatation error to occur on the server side.
-        lblMessage.Text += ("<br /><br /><strong>This call to ARBCreateSubscription shows how to process ErrorResponse.</strong>");
-        CreateSubscription(true);
+      //  // This example will generate an error because the Amount is missing causing
+      //  // a schema validatation error to occur on the server side.
+      //  lblMessage.Text += ("<br /><br /><strong>This call to ARBCreateSubscription shows how to process ErrorResponse.</strong>");
+      //  CreateSubscription(true);
 
-        // Update the subscription that was just created
-        if (bResult && _subscriptionId != null)
-        {
-          lblMessage.Text += ("<br /><br /><strong>This call to ARBUpdateSubscription should be successful.</strong>");
-          bResult = UpdateSubscription();
+      //  // Update the subscription that was just created
+      //  if (bResult && _subscriptionId != null)
+      //  {
+      //    lblMessage.Text += ("<br /><br /><strong>This call to ARBUpdateSubscription should be successful.</strong>");
+      //    bResult = UpdateSubscription();
 
-          // Cancel the subscription that was just created
-          if (bResult)
-          {
-            lblMessage.Text += ("<br /><br /><strong>This call to ARBCancelSubscription should be successful.</strong>");
-            bResult = CancelSubscription();
-          }
+      //    // Cancel the subscription that was just created
+      //    if (bResult)
+      //    {
+      //      lblMessage.Text += ("<br /><br /><strong>This call to ARBCancelSubscription should be successful.</strong>");
+      //      bResult = CancelSubscription();
+      //    }
 
-          // Get the status of the subscription we just canceled
-          bResult = GetStatusSubscription();
-        }
-      }
+      //    // Get the status of the subscription we just canceled
+      //    bResult = GetStatusSubscription();
+      //  }
+      //}
       // END Authorize.net ARB test
     }
 
+    /// -----------------------------------------------------------------------------
+    /// <summary>
+    /// GreenupEnrollmentWizard_NextButtonClick runs when the onnextbuttonclick property 
+    /// is called from the GreenupEnrollmentWizard Wizard control.
+    /// </summary>
+    /// -----------------------------------------------------------------------------
+    void GreenupEnrollmentWizard_NextButtonClick(object sender, System.Web.UI.WebControls.WizardNavigationEventArgs e)
+    {
+      if (GreenupEnrollmentWizard.ActiveStepIndex == 0) //Select program
+      {
+        lblMessage.Text += "<br />GreenupEnrollmentWizard.ActiveStepIndex == 0";
+      }
+      if (GreenupEnrollmentWizard.ActiveStepIndex == 1) //Residential
+      {
+        lblMessage.Text += "<br />GreenupEnrollmentWizard.ActiveStepIndex == 1";
+      }
+      if (GreenupEnrollmentWizard.ActiveStepIndex == 2) //Commercial
+      {
+        lblMessage.Text += "<br />GreenupEnrollmentWizard.ActiveStepIndex == 2";
+      }
+      if (GreenupEnrollmentWizard.ActiveStepIndex == 3) //Billing
+      {
+        lblMessage.Text += "<br />GreenupEnrollmentWizard.ActiveStepIndex == 3";
+        if (Page.IsValid && (!useCaptcha || (useCaptcha && ctlCaptcha.IsValid)))
+        {
+          lblMessage.Text += "<br />Page.IsValid == true";
+          bool bResult = true;
+          bResult = CreateSubscription(false);
+        }
+        else
+        {
+          lblMessage.Text += "<br />Page.IsValid == false";
+        }
+      }
+      if (GreenupEnrollmentWizard.ActiveStepIndex == 4) //Completion
+      {
+        //
+      }
+    }
+    
     /// -----------------------------------------------------------------------------
     /// <summary>
     /// OnFinishButtonClick runs when the onfinishbuttonclick property is called from
@@ -201,14 +261,28 @@ namespace DotNetNuke.Modules.GreenupEnrollment
     /// -----------------------------------------------------------------------------
     protected void OnFinishButtonClick(Object sender, WizardNavigationEventArgs e)
     {
-      if (Page.IsValid && (!useCaptcha || (useCaptcha && ctlCaptcha.IsValid)))
-      {
+      //if (Page.IsValid && (!useCaptcha || (useCaptcha && ctlCaptcha.IsValid)))
+      //{
         // The OnFinishButtonClick method is a good place to collect all
         // the data from the completed pages and persist it to the data store. 
-        bool bResult = true;
-        bResult = CreateSubscription(false);
-      }
+        //bool bResult = true;
+        //bResult = CreateSubscription(false);
+      //}
     }
+
+    /// -----------------------------------------------------------------------------
+    /// <summary>
+    /// SubmitButton_Click runs when the NextButton is clicked from the billing wizard step.
+    /// </summary>
+    /// -----------------------------------------------------------------------------
+    //protected void SubmitButton_Click(object sender, EventArgs e)
+    //{
+      //if (Page.IsValid && (!useCaptcha || (useCaptcha && ctlCaptcha.IsValid)))
+      //{
+        //bool bResult = true;
+        //bResult = CreateSubscription(false);
+      //}
+    //}
 
     /// -----------------------------------------------------------------------------
     /// <summary>
@@ -275,7 +349,7 @@ namespace DotNetNuke.Modules.GreenupEnrollment
 
       if (!bResult)
       {
-        lblMessage.Text += ("An unexpected error occurred processing this request.");
+        lblMessage.Text += ("<br />An unexpected error occurred processing this request. (CreateSubscription)");
       }
 
       return bResult;
@@ -313,7 +387,7 @@ namespace DotNetNuke.Modules.GreenupEnrollment
 
       if (!bResult)
       {
-        lblMessage.Text += ("An unexpected error occurred processing this request.");
+        lblMessage.Text += ("<br />An unexpected error occurred processing this request. (UpdateSubscription)");
       }
 
       return bResult;
@@ -351,7 +425,7 @@ namespace DotNetNuke.Modules.GreenupEnrollment
 
       if (!bResult)
       {
-        lblMessage.Text += ("An unexpected error occurred processing this request.");
+        lblMessage.Text += ("<br />An unexpected error occurred processing this request. (CancelSubscription)");
       }
 
       return bResult;
@@ -392,7 +466,7 @@ namespace DotNetNuke.Modules.GreenupEnrollment
 
       if (!bResult)
       {
-        lblMessage.Text += ("An unexpected error occurred processing this request.");
+        lblMessage.Text += ("<br />An unexpected error occurred processing this request. (GetStatusSubscription)");
       }
 
       return bResult;
@@ -424,14 +498,6 @@ namespace DotNetNuke.Modules.GreenupEnrollment
       sub.billTo.city = BillingCity.Text;
       sub.billTo.state = ddlBillingStates.SelectedValue; //BillingState.Text;
       sub.billTo.zip = BillingZipCode.Text;
-
-      sub.shipTo = new nameAndAddressType();
-      sub.shipTo.firstName = AlternateFirstName.Text;
-      sub.shipTo.lastName = AlternateLastName.Text;
-      sub.shipTo.address = AlternateAddress1.Text + (AlternateAddress2.Text.Length > 0 ? ", " + AlternateAddress2.Text : "");
-      sub.shipTo.city = AlternateCity.Text;
-      sub.shipTo.state = ddlAlternateStates.SelectedValue; //AlternateState.Text;
-      sub.shipTo.zip = AlternateZipCode.Text;
 
       // Create a subscription that is monthly payments starting on the current date
 
@@ -550,7 +616,7 @@ namespace DotNetNuke.Modules.GreenupEnrollment
     /// The response from the server is also XML. An XmlReader is used to process the
     /// response stream from the API server so that it can be loaded into an XmlDocument.
     /// </summary>
-    /// <param name="request"></param>
+    /// <param name="apiRequest"></param>
     /// <returns>
     /// True if successful, false if not. If true then the specified xmldoc will contain the
     /// response received from the API server.
@@ -576,15 +642,15 @@ namespace DotNetNuke.Modules.GreenupEnrollment
         serializer.Serialize(writer, apiRequest);
         writer.Close();
 
-        if (_dumpXml)
-        {
+        //if (_dumpXml)
+        //{
           //lblMessage.Text += ("<br /><br />");
           //StreamWriter consoleOutput = new StreamWriter(Console.OpenStandardOutput());
           //consoleOutput.AutoFlush = true;
           //serializer.Serialize(consoleOutput, apiRequest);
           //consoleOutput.Close();
           //lblMessage.Text += ("<br /><br />");
-        }
+        //}
 
         // Get the response
         WebResponse webResponse = webRequest.GetResponse();
@@ -593,8 +659,8 @@ namespace DotNetNuke.Modules.GreenupEnrollment
         xmldoc = new XmlDocument();
         xmldoc.Load(XmlReader.Create(webResponse.GetResponseStream()));
 
-        if (_dumpXml)
-        {
+        //if (_dumpXml)
+        //{
           //    XmlWriterSettings settings = new XmlWriterSettings();
           //    settings.Indent = true;
           //    settings.Encoding = Encoding.ASCII;
@@ -602,7 +668,7 @@ namespace DotNetNuke.Modules.GreenupEnrollment
           //    xmldoc.WriteTo(consoleWriter);
           //    consoleWriter.Close();
           //    v.lblMessage.Text += ("<br /><br />");
-        }
+        //}
 
         bResult = true;
       }
@@ -702,17 +768,8 @@ namespace DotNetNuke.Modules.GreenupEnrollment
       // Every response is based on ANetApiResponse so you can always do this sort of type casting.
       ANetApiResponse baseResponse = (ANetApiResponse)response;
 
-      // For this example, write a confirmation message to the Complete page
-      // of the Wizard control.
-      Label tempLabel = (Label)GreenupEnrollmentWizard.FindControl("CompleteMessageLabel");
-      if (tempLabel != null)
-      {
-        tempLabel.Text = "Your order has been placed. An e-mail confirmation will be sent to "
-        + (EmailAddress.Text.Length == 0 ? "your e-mail address" : EmailAddress.Text) + ".";
-      }
-
-      // Write the results to the Complete WizardStep
-      lblMessage.Text += ("Result: ");
+      // Write the results--for debugging only
+      lblMessage.Text += ("<br />Result: ");
       lblMessage.Text += (baseResponse.messages.resultCode.ToString());
 
       // If the result code is "Ok" then the request was successfully processed.
@@ -728,7 +785,11 @@ namespace DotNetNuke.Modules.GreenupEnrollment
 
           lblMessage.Text += ("<br />To view the detail page at the Authorize.net test site <a href=\"https:" + "//sandbox.authorize.net/UI/themes/sandbox/ARB/SubscriptionDetail.aspx?SubscrID=" + _subscriptionId + "\" target=\"_blank\">here</a>");
         }
-        sendEMail();
+
+        lblMessage.Text += "<br />Your order has been placed. An e-mail confirmation will be sent to "
+        + (EmailAddress.Text.Length == 0 ? "your e-mail address" : EmailAddress.Text) + ".";
+
+        //sendEMail();
       }
       else
       {
@@ -793,12 +854,6 @@ namespace DotNetNuke.Modules.GreenupEnrollment
         ddlBillingStates.DataSource = vStates;
         ddlBillingStates.DataBind();
         ddlBillingStates.Items.Insert(0, new ListItem("--Select--", ""));
-
-        ddlAlternateStates.DataTextField = "Value";
-        ddlAlternateStates.DataValueField = "Value";
-        ddlAlternateStates.DataSource = vStates;
-        ddlAlternateStates.DataBind();
-        ddlAlternateStates.Items.Insert(0, new ListItem("--Select--", ""));
       }
       catch (Exception ex)
       {
@@ -806,13 +861,19 @@ namespace DotNetNuke.Modules.GreenupEnrollment
       }
     }
 
+    /// -----------------------------------------------------------------------------
+    ///<Summary>
+    /// Creates email message
+    ///</Summary>
+    /// <param name="identifier"></param>
+    /// -----------------------------------------------------------------------------
     public System.Net.Mail.MailMessage CreateMessage(String identifier)
     {
       string strSendTo;
       MailDefinition md = new MailDefinition();
       if (identifier == "subscriber")
       {
-        md.BodyFileName = "emailToSubscriber.txt";
+        md.BodyFileName = "emailToSubscriber_rec.txt";
         strSendTo = EmailAddress.Text;
       }
       else
@@ -852,16 +913,6 @@ namespace DotNetNuke.Modules.GreenupEnrollment
       replacements.Add("<%City%>", BillingCity.Text);
       replacements.Add("<%State%>", ddlBillingStates.SelectedValue);
       replacements.Add("<%Zip%>", BillingZipCode.Text);
-      replacements.Add("<%AgreementChecked%>", BillingAcceptTerms.Checked ? "Agree" : "Disagree");
-      replacements.Add("<%AltFirstName%>", AlternateFirstName.Text);
-      replacements.Add("<%AltLastName%>", AlternateLastName.Text);
-      replacements.Add("<%AltPhone%>", AlternatePhone.Text);
-      replacements.Add("<%AltEmail%>", AlternateEmail.Text);
-      replacements.Add("<%AltStreet1%>", AlternateAddress1.Text);
-      replacements.Add("<%AltStreet2%>", AlternateAddress2.Text);
-      replacements.Add("<%AltCity%>", AlternateCity.Text);
-      replacements.Add("<%AltState%>", ddlAlternateStates.SelectedValue);
-      replacements.Add("<%AltZip%>", AlternateZipCode.Text);
 
       //replacements.Add("<%RateName%>", "[need to discuss]");
       //replacements.Add("<%PriceType%>", "[need to discuss]");
@@ -877,9 +928,49 @@ namespace DotNetNuke.Modules.GreenupEnrollment
       return fileMsg;
     }
 
+    /// -----------------------------------------------------------------------------
+    ///<Summary>
+    /// Updates values in confirmation message
+    ///</Summary>
+    /// -----------------------------------------------------------------------------
+    public void UpdateConfirmMsg()
+    {
+      //Label kWhUnitPriceLabel = (Label)GreenupEnrollmentWizard.FindControl("kWhUnitPriceLabel");
+      //Label kWhLabel = (Label)GreenupEnrollmentWizard.FindControl("kWhLabel");
+      //Label TermLabel = (Label)GreenupEnrollmentWizard.FindControl("TermLabel");
+      //replacements.Add("<%Descr%>", (string)Settings["SubscriptonName"] + ": " + RefId.Value);
+      //if (ProgramType.Value == "Residential")
+      //{
+      //  replacements.Add("<%kWh%>", MonthkWh.Value + "kWh/Month";
+      //}
+      //else
+      //{
+      //  replacements.Add("<%kWh%>", AnnualkWh.Value + "kWh/Year";
+      //}
+      kWhUnitPriceLabel.Text = KwhPrice.Value + "&cent;/kWh";
+      kWhLabel.Text = MonthkWh.Value;
+      TermLabel.Text = "Monthly";
+      MonthlyPriceLabel.Text = "$" + MonthCost.Value;
+      //TermLabel.Text = ProgramType.Value;
+      FirstNameLabel.Text = BillingFirstName.Text;
+      LastNameLabel.Text = BillingLastName.Text;
+      Address1Label.Text = BillingAddressLine1.Text;
+      Address2Label.Text = BillingAddressLine2.Text;
+      CityLabel.Text = BillingCity.Text;
+      StateLabel.Text = ddlBillingStates.SelectedValue;
+      ZipLabel.Text = BillingZipCode.Text;
+      EmailLabel.Text = EmailAddress.Text;
+      PhoneLabel.Text = BillingPhone.Text;
+    }
+
+    /// -----------------------------------------------------------------------------
+    ///<Summary>
+    /// Sends email message(s)
+    ///</Summary>
+    /// -----------------------------------------------------------------------------
     public void sendEMail()
     {
-      //lblMessage.Text += "This is where an email will be sent via the sendEMail() function...";
+      lblMessage.Text += "<br />This is where an email will be sent via the sendEMail() function...";
       System.Net.Mail.MailMessage msgV = CreateMessage("vendor");
       System.Net.Mail.MailMessage msgS = CreateMessage("subscriber");
 
@@ -909,6 +1000,11 @@ namespace DotNetNuke.Modules.GreenupEnrollment
     }
 
 
+    /// -----------------------------------------------------------------------------
+    ///<Summary>
+    /// Gets the IP address that the submission came from
+    ///</Summary>
+    /// -----------------------------------------------------------------------------
     protected String GetIPAddress()
     {
       System.Web.HttpContext context = System.Web.HttpContext.Current;
@@ -927,6 +1023,11 @@ namespace DotNetNuke.Modules.GreenupEnrollment
       return context.Request.ServerVariables["REMOTE_ADDR"];
     }
 
+    /// -----------------------------------------------------------------------------
+    ///<Summary>
+    /// Gets the Host Name where the request originated
+    ///</Summary>
+    /// -----------------------------------------------------------------------------
     protected String GetHostName()
     {
       String newhost;
@@ -944,6 +1045,11 @@ namespace DotNetNuke.Modules.GreenupEnrollment
     }
 
 
+    /// -----------------------------------------------------------------------------
+    ///<Summary>
+    /// Custom validator for the acceptance of terms
+    ///</Summary>
+    /// -----------------------------------------------------------------------------
     protected void AcceptTermsRequired_ServerValidate(object sender, ServerValidateEventArgs e)
     {
       e.IsValid = BillingAcceptTerms.Checked;
@@ -951,69 +1057,65 @@ namespace DotNetNuke.Modules.GreenupEnrollment
 
 
 
-    void ProcessPayPal()
-    {
-      //Post back to either sandbox or live
-      string strSandbox = "https://www.sandbox.paypal.com/cgi-bin/webscr";
-      string strLive = "https://www.paypal.com/cgi-bin/webscr";
-      HttpWebRequest req = (HttpWebRequest)WebRequest.Create(strSandbox);
+    //void ProcessPayPal()
+    //{
+    //  //Post back to either sandbox or live
+    //  string strSandbox = "https://www.sandbox.paypal.com/cgi-bin/webscr";
+    //  string strLive = "https://www.paypal.com/cgi-bin/webscr";
+    //  HttpWebRequest req = (HttpWebRequest)WebRequest.Create(strSandbox);
 
-      //Set values for the request back
-      req.Method = "POST";
-      req.ContentType = "application/x-www-form-urlencoded";
-      byte[] param = Request.BinaryRead(HttpContext.Current.Request.ContentLength);
-      string strRequest = Encoding.ASCII.GetString(param);
-      strRequest += "&cmd=_notify-validate";
-      req.ContentLength = strRequest.Length;
+    //  //Set values for the request back
+    //  req.Method = "POST";
+    //  req.ContentType = "application/x-www-form-urlencoded";
+    //  byte[] param = Request.BinaryRead(HttpContext.Current.Request.ContentLength);
+    //  string strRequest = Encoding.ASCII.GetString(param);
+    //  strRequest += "&cmd=_notify-validate";
+    //  req.ContentLength = strRequest.Length;
 
-      //for proxy
-      //WebProxy proxy = new WebProxy(new Uri("http://url:port#"));
-      //req.Proxy = proxy;
+    //  //Send the request to PayPal and get the response
+    //  StreamWriter streamOut = new StreamWriter(req.GetRequestStream(), System.Text.Encoding.ASCII);
+    //  streamOut.Write(strRequest);
+    //  streamOut.Close();
+    //  StreamReader streamIn = new StreamReader(req.GetResponse().GetResponseStream());
+    //  string strResponse = streamIn.ReadToEnd();
+    //  streamIn.Close();
 
-      //Send the request to PayPal and get the response
-      StreamWriter streamOut = new StreamWriter(req.GetRequestStream(), System.Text.Encoding.ASCII);
-      streamOut.Write(strRequest);
-      streamOut.Close();
-      StreamReader streamIn = new StreamReader(req.GetResponse().GetResponseStream());
-      string strResponse = streamIn.ReadToEnd();
-      streamIn.Close();
-
-      if (strResponse == "VERIFIED")
-      {
-        //check the payment_status is Completed
-        //check that txn_id has not been previously processed
-        //check that receiver_email is your Primary PayPal email
-        //check that payment_amount/payment_currency are correct
-        //process payment
+    //  if (strResponse == "VERIFIED")
+    //  {
+    //    //check the payment_status is Completed
+    //    //check that txn_id has not been previously processed
+    //    //check that receiver_email is your Primary PayPal email
+    //    //check that payment_amount/payment_currency are correct
+    //    //process payment
 
 
-        //PaypalPaymentHistory PPH = new PaypalPaymentHistory();
+    //    //PaypalPaymentHistory PPH = new PaypalPaymentHistory();
 
-        //PPH.LastName = HttpContext.Current.Request["last_name"];
-        //PPH.FirstName = HttpContext.Current.Request["first_name"];
-        //PPH.State = HttpContext.Current.Request["address_state"];
-        //PPH.Zipcode = HttpContext.Current.Request["address_zip"];
-        //PPH.Address = HttpContext.Current.Request["address_street"];
-        //PPH.UserName = HttpContext.Current.Request["option_name2"];
-        //PPH.PaymentStatus = HttpContext.Current.Request["payment_status"];
-        //PPH.SelectedPackage = HttpContext.Current.Request["option_selection1"];
-        //PPH.PayerStatus = HttpContext.Current.Request["payer_status"];
-        //PPH.PaymentType = HttpContext.Current.Request["payment_type"];
-        //PPH.PayerEmail = HttpContext.Current.Request["payer_email"];
-        //PPH.ReceiverId = HttpContext.Current.Request["receiver_id"];
-        //PPH.TxnType = HttpContext.Current.Request["txn_type"];
-        //PPH.PaymentGross = HttpContext.Current.Request["payment_gross"];
+    //    //PPH.LastName = HttpContext.Current.Request["last_name"];
+    //    //PPH.FirstName = HttpContext.Current.Request["first_name"];
+    //    //PPH.State = HttpContext.Current.Request["address_state"];
+    //    //PPH.Zipcode = HttpContext.Current.Request["address_zip"];
+    //    //PPH.Address = HttpContext.Current.Request["address_street"];
+    //    //PPH.UserName = HttpContext.Current.Request["option_name2"];
+    //    //PPH.PaymentStatus = HttpContext.Current.Request["payment_status"];
+    //    //PPH.SelectedPackage = HttpContext.Current.Request["option_selection1"];
+    //    //PPH.PayerStatus = HttpContext.Current.Request["payer_status"];
+    //    //PPH.PaymentType = HttpContext.Current.Request["payment_type"];
+    //    //PPH.PayerEmail = HttpContext.Current.Request["payer_email"];
+    //    //PPH.ReceiverId = HttpContext.Current.Request["receiver_id"];
+    //    //PPH.TxnType = HttpContext.Current.Request["txn_type"];
+    //    //PPH.PaymentGross = HttpContext.Current.Request["payment_gross"];
 
-        //PPH.Insert();
-      }
-      else if (strResponse == "INVALID")
-      {
-        //log for manual investigation
-      }
-      else
-      {
-        //log response/ipn data for manual investigation
-      }
-    }
-  }
+    //    //PPH.Insert();
+    //  }
+    //  else if (strResponse == "INVALID")
+    //  {
+    //    //log for manual investigation
+    //  }
+    //  else
+    //  {
+    //    //log response/ipn data for manual investigation
+    //  }
+    //}
+}
 }

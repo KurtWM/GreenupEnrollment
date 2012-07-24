@@ -119,7 +119,25 @@ namespace DotNetNuke.Modules.GreenupEnrollment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image HomeImage_L;
-        
+
+        /// <summary>
+        /// HomeImage_50 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image HomeImage_50;
+
+        /// <summary>
+        /// HomeImage_100 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image HomeImage_100;
+
         /// <summary>
         /// PreviousButton_Res control.
         /// </summary>
@@ -346,87 +364,6 @@ namespace DotNetNuke.Modules.GreenupEnrollment {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
         
         /// <summary>
-        /// AlternateFirstName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AlternateFirstName;
-        
-        /// <summary>
-        /// AlternateLastName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AlternateLastName;
-        
-        /// <summary>
-        /// AlternatePhone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AlternatePhone;
-
-        /// <summary>
-        /// AlternateEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AlternateEmail;
-
-        /// <summary>
-        /// AlternateAddress1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AlternateAddress1;
-        
-        /// <summary>
-        /// AlternateAddress2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AlternateAddress2;
-        
-        /// <summary>
-        /// AlternateCity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AlternateCity;
-        
-        /// <summary>
-        /// ddlAlternateStates control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAlternateStates;
-        
-        /// <summary>
-        /// AlternateZipCode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox AlternateZipCode;
-        
-        /// <summary>
         /// CardNumber control.
         /// </summary>
         /// <remarks>
@@ -596,5 +533,20 @@ namespace DotNetNuke.Modules.GreenupEnrollment {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden ProgramLocation;
+
+        protected global::System.Web.UI.WebControls.Label FirstNameLabel;
+        protected global::System.Web.UI.WebControls.Label LastNameLabel;
+        protected global::System.Web.UI.WebControls.Label Address1Label;
+        protected global::System.Web.UI.WebControls.Label Address2Label;
+        protected global::System.Web.UI.WebControls.Label CityLabel;
+        protected global::System.Web.UI.WebControls.Label StateLabel;
+        protected global::System.Web.UI.WebControls.Label ZipLabel;
+        protected global::System.Web.UI.WebControls.Label EmailLabel;
+        protected global::System.Web.UI.WebControls.Label PhoneLabel;
+        protected global::System.Web.UI.WebControls.Label kWhLabel;
+        protected global::System.Web.UI.WebControls.Label TermLabel;
+        protected global::System.Web.UI.WebControls.Label kWhUnitPriceLabel;
+        protected global::System.Web.UI.WebControls.Label MonthlyPriceLabel;
+        protected global::System.Web.UI.WebControls.HyperLink EnergyContentHyperLink;
     }
 }
