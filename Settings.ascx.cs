@@ -87,10 +87,19 @@ namespace DotNetNuke.Modules.GreenupEnrollment
                       txtSubscriptonName.Text = Convert.ToString(TabModuleSettings["SubscriptonName"]);
                     }
 
-                    if (Settings.ContainsKey("EnableCaptcha"))
+                    if ((string)TabModuleSettings["EnableCaptcha"] != string.Empty)
                     {
-                      cbEnableCaptcha.Checked = Convert.ToBoolean(TabModuleSettings["EnableCaptcha"]);
+                      bool show;
+                      if (!bool.TryParse((string)TabModuleSettings["EnableCaptcha"], out show))
+                      {
+                        show = true; // Default to showing the captcha.
+                      }
+                      cbEnableCaptcha.Checked = show;
                     }
+                  //if (Settings.ContainsKey("EnableCaptcha"))
+                    //{
+                    //  cbEnableCaptcha.Checked = Convert.ToBoolean(TabModuleSettings["EnableCaptcha"]);
+                    //}
                   
                     //if ((string)TabModuleSettings["EnableCaptcha"] != string.Empty)
                     //{

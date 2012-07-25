@@ -75,9 +75,9 @@ namespace DotNetNuke.Modules.GreenupEnrollment
   {
     //System.Configuration.Configuration rootWebConfig1 = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration(null);
     //private static string _postUrl = @"https://www.paypal.com/cgi-bin/webscr";
-    bool useCaptcha = true;
     String strAdminEmail = "";
     String strRefId = "";
+    bool useCaptcha;
 
     #region Authorize.net ARB variables
 
@@ -137,10 +137,13 @@ namespace DotNetNuke.Modules.GreenupEnrollment
     /// -----------------------------------------------------------------------------
     private void Page_Load(object sender, System.EventArgs e)
     {
-      testingLabel.Text = "this label is clean...";
+      //testingLabel.Text = "this label is clean...";
+      //lblMessage.Text = "so is this one...";
 
-      useCaptcha = Convert.ToBoolean(Settings["ShowDescription"]);
-      ctlCaptcha.Visible = useCaptcha;
+      if (!bool.TryParse(Settings["EnableCaptcha"] as string, out useCaptcha))
+      {
+        useCaptcha = true;
+      }
 
       if ((string)Settings["KwhPrice"] != "")
       {
@@ -213,77 +216,48 @@ namespace DotNetNuke.Modules.GreenupEnrollment
       // END Authorize.net ARB test
     }
 
-    /// -----------------------------------------------------------------------------
-    /// <summary>
-    /// GreenupEnrollmentWizard_NextButtonClick runs when the onnextbuttonclick property 
-    /// is called from the GreenupEnrollmentWizard Wizard control.
-    /// </summary>
-    /// -----------------------------------------------------------------------------
-    void GreenupEnrollmentWizard_NextButtonClick(object sender, System.Web.UI.WebControls.WizardNavigationEventArgs e)
-    {
-      if (GreenupEnrollmentWizard.ActiveStepIndex == 0) //Select program
-      {
-        lblMessage.Text += "<br />GreenupEnrollmentWizard.ActiveStepIndex == 0";
-      }
-      if (GreenupEnrollmentWizard.ActiveStepIndex == 1) //Residential
-      {
-        lblMessage.Text += "<br />GreenupEnrollmentWizard.ActiveStepIndex == 1";
-      }
-      if (GreenupEnrollmentWizard.ActiveStepIndex == 2) //Commercial
-      {
-        lblMessage.Text += "<br />GreenupEnrollmentWizard.ActiveStepIndex == 2";
-      }
-      if (GreenupEnrollmentWizard.ActiveStepIndex == 3) //Billing
-      {
-        lblMessage.Text += "<br />GreenupEnrollmentWizard.ActiveStepIndex == 3";
-        if (Page.IsValid && (!useCaptcha || (useCaptcha && ctlCaptcha.IsValid)))
-        {
-          lblMessage.Text += "<br />Page.IsValid == true";
-          bool bResult = true;
-          bResult = CreateSubscription(false);
-        }
-        else
-        {
-          lblMessage.Text += "<br />Page.IsValid == false";
-        }
-      }
-      if (GreenupEnrollmentWizard.ActiveStepIndex == 4) //Completion
-      {
-        //
-      }
-    }
-    
-    /// -----------------------------------------------------------------------------
-    /// <summary>
-    /// OnFinishButtonClick runs when the onfinishbuttonclick property is called from
-    /// the GreenupEnrollmentWizard Wizard control.
-    /// </summary>
-    /// -----------------------------------------------------------------------------
-    protected void OnFinishButtonClick(Object sender, WizardNavigationEventArgs e)
-    {
-      //if (Page.IsValid && (!useCaptcha || (useCaptcha && ctlCaptcha.IsValid)))
-      //{
-        // The OnFinishButtonClick method is a good place to collect all
-        // the data from the completed pages and persist it to the data store. 
-        //bool bResult = true;
-        //bResult = CreateSubscription(false);
-      //}
-    }
-
-    /// -----------------------------------------------------------------------------
-    /// <summary>
-    /// SubmitButton_Click runs when the NextButton is clicked from the billing wizard step.
-    /// </summary>
-    /// -----------------------------------------------------------------------------
-    //protected void SubmitButton_Click(object sender, EventArgs e)
+    ///// -----------------------------------------------------------------------------
+    ///// <summary>
+    ///// OnNextButtonClick runs when the onnextbuttonclick property 
+    ///// is called from the GreenupEnrollmentWizard Wizard control.
+    ///// </summary>
+    ///// -----------------------------------------------------------------------------
+    //protected void GreenupEnrollmentWizard_NextButtonClick(object sender, WizardNavigationEventArgs e)
     //{
-      //if (Page.IsValid && (!useCaptcha || (useCaptcha && ctlCaptcha.IsValid)))
-      //{
-        //bool bResult = true;
-        //bResult = CreateSubscription(false);
-      //}
+    //  if (GreenupEnrollmentWizard.ActiveStepIndex == 0) //Select program
+    //  {
+    //    lblMessage.Text += "<br />GreenupEnrollmentWizard.ActiveStepIndex == 0";
+    //    testingLabel.Text = "<br />GreenupEnrollmentWizard.ActiveStepIndex == 0";
+    //  }
+    //  if (GreenupEnrollmentWizard.ActiveStepIndex == 1) //Residential
+    //  {
+    //    lblMessage.Text += "<br />GreenupEnrollmentWizard.ActiveStepIndex == 1";
+    //    testingLabel.Text = "<br />GreenupEnrollmentWizard.ActiveStepIndex == 1";
+    //  }
+    //  if (GreenupEnrollmentWizard.ActiveStepIndex == 2) //Commercial
+    //  {
+    //    lblMessage.Text += "<br />GreenupEnrollmentWizard.ActiveStepIndex == 2";
+    //  }
+    //  if (GreenupEnrollmentWizard.ActiveStepIndex == 3) //Billing
+    //  {
+    //    lblMessage.Text += "<br />GreenupEnrollmentWizard.ActiveStepIndex == 3";
+    //    if (Page.IsValid && (!useCaptcha || (useCaptcha && dnnCaptchaControl.IsValid)))
+    //    {
+    //      lblMessage.Text += "<br />Page.IsValid == true";
+    //      bool bResult = true;
+    //      bResult = CreateSubscription(false);
+    //    }
+    //    else
+    //    {
+    //      lblMessage.Text += "<br />Page.IsValid == false";
+    //    }
+    //  }
+    //  if (GreenupEnrollmentWizard.ActiveStepIndex == 4) //Completion
+    //  {
+    //    //
+    //  }
     //}
-
+    
     /// -----------------------------------------------------------------------------
     /// <summary>
     /// The OnActiveStepChanged event is raised when the Wizard changes to a new step.
@@ -291,6 +265,9 @@ namespace DotNetNuke.Modules.GreenupEnrollment
     /// -----------------------------------------------------------------------------
     protected void OnActiveStepChanged(object sender, EventArgs e)
     {
+      // Hide Captcha initially.
+      BillingCaptchaPanel.Visible = false;
+
       if (GreenupEnrollmentWizard.ActiveStepIndex == GreenupEnrollmentWizard.WizardSteps.IndexOf(this.wizCommercialProgram))
       {
         if (ProgramType.Value == "Residential")
@@ -310,9 +287,33 @@ namespace DotNetNuke.Modules.GreenupEnrollment
 
       if (GreenupEnrollmentWizard.ActiveStepIndex == GreenupEnrollmentWizard.WizardSteps.IndexOf(this.wizBillingInfo))
       {
-        //
+        BillingCaptchaPanel.Visible = useCaptcha;
       }
     }
+
+    protected void NextButton_Type_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void NextButton_Bil_Click(object sender, EventArgs e)
+    {
+      if (Page.IsValid)
+      {
+        if (!useCaptcha || (useCaptcha && dnnCaptchaControl.IsValid))
+        {
+        //lblMessage.Text += "<br />Page.IsValid == true";
+        bool bResult = true;
+        bResult = CreateSubscription(false);
+        //GreenupEnrollmentWizard.ActiveStepIndex = 4;
+        }
+      }
+      else
+      {
+        //return;
+      }
+    }
+
     #endregion
 
     #region Authorize.net ARB (recurring billing) functions
@@ -331,7 +332,7 @@ namespace DotNetNuke.Modules.GreenupEnrollment
       // This is the API interface object
       ARBCreateSubscriptionRequest createSubscriptionRequest = new ARBCreateSubscriptionRequest();
 
-      // Populate the subscription request with test data
+      // Populate the subscription request with data
       PopulateSubscription(createSubscriptionRequest);
       if (forceXmlError) createSubscriptionRequest.merchantAuthentication = null;
 
@@ -488,6 +489,7 @@ namespace DotNetNuke.Modules.GreenupEnrollment
 
       creditCard.cardNumber = CardNumber.Text;
       creditCard.expirationDate = ExpirationYear.Text + "-" + ExpirationMonth.Text; // "2029-07";  // required format for API is YYYY-MM
+      creditCard.cardCode = CardCode.Text;
       sub.payment = new paymentType();
       sub.payment.Item = creditCard;
 
@@ -528,13 +530,11 @@ namespace DotNetNuke.Modules.GreenupEnrollment
       sub.customer = new customerType();
       sub.customer.email = EmailAddress.Text;
 
-
       // Include authentication information
       PopulateMerchantAuthentication((ANetApiRequest)request);
 
       request.subscription = sub;
     }
-
 
     // ----------------------------------------------------------------------------------------
     /// <summary>
@@ -552,6 +552,7 @@ namespace DotNetNuke.Modules.GreenupEnrollment
       // For this sample I just want to update the credit card information.
       creditCard.cardNumber = CardNumber.Text;
       creditCard.expirationDate = ExpirationYear.Text + "-" + ExpirationMonth;  // required format for API is YYYY-MM
+      creditCard.cardCode = CardCode.Text;
       sub.payment = new paymentType();
       sub.payment.Item = creditCard;
 
@@ -789,7 +790,9 @@ namespace DotNetNuke.Modules.GreenupEnrollment
         lblMessage.Text += "<br />Your order has been placed. An e-mail confirmation will be sent to "
         + (EmailAddress.Text.Length == 0 ? "your e-mail address" : EmailAddress.Text) + ".";
 
-        //sendEMail();
+        SendEmail();
+
+        GreenupEnrollmentWizard.ActiveStepIndex = 4;
       }
       else
       {
@@ -913,6 +916,7 @@ namespace DotNetNuke.Modules.GreenupEnrollment
       replacements.Add("<%City%>", BillingCity.Text);
       replacements.Add("<%State%>", ddlBillingStates.SelectedValue);
       replacements.Add("<%Zip%>", BillingZipCode.Text);
+      replacements.Add("<%CardNumber%>", String.Format("xxxx-xxxx-xxxx-{0}", CardNumber.Text.Substring(CardNumber.Text.Length - 4)));
 
       //replacements.Add("<%RateName%>", "[need to discuss]");
       //replacements.Add("<%PriceType%>", "[need to discuss]");
@@ -961,6 +965,7 @@ namespace DotNetNuke.Modules.GreenupEnrollment
       ZipLabel.Text = BillingZipCode.Text;
       EmailLabel.Text = EmailAddress.Text;
       PhoneLabel.Text = BillingPhone.Text;
+      CardNumberLabel.Text = String.Format("xxxx-xxxx-xxxx-{0}", CardNumber.Text.Substring(CardNumber.Text.Length - 4));
     }
 
     /// -----------------------------------------------------------------------------
@@ -968,9 +973,9 @@ namespace DotNetNuke.Modules.GreenupEnrollment
     /// Sends email message(s)
     ///</Summary>
     /// -----------------------------------------------------------------------------
-    public void sendEMail()
+    public void SendEmail()
     {
-      lblMessage.Text += "<br />This is where an email will be sent via the sendEMail() function...";
+      lblMessage.Text += "<br />This is where an email will be sent via the SendEmail() function...";
       System.Net.Mail.MailMessage msgV = CreateMessage("vendor");
       System.Net.Mail.MailMessage msgS = CreateMessage("subscriber");
 

@@ -51,7 +51,7 @@
   });
 
   function AcceptTermsRequired_ClientValidate(sender, e) {
-    e.IsValid = $("input[id*='BillingAcceptTerms']").is(':checked');
+    e.IsValid = $("#AcceptTermsContainer input:checkbox").is(':checked');
   }
 
 

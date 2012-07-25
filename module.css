@@ -394,3 +394,9 @@ border: 1px solid lightGrey !important/*{borderColorDefault}*/;
 background: #E6E6E6/*{bgColorDefault}*/ url(images/ui-bg_glass_75_e6e6e6_1x400.png)/*{bgImgUrlDefault}*/ 50%/*{bgDefaultXPos}*/ 50%/*{bgDefaultYPos}*/ repeat-x !important/*{bgDefaultRepeat}*/;
 font-weight: normal !important/*{fwDefault}*/;
 color: #555 !important/*{fcDefault}*/;
+}
+
+.floatLeft
+{
+float: left;
+}

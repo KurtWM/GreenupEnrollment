@@ -1,14 +1,20 @@
-﻿<%@ Control Language="C#" CodeFile="View.ascx.cs" Inherits="DotNetNuke.Modules.GreenupEnrollment.View"
-  AutoEventWireup="true" %>
+﻿<%@ Control Language="C#" Inherits="DotNetNuke.Modules.GreenupEnrollment.View" AutoEventWireup="true" Codebehind="View.ascx.cs" %>
+
 <%@ Register TagPrefix="dnn" TagName="Skin" Src="~/controls/SkinThumbNailControl.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="url" Src="~/controls/UrlControl.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="label" Src="~/controls/LabelControl.ascx" %>
 <%@ Register TagPrefix="dnn" Assembly="DotNetNuke" Namespace="DotNetNuke.UI.WebControls" %>
+
 <asp:Label ID="testingLabel" runat="server"></asp:Label>
 <asp:Label ID="lblMessage" runat="server" CssClass="dnnFormMessage"></asp:Label>
-<asp:Wizard ID="GreenupEnrollmentWizard" runat="server" OnFinishButtonClick="OnFinishButtonClick"
-  OnActiveStepChanged="OnActiveStepChanged" DisplaySideBar="false" CellPadding="5"
-  CellSpacing="5" CssClass="Wizard dnnForm" ActiveStepIndex="0" NavigationButtonStyle-CssClass="CommandButton">
+<asp:Wizard ID="GreenupEnrollmentWizard" runat="server" 
+  OnActiveStepChanged="OnActiveStepChanged" 
+  DisplaySideBar="false" 
+  CellPadding="5"
+  CellSpacing="5" 
+  CssClass="Wizard dnnForm" 
+  ActiveStepIndex="0" 
+  NavigationButtonStyle-CssClass="CommandButton">
   <WizardSteps>
     <asp:WizardStep ID="wizProgramType" runat="server" Title="ProgramType" StepType="Step" AllowReturn="False">
       <h2 class="century-gothic">
@@ -31,7 +37,8 @@
         <asp:LinkButton Visible="false" ID="PreviousButton_Type" runat="server" CausesValidation="False"
           CssClass="CommandButton PreviousBtn" CommandName="MovePrevious" Text="Previous" />
         <asp:LinkButton Visible="false" ID="NextButton_Type" runat="server" CausesValidation="False"
-          CssClass="CommandButton NextBtn" CommandName="MoveNext" Text="Next" />
+          CssClass="CommandButton NextBtn" CommandName="MoveNext" Text="Next" 
+          OnClick="NextButton_Type_Click" />
       </div>
     </asp:WizardStep>
     <asp:WizardStep ID="wizResidentialProgram" runat="server" Title="ResidentialProgram"
@@ -269,35 +276,40 @@
             Expiration:</label>
           <asp:TextBox runat="server" ID="ExpirationMonth" Columns="2" TabIndex="20" Text="07" />&nbsp;/&nbsp;
           <asp:TextBox runat="server" ID="ExpirationYear" Columns="2" TabIndex="21" Text="2020" />
-        </div>
-        <div id="BillingCaptchaContainer" class="innerContainer">
-          <asp:Panel ID="BillingCaptcha" runat="server">
-            <dnn:CaptchaControl ID="ctlCaptcha" CaptchaHeight="40" CaptchaWidth="150" ErrorStyle-CssClass="NormalRed"
-              CssClass="Normal" runat="server" ErrorMessage="The typed code must match the image, please try again" />
-          </asp:Panel>
+          <br />
+          <label class="required">
+            CSV:</label>
+          <asp:TextBox runat="server" ID="CardCode" Columns="2" TabIndex="22" Text="123" />
         </div>
         <div id="InvoiceMeContainer" class="innerContainer">
-          <asp:CheckBox ID="InvoiceMeCheckBox" runat="server" Text="Invoice Me" />
+          <asp:CheckBox ID="InvoiceMeCheckBox" runat="server" 
+            CssClass="checkbox floatLeft"
+            TabIndex="23" />
+            <div class="checkbox">Invoice me.</div>
         </div>
         <div id="AcceptTermsContainer" class="innerContainer">
           <asp:CheckBox ID="BillingAcceptTerms" runat="server" 
             name="BillingAcceptTerms" 
-            CssClass="checkbox" 
-            TabIndex="22" />
-            I have read and agree to the <a id="showTerms" href="javascript:void(0);">terms of service</a>.
-          <asp:CustomValidator ID="AcceptTermsRequired" runat="server" EnableClientScript="true"
-            OnServerValidate="AcceptTermsRequired_ServerValidate" OnClientValidate="AcceptTermsRequired_ClientValidate"
-            ErrorMessage="Accept Terms checkbox" Text="*">*</asp:CustomValidator>
+            CssClass="checkbox floatLeft" 
+            TabIndex="24" />
+            <div class="checkbox">I have read and agree to the <a id="showTerms" href="javascript:void(0);">terms of service</a>.</div>
+          <asp:CustomValidator ID="AcceptTermsRequired" runat="server" 
+            EnableClientScript="true" 
+            OnServerValidate="AcceptTermsRequired_ServerValidate" 
+            ClientValidationFunction="AcceptTermsRequired_ClientValidate">You must accept the terms to proceed.</asp:CustomValidator>
         </div>
+        <asp:Panel ID="BillingCaptchaPanel" runat="server" Visible="false">
+          <dnn:CaptchaControl ID="dnnCaptchaControl" runat="server" ErrorStyle-CssClass="NormalRed" CssClass="Normal" ErrorMessage="The typed code must match the image, please try again" CaptchaHeight="35" CaptchaWidth="120" />
+        </asp:Panel>
       </fieldset>
       <div class="buttonContainer">
         <asp:LinkButton ID="PreviousButton_Bil" runat="server" CausesValidation="False" CssClass="CommandButton PreviousBtn"
           CommandName="MovePrevious" Text="Previous" Visible="False" />
         <asp:LinkButton ID="NextButton_Bil" runat="server" 
           CausesValidation="true" 
-          CssClass="CommandButton NextBtn"
           CommandName="MoveNext" 
-          Text="Submit" />
+          CssClass="CommandButton NextBtn"
+          Text="Submit" OnClick="NextButton_Bil_Click" />
       </div>
       <div id="terms" style="display:none;">
         <p>
@@ -375,7 +387,7 @@
           <asp:Label ID="kWhLabel" runat="server" /> kWh <asp:Label ID="TermLabel" runat="server" /> @ <asp:Label ID="kWhUnitPriceLabel" runat="server" /></p>
         <p>
           <strong>Billing:<br />
-          </strong>Credit card: xxxx-xxxx-xxxx-1234
+          </strong>Credit card: <asp:Label ID="CardNumberLabel" runat="server" />
           <br />
           <asp:Label ID="MonthlyPriceLabel" runat="server" /> per month</p>
       <asp:Label ID="tempLabel" runat="server" CssClass="dnnFormMessage"></asp:Label>
@@ -392,6 +404,9 @@
     <asp:Label ID="lblHelp" CssClass="WizardText" runat="server"><% =DotNetNuke.Services.Localization.Localization.GetString(GreenupEnrollmentWizard.ActiveStep.Title + ".Help", this.LocalResourceFile)%></asp:Label>
   </HeaderTemplate>
 </asp:Wizard>
+
+
+
 <input id="KwhPrice" runat="server" type="hidden" />
 <input id="AnnualkWh" runat="server" type="hidden" />
 <input id="MonthkWh" runat="server" type="hidden" />
