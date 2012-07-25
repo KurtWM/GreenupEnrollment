@@ -296,7 +296,9 @@
           <asp:CustomValidator ID="AcceptTermsRequired" runat="server" 
             EnableClientScript="true" 
             OnServerValidate="AcceptTermsRequired_ServerValidate" 
-            ClientValidationFunction="AcceptTermsRequired_ClientValidate">You must accept the terms to proceed.</asp:CustomValidator>
+            ClientValidationFunction="AcceptTermsRequired_ClientValidate" 
+            ErrorMessage="You must accept the terms to proceed." 
+            Text="*"></asp:CustomValidator>
         </div>
         <asp:Panel ID="BillingCaptchaPanel" runat="server" Visible="false">
           <dnn:CaptchaControl ID="dnnCaptchaControl" runat="server" ErrorStyle-CssClass="NormalRed" CssClass="Normal" ErrorMessage="The typed code must match the image, please try again" CaptchaHeight="35" CaptchaWidth="120" />
@@ -306,14 +308,12 @@
         <asp:LinkButton ID="PreviousButton_Bil" runat="server" CausesValidation="False" CssClass="CommandButton PreviousBtn"
           CommandName="MovePrevious" Text="Previous" Visible="False" />
         <asp:LinkButton ID="NextButton_Bil" runat="server" 
-          CausesValidation="true" 
+          CausesValidation="false" 
           CommandName="MoveNext" 
           CssClass="CommandButton NextBtn"
           Text="Submit" OnClick="NextButton_Bil_Click" />
       </div>
       <div id="terms" style="display:none;">
-        <p>
-          <strong>TERMS OF SERVICE</strong></p>
         <p>
           This product supports electricity production from new wind energy facilities nationwide.
           This is not an electricity purchase, but a purchase of renewable energy certificates

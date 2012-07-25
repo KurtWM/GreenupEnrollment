@@ -53,6 +53,7 @@ using DotNetNuke.Common.Utilities;
 using DotNetNuke.Common.Lists;
 using System.Globalization;
 using AuthorizeNet;
+using System.ComponentModel;
 
 #endregion
 
@@ -137,9 +138,6 @@ namespace DotNetNuke.Modules.GreenupEnrollment
     /// -----------------------------------------------------------------------------
     private void Page_Load(object sender, System.EventArgs e)
     {
-      //testingLabel.Text = "this label is clean...";
-      //lblMessage.Text = "so is this one...";
-
       if (!bool.TryParse(Settings["EnableCaptcha"] as string, out useCaptcha))
       {
         useCaptcha = true;
@@ -171,6 +169,7 @@ namespace DotNetNuke.Modules.GreenupEnrollment
 
       UpdateConfirmMsg();
 
+      #region Authorize.net ARB test
       // BEGIN Authorize.net ARB test
       //bool bResult = false;
 
@@ -214,49 +213,50 @@ namespace DotNetNuke.Modules.GreenupEnrollment
       //  }
       //}
       // END Authorize.net ARB test
+      #endregion
     }
 
-    ///// -----------------------------------------------------------------------------
-    ///// <summary>
-    ///// OnNextButtonClick runs when the onnextbuttonclick property 
-    ///// is called from the GreenupEnrollmentWizard Wizard control.
-    ///// </summary>
-    ///// -----------------------------------------------------------------------------
-    //protected void GreenupEnrollmentWizard_NextButtonClick(object sender, WizardNavigationEventArgs e)
-    //{
-    //  if (GreenupEnrollmentWizard.ActiveStepIndex == 0) //Select program
-    //  {
-    //    lblMessage.Text += "<br />GreenupEnrollmentWizard.ActiveStepIndex == 0";
-    //    testingLabel.Text = "<br />GreenupEnrollmentWizard.ActiveStepIndex == 0";
-    //  }
-    //  if (GreenupEnrollmentWizard.ActiveStepIndex == 1) //Residential
-    //  {
-    //    lblMessage.Text += "<br />GreenupEnrollmentWizard.ActiveStepIndex == 1";
-    //    testingLabel.Text = "<br />GreenupEnrollmentWizard.ActiveStepIndex == 1";
-    //  }
-    //  if (GreenupEnrollmentWizard.ActiveStepIndex == 2) //Commercial
-    //  {
-    //    lblMessage.Text += "<br />GreenupEnrollmentWizard.ActiveStepIndex == 2";
-    //  }
-    //  if (GreenupEnrollmentWizard.ActiveStepIndex == 3) //Billing
-    //  {
-    //    lblMessage.Text += "<br />GreenupEnrollmentWizard.ActiveStepIndex == 3";
-    //    if (Page.IsValid && (!useCaptcha || (useCaptcha && dnnCaptchaControl.IsValid)))
-    //    {
-    //      lblMessage.Text += "<br />Page.IsValid == true";
-    //      bool bResult = true;
-    //      bResult = CreateSubscription(false);
-    //    }
-    //    else
-    //    {
-    //      lblMessage.Text += "<br />Page.IsValid == false";
-    //    }
-    //  }
-    //  if (GreenupEnrollmentWizard.ActiveStepIndex == 4) //Completion
-    //  {
-    //    //
-    //  }
-    //}
+    /// -----------------------------------------------------------------------------
+    /// <summary>
+    /// OnNextButtonClick runs when the onnextbuttonclick property 
+    /// is called from the GreenupEnrollmentWizard Wizard control.
+    /// </summary>
+    /// -----------------------------------------------------------------------------
+    protected void GreenupEnrollmentWizard_NextButtonClick(object sender, WizardNavigationEventArgs e)
+    {
+      if (GreenupEnrollmentWizard.ActiveStepIndex == 0) //Select program
+      {
+        lblMessage.Text += "<br />GreenupEnrollmentWizard.ActiveStepIndex == 0";
+        testingLabel.Text = "<br />GreenupEnrollmentWizard.ActiveStepIndex == 0";
+      }
+      if (GreenupEnrollmentWizard.ActiveStepIndex == 1) //Residential
+      {
+        lblMessage.Text += "<br />GreenupEnrollmentWizard.ActiveStepIndex == 1";
+        testingLabel.Text = "<br />GreenupEnrollmentWizard.ActiveStepIndex == 1";
+      }
+      if (GreenupEnrollmentWizard.ActiveStepIndex == 2) //Commercial
+      {
+        lblMessage.Text += "<br />GreenupEnrollmentWizard.ActiveStepIndex == 2";
+      }
+      if (GreenupEnrollmentWizard.ActiveStepIndex == 3) //Billing
+      {
+        lblMessage.Text += "<br />GreenupEnrollmentWizard.ActiveStepIndex == 3";
+        //if (Page.IsValid && (!useCaptcha || (useCaptcha && dnnCaptchaControl.IsValid)))
+        //{
+          //lblMessage.Text += "<br />Page.IsValid == true";
+          //bool bResult = true;
+          //bResult = CreateSubscription(false);
+        //}
+        //else
+        //{
+        //  lblMessage.Text += "<br />Page.IsValid == false";
+        //}
+      }
+      if (GreenupEnrollmentWizard.ActiveStepIndex == 4) //Completion
+      {
+        //
+      }
+    }
     
     /// -----------------------------------------------------------------------------
     /// <summary>
@@ -298,31 +298,31 @@ namespace DotNetNuke.Modules.GreenupEnrollment
 
     protected void NextButton_Bil_Click(object sender, EventArgs e)
     {
-      if (Page.IsValid)
-      {
-        if (!useCaptcha || (useCaptcha && dnnCaptchaControl.IsValid))
-        {
-        //lblMessage.Text += "<br />Page.IsValid == true";
-        bool bResult = true;
-        bResult = CreateSubscription(false);
-        //GreenupEnrollmentWizard.ActiveStepIndex = 4;
-        }
-      }
-      else
-      {
-        //return;
-      }
+      //if (Page.IsValid)
+      //{
+      //  if (!useCaptcha || (useCaptcha && dnnCaptchaControl.IsValid))
+      //  {
+      //  //lblMessage.Text += "<br />Page.IsValid == true";
+      bool bResult = true;
+      bResult = CreateSubscription(false);
+      //  //GreenupEnrollmentWizard.ActiveStepIndex = 4;
+      //  }
+      //}
+      //else
+      //{
+      //  //return;
+      //}
     }
 
     #endregion
 
     #region Authorize.net ARB (recurring billing) functions
 
-    // ----------------------------------------------------------------------------------------
+    /// ----------------------------------------------------------------------------------------
     /// <summary>
     /// Create a new ARB Subscription.
     /// </summary>
-    // ----------------------------------------------------------------------------------------
+    /// ----------------------------------------------------------------------------------------
     private bool CreateSubscription(bool forceXmlError)
     {
       bool bResult = true;
@@ -354,8 +354,9 @@ namespace DotNetNuke.Modules.GreenupEnrollment
       }
 
       return bResult;
-
     }
+
+    #region update|cancel|getstatus
 
     // ----------------------------------------------------------------------------------------
     /// <summary>
@@ -474,12 +475,14 @@ namespace DotNetNuke.Modules.GreenupEnrollment
 
     }
 
-    // ----------------------------------------------------------------------------------------
+    #endregion
+
+    /// ----------------------------------------------------------------------------------------
     /// <summary>
     /// Fill in the given request with test data to create a new subscription.
     /// </summary>
     /// <param name="sub"></param>
-    // ----------------------------------------------------------------------------------------
+    /// ----------------------------------------------------------------------------------------
     private void PopulateSubscription(ARBCreateSubscriptionRequest request)
     {
       ARBSubscriptionType sub = new ARBSubscriptionType();
@@ -502,19 +505,12 @@ namespace DotNetNuke.Modules.GreenupEnrollment
       sub.billTo.zip = BillingZipCode.Text;
 
       // Create a subscription that is monthly payments starting on the current date
-
       sub.paymentSchedule = new paymentScheduleType();
       sub.paymentSchedule.startDate = DateTime.Now; //new DateTime(2019, 01, 1);
       sub.paymentSchedule.startDateSpecified = true;
 
       sub.paymentSchedule.totalOccurrences = 9999; //9999 means there is no end.
       sub.paymentSchedule.totalOccurrencesSpecified = true;
-
-      // free 1 month trial
-      //sub.paymentSchedule.trialOccurrences = 1;
-      //sub.paymentSchedule.trialOccurrencesSpecified = true;
-      //sub.trialAmount = 0.00M;
-      //sub.trialAmountSpecified = true;
 
       sub.amount = System.Convert.ToDecimal(MonthCost.Value); // + "M");
       sub.amountSpecified = true;
@@ -535,6 +531,8 @@ namespace DotNetNuke.Modules.GreenupEnrollment
 
       request.subscription = sub;
     }
+
+    #region update|cancel|getstatus PopulateSubscription
 
     // ----------------------------------------------------------------------------------------
     /// <summary>
@@ -596,12 +594,14 @@ namespace DotNetNuke.Modules.GreenupEnrollment
       PopulateMerchantAuthentication((ANetApiRequest)request);
     }
 
-    // ----------------------------------------------------------------------------------------
+    #endregion
+
+    /// ----------------------------------------------------------------------------------------
     /// <summary>
     /// Fill in the merchant authentication. This data is required for all API methods.
     /// </summary>
     /// <param name="request"></param>
-    // ----------------------------------------------------------------------------------------
+    /// ----------------------------------------------------------------------------------------
     private void PopulateMerchantAuthentication(ANetApiRequest request)
     {
       request.merchantAuthentication = new merchantAuthenticationType();
@@ -610,7 +610,7 @@ namespace DotNetNuke.Modules.GreenupEnrollment
       request.refId = RefId.Value;
     }
 
-    // ----------------------------------------------------------------------------------------
+    /// ----------------------------------------------------------------------------------------
     /// <summary>
     /// Send the request to the API server and load the response into an XML document.
     /// An XmlSerializer is used to form the XML used in the request to the API server. 
@@ -622,7 +622,7 @@ namespace DotNetNuke.Modules.GreenupEnrollment
     /// True if successful, false if not. If true then the specified xmldoc will contain the
     /// response received from the API server.
     /// </returns>
-    // ----------------------------------------------------------------------------------------
+    /// ----------------------------------------------------------------------------------------
     private bool PostRequest(object apiRequest, out XmlDocument xmldoc)
     {
       bool bResult = false;
@@ -643,33 +643,12 @@ namespace DotNetNuke.Modules.GreenupEnrollment
         serializer.Serialize(writer, apiRequest);
         writer.Close();
 
-        //if (_dumpXml)
-        //{
-          //lblMessage.Text += ("<br /><br />");
-          //StreamWriter consoleOutput = new StreamWriter(Console.OpenStandardOutput());
-          //consoleOutput.AutoFlush = true;
-          //serializer.Serialize(consoleOutput, apiRequest);
-          //consoleOutput.Close();
-          //lblMessage.Text += ("<br /><br />");
-        //}
-
         // Get the response
         WebResponse webResponse = webRequest.GetResponse();
 
         // Load the response from the API server into an XmlDocument.
         xmldoc = new XmlDocument();
         xmldoc.Load(XmlReader.Create(webResponse.GetResponseStream()));
-
-        //if (_dumpXml)
-        //{
-          //    XmlWriterSettings settings = new XmlWriterSettings();
-          //    settings.Indent = true;
-          //    settings.Encoding = Encoding.ASCII;
-          //    XmlWriter consoleWriter = XmlWriter.Create(v.sb_dumpXml, settings);
-          //    xmldoc.WriteTo(consoleWriter);
-          //    consoleWriter.Close();
-          //    v.lblMessage.Text += ("<br /><br />");
-        //}
 
         bResult = true;
       }
@@ -682,7 +661,7 @@ namespace DotNetNuke.Modules.GreenupEnrollment
       return bResult;
     }
 
-    // ----------------------------------------------------------------------------------------
+    /// ----------------------------------------------------------------------------------------
     /// <summary>
     /// Deserialize the given XML document into the correct object type using the root
     /// node to determine the type of output object.
@@ -702,7 +681,7 @@ namespace DotNetNuke.Modules.GreenupEnrollment
     /// <returns>
     /// True if successful, false if not.
     /// </returns>
-    // ----------------------------------------------------------------------------------------
+    /// ----------------------------------------------------------------------------------------
     private bool ProcessXmlResponse(XmlDocument xmldoc, out object apiResponse)
     {
       bool bResult = true;
@@ -756,14 +735,14 @@ namespace DotNetNuke.Modules.GreenupEnrollment
       return bResult;
     }
 
-    // ----------------------------------------------------------------------------------------
+    /// ----------------------------------------------------------------------------------------
     /// <summary>
     /// Determine the type of the response object and process accordingly.
     /// Since this is just sample code the only processing being done here is to write a few
     /// bits of information to the console window.
     /// </summary>
     /// <param name="response"></param>
-    // ----------------------------------------------------------------------------------------
+    /// ----------------------------------------------------------------------------------------
     private void ProcessResponse(object response)
     {
       // Every response is based on ANetApiResponse so you can always do this sort of type casting.
@@ -792,7 +771,7 @@ namespace DotNetNuke.Modules.GreenupEnrollment
 
         SendEmail();
 
-        GreenupEnrollmentWizard.ActiveStepIndex = 4;
+        //GreenupEnrollmentWizard.ActiveStepIndex = 4;
       }
       else
       {
@@ -885,24 +864,24 @@ namespace DotNetNuke.Modules.GreenupEnrollment
         strSendTo = (string)Settings["AdminEmail"];
       }
 
-      md.From = "admin@sterling-wind.com";
+      md.From = (string)Settings["FromEmail"];
       md.Subject = "Confirmation: " + (string)Settings["SubscriptonName"];
       md.IsBodyHtml = true;
 
       ListDictionary replacements = new ListDictionary();
       replacements.Add("<%Timestamp%>", DateTime.Now.ToString("G", CultureInfo.CreateSpecificCulture("en-us")));
-      replacements.Add("<%Localle%>", "[Need to discuss how we should get this value from the site that the customer is coming from.]");
+      replacements.Add("<%Localle%>", strRefId);
       replacements.Add("<%RemoteIP%>", GetIPAddress());
       replacements.Add("<%ServerHostname%>", GetHostName());
       replacements.Add("<%Descr%>", (string)Settings["SubscriptonName"] + ": " + RefId.Value);
       replacements.Add("<%PricekWh%>", KwhPrice.Value + "&cent;/kWh");
       if (ProgramType.Value == "Residential")
       {
-        replacements.Add("<%kWh%>", MonthkWh.Value + "kWh/Month");
+        replacements.Add("<%kWh%>", MonthkWh.Value + " kWh/Month");
       }
       else
       {
-        replacements.Add("<%kWh%>", AnnualkWh.Value + "kWh/Year");
+        replacements.Add("<%kWh%>", AnnualkWh.Value + " kWh/Year");
       }
       replacements.Add("<%Term%>", "Monthly");
       replacements.Add("<%MonthPrice%>", "$" + MonthCost.Value);
@@ -917,14 +896,9 @@ namespace DotNetNuke.Modules.GreenupEnrollment
       replacements.Add("<%State%>", ddlBillingStates.SelectedValue);
       replacements.Add("<%Zip%>", BillingZipCode.Text);
       replacements.Add("<%CardNumber%>", String.Format("xxxx-xxxx-xxxx-{0}", CardNumber.Text.Substring(CardNumber.Text.Length - 4)));
-
-      //replacements.Add("<%RateName%>", "[need to discuss]");
-      //replacements.Add("<%PriceType%>", "[need to discuss]");
-      //replacements.Add("<%UtilityCo%>", "[need to discuss]");
-      //replacements.Add("<%AccountNo%>", "[need to discuss]");
+      replacements.Add("<%AgreementChecked%>", BillingAcceptTerms.Checked.ToString());
 
       String tokenReplacements = replacements.ToString();
-
 
       System.Net.Mail.MailMessage fileMsg;
       fileMsg = md.CreateMailMessage((strSendTo.Length > 0 ? strSendTo : "admin@sterling-wind.com"), replacements, this);
@@ -939,23 +913,10 @@ namespace DotNetNuke.Modules.GreenupEnrollment
     /// -----------------------------------------------------------------------------
     public void UpdateConfirmMsg()
     {
-      //Label kWhUnitPriceLabel = (Label)GreenupEnrollmentWizard.FindControl("kWhUnitPriceLabel");
-      //Label kWhLabel = (Label)GreenupEnrollmentWizard.FindControl("kWhLabel");
-      //Label TermLabel = (Label)GreenupEnrollmentWizard.FindControl("TermLabel");
-      //replacements.Add("<%Descr%>", (string)Settings["SubscriptonName"] + ": " + RefId.Value);
-      //if (ProgramType.Value == "Residential")
-      //{
-      //  replacements.Add("<%kWh%>", MonthkWh.Value + "kWh/Month";
-      //}
-      //else
-      //{
-      //  replacements.Add("<%kWh%>", AnnualkWh.Value + "kWh/Year";
-      //}
       kWhUnitPriceLabel.Text = KwhPrice.Value + "&cent;/kWh";
       kWhLabel.Text = MonthkWh.Value;
       TermLabel.Text = "Monthly";
       MonthlyPriceLabel.Text = "$" + MonthCost.Value;
-      //TermLabel.Text = ProgramType.Value;
       FirstNameLabel.Text = BillingFirstName.Text;
       LastNameLabel.Text = BillingLastName.Text;
       Address1Label.Text = BillingAddressLine1.Text;
@@ -979,18 +940,31 @@ namespace DotNetNuke.Modules.GreenupEnrollment
       System.Net.Mail.MailMessage msgV = CreateMessage("vendor");
       System.Net.Mail.MailMessage msgS = CreateMessage("subscriber");
 
-      //lblMessage.Text = String.Empty;
-      //lblMessage.Text += msgV.Body;
-      lblMessage.Text += msgS.Body;
+      lblMessage.Text += ("<div style=\"display: table; border: 1px solid Black; padding: 12px; margin-bottom: 12px;\"><h2>Sample Subscriber Email:</h2>" + msgS.Body + "</div>");
+      lblMessage.Text += ("<div style=\"display: table; border: 1px solid Black; padding: 12px; margin-bottom: 12px;\"><h2>Sample Vendor Email:</h2>" + msgV.Body + "</div>");
 
       try
       {
         SmtpClient sc = new SmtpClient();
+        sc.SendCompleted += new
+        SendCompletedEventHandler(SendCompletedCallback);
         sc.Send(msgV);
       }
       catch (HttpException ex)
       {
         lblMessage.Text += ex.ToString();
+      }
+      catch (SmtpException smtp_ex)
+      {
+        lblMessage.Text += smtp_ex.ToString();
+      }
+      catch (InvalidOperationException invalidop_ex)
+      {
+        lblMessage.Text += invalidop_ex.ToString();
+      }
+      catch (ArgumentNullException argnull_ex)
+      {
+        lblMessage.Text += argnull_ex.ToString();
       }
 
       try
@@ -1002,8 +976,37 @@ namespace DotNetNuke.Modules.GreenupEnrollment
       {
         lblMessage.Text += ex.ToString();
       }
+      catch (SmtpException smtp_ex)
+      {
+        lblMessage.Text += smtp_ex.ToString();
+      }
+      catch (InvalidOperationException invalidop_ex)
+      {
+        lblMessage.Text += invalidop_ex.ToString();
+      }
+      catch (ArgumentNullException argnull_ex)
+      {
+        lblMessage.Text += argnull_ex.ToString();
+      }
     }
 
+    //bool mailSent = false;
+    private void SendCompletedCallback(object sender, AsyncCompletedEventArgs e)
+    {
+      if (e.Cancelled)
+      {
+        lblMessage.Text += String.Format("Send canceled.");
+      }
+      if (e.Error != null)
+      {
+        lblMessage.Text += String.Format("{0}", e.Error.ToString());
+      }
+      else
+      {
+        lblMessage.Text += String.Format("Message sent.");
+      }
+      //mailSent = true;
+    }
 
     /// -----------------------------------------------------------------------------
     ///<Summary>
@@ -1049,7 +1052,6 @@ namespace DotNetNuke.Modules.GreenupEnrollment
       return newhost;
     }
 
-
     /// -----------------------------------------------------------------------------
     ///<Summary>
     /// Custom validator for the acceptance of terms
@@ -1059,68 +1061,5 @@ namespace DotNetNuke.Modules.GreenupEnrollment
     {
       e.IsValid = BillingAcceptTerms.Checked;
     }
-
-
-
-    //void ProcessPayPal()
-    //{
-    //  //Post back to either sandbox or live
-    //  string strSandbox = "https://www.sandbox.paypal.com/cgi-bin/webscr";
-    //  string strLive = "https://www.paypal.com/cgi-bin/webscr";
-    //  HttpWebRequest req = (HttpWebRequest)WebRequest.Create(strSandbox);
-
-    //  //Set values for the request back
-    //  req.Method = "POST";
-    //  req.ContentType = "application/x-www-form-urlencoded";
-    //  byte[] param = Request.BinaryRead(HttpContext.Current.Request.ContentLength);
-    //  string strRequest = Encoding.ASCII.GetString(param);
-    //  strRequest += "&cmd=_notify-validate";
-    //  req.ContentLength = strRequest.Length;
-
-    //  //Send the request to PayPal and get the response
-    //  StreamWriter streamOut = new StreamWriter(req.GetRequestStream(), System.Text.Encoding.ASCII);
-    //  streamOut.Write(strRequest);
-    //  streamOut.Close();
-    //  StreamReader streamIn = new StreamReader(req.GetResponse().GetResponseStream());
-    //  string strResponse = streamIn.ReadToEnd();
-    //  streamIn.Close();
-
-    //  if (strResponse == "VERIFIED")
-    //  {
-    //    //check the payment_status is Completed
-    //    //check that txn_id has not been previously processed
-    //    //check that receiver_email is your Primary PayPal email
-    //    //check that payment_amount/payment_currency are correct
-    //    //process payment
-
-
-    //    //PaypalPaymentHistory PPH = new PaypalPaymentHistory();
-
-    //    //PPH.LastName = HttpContext.Current.Request["last_name"];
-    //    //PPH.FirstName = HttpContext.Current.Request["first_name"];
-    //    //PPH.State = HttpContext.Current.Request["address_state"];
-    //    //PPH.Zipcode = HttpContext.Current.Request["address_zip"];
-    //    //PPH.Address = HttpContext.Current.Request["address_street"];
-    //    //PPH.UserName = HttpContext.Current.Request["option_name2"];
-    //    //PPH.PaymentStatus = HttpContext.Current.Request["payment_status"];
-    //    //PPH.SelectedPackage = HttpContext.Current.Request["option_selection1"];
-    //    //PPH.PayerStatus = HttpContext.Current.Request["payer_status"];
-    //    //PPH.PaymentType = HttpContext.Current.Request["payment_type"];
-    //    //PPH.PayerEmail = HttpContext.Current.Request["payer_email"];
-    //    //PPH.ReceiverId = HttpContext.Current.Request["receiver_id"];
-    //    //PPH.TxnType = HttpContext.Current.Request["txn_type"];
-    //    //PPH.PaymentGross = HttpContext.Current.Request["payment_gross"];
-
-    //    //PPH.Insert();
-    //  }
-    //  else if (strResponse == "INVALID")
-    //  {
-    //    //log for manual investigation
-    //  }
-    //  else
-    //  {
-    //    //log response/ipn data for manual investigation
-    //  }
-    //}
-}
+  }
 }
